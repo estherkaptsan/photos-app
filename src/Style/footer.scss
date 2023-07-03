@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the page takes up at least the viewport height */
+  }
+  
+  .footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; /* Push the footer to the bottom of the page */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid lightgray;
+    padding: 10px;
+    
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: #888;
+    }
+  }
+  
+
+
+ 
