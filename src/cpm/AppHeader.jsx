@@ -5,15 +5,14 @@ const AppHeader = () => {
     return (
         <header className="app-header">
             <nav className="navbar">
-                <a href="#" className="logo">
+                <Link to="/" className="logo">
                     My Photography
-                </a>
+                </Link>
                 <ul className="nav-links">
                     <li><Link to="/">Home</Link></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Services</a></li>
+                    <li><Link to="/gallery">Gallery</Link></li>
                     <li><Link to="/about">About</Link></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><Link to="/contact">Contact</Link></li>
                 </ul>
             </nav>
         </header>
