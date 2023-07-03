@@ -5,6 +5,8 @@ import main from './Style/main.scss'
 import Footer from './cpm/Footer';
 import AppHeader from './cpm/AppHeader';
 import About from './cpm/About';
+import GalleryPage from './pages/GalleryPage';
+import ContactUs from './cpm/ContactUs';
 
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
       <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/about" element={<About />} />
+      <Route path="/gallery" element={<GalleryPage />} />
+      <Route path="/contact" element={<ContactUs />} />
       </Routes>
      <Footer />
     </div>
