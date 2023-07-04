@@ -14,7 +14,7 @@ export default function PhotoList({ pictures }) {
             {pictures
               .filter((picture) => picture.categories === category)
               .map((picture) => (
-                <PhotoPreview picture={picture} key={picture._id} />
+                <PhotoPreview picture={picture} key={picture._id} className='photo-preview ' />
               ))}
           </div>
         </section>

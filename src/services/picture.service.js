@@ -9,28 +9,65 @@ export const pictureService = {
   const pictures = [
     {
         "_id": "123",
-        "categories": "children",
+        "categories": "Children",
         "imgUrl": "http://unsplash.it/460/340",
-        "title": "puki"
+        "title": "Puki"
     },
     {
         "_id": "535",
-        "categories": "home",
+        "categories": "Home",
         "imgUrl": "http://unsplash.it/460/340",
-        "title": "shmuki"
+        "title": "Shmuki"
     },
     {
         "_id": "222",
-        "categories": "work",
+        "categories": "Work",
         "imgUrl": "http://unsplash.it/460/340",
-        "title": "toki"
+        "title": "Toki"
     },
     {
         "_id": "111",
-        "categories": "children",
+        "categories": "Children",
         "imgUrl": "http://unsplash.it/460/340",
-        "title": "muki"
-    }
+        "title": "Muki"
+    },
+    {
+        "_id": "555",
+        "categories": "nature",
+        "imgUrl": "https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg",
+        "title": "Park"
+    },
+    {
+        "_id": "556",
+        "categories": "nature",
+        "imgUrl": "https://insideclimatenews.org/wp-content/uploads/2021/09/whanganui-river_matthew-lovette-education-images-universal-images-group-getty-scaled.jpg",
+        "title": "River"
+    },
+    {
+        "_id": "557",
+        "categories": "nature",
+        "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
+        "title": "Waterfall"
+    },
+    {
+        "_id": "558",
+        "categories": "nature",
+        "imgUrl": "https://parade.com/.image/t_share/MTkwNTgxMjMyNjM0ODMxOTk3/nature-quotes.jpg",
+        "title": "Fanan"
+    },
+    {
+        "_id": "559",
+        "categories": "Work",
+        "imgUrl": "https://api.time.com/wp-content/uploads/2021/02/laptop-Home-office.jpg",
+        "title": "Desk"
+    },
+    {
+        "_id": "560",
+        "categories": "Work",
+        "imgUrl": "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg",
+        "title": "Thinking"
+    },
+
   ]
 
   function sort(arr) {
