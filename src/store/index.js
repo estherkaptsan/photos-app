@@ -1,12 +1,12 @@
 import thunk from 'redux-thunk'
 import { applyMiddleware, combineReducers, compose, legacy_createStore as createStore } from 'redux'
-import { pictureReducer } from './reducers/picture.reducer'
+import { pictureReducer } from './reducers/picture.reducer';
 // import { userReducer } from './reducers/user.reducer'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const rootReducer = combineReducers({
-    contactModule: pictureReducer,
+    pictureModule: pictureReducer,
     // userModule: userReducer
 })
 

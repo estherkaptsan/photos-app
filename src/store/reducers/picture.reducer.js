@@ -6,12 +6,13 @@ export const UPDATE_PICTURE = 'UPDATE_PICTURE'
 export const SET_FILTER_BY = 'SET_FILTER_BY'
 
 const INITIAL_STATE = {
-    pictures: null,
+    pictures: [],
     filterBy: {
-        name: '',
-        phone: '',
+      name: '',
+      phone: '',
     }
-}
+  };
+  
 
 export function pictureReducer(state = INITIAL_STATE, action = {}) {
 
@@ -21,6 +22,7 @@ export function pictureReducer(state = INITIAL_STATE, action = {}) {
                 ...state,
                 pictures: action.pictures
             }
+
         case ADD_PICTURE:
             return {
                 ...state,

@@ -11,25 +11,25 @@ export const pictureService = {
         "_id": "123",
         "categories": "children",
         "imgUrl": "http://unsplash.it/460/340",
-        "title": ""
+        "title": "puki"
     },
     {
         "_id": "535",
         "categories": "home",
         "imgUrl": "http://unsplash.it/460/340",
-        "title": ""
+        "title": "shmuki"
     },
     {
         "_id": "222",
         "categories": "work",
         "imgUrl": "http://unsplash.it/460/340",
-        "title": ""
+        "title": "toki"
     },
     {
         "_id": "111",
         "categories": "children",
         "imgUrl": "http://unsplash.it/460/340",
-        "title": ""
+        "title": "muki"
     }
   ]
 
@@ -45,28 +45,16 @@ export const pictureService = {
       return 0
     })
   }
-  
   function getPictures(filterBy = null) {
     return new Promise((resolve, reject) => {
-      var picturesToReturn = pictures
-      // if (filterBy && (filterBy.title || filterBy.categories)) {
-      //   picturesToReturn = pictures.filter((picture) => {
-      //     if (filterBy.title) {
-      //       return false
-      //     }
-      //     if (
-      //       filterBy.categories.toString()
-      //         .toLowerCase()
-      //         .includes(filterBy.categories.toString().toLowerCase())
-      //     ) {
-      //       return false
-      //     }
-      //     return true
-      //   })
-      // }
-      resolve(picturesToReturn)
+        var picturesToReturn = pictures;
+        if (filterBy && filterBy.term) {
+            picturesToReturn = filter(filterBy.term)
+        }
+        resolve(sort(picturesToReturn))
     })
-  }
+}
+  
   
   function getPictureById(id) {
     return new Promise((resolve, reject) => {

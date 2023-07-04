@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export default function PhotoPreview() {
+export function PhotoPreview({ picture }) {
   return (
-    <div>PhotoPreview</div>
-  )
+    <>
+      
+      <div> {picture.title}</div>
+      <img src={picture.imgUrl} />
+    </>
+  );
 }

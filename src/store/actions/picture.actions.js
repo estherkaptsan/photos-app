@@ -1,6 +1,6 @@
-import { pictureService } from "../../services/picture.service"
-import { REMOVE_PICTURE, SET_FILTER_BY, SET_PICTURES } from "../reducers/picture.reducer"
-console.log(loadPictures())
+import { pictureService } from "../../services/picture.service";
+import { REMOVE_PICTURE, SET_FILTER_BY, SET_PICTURES } from "../reducers/picture.reducer";
+
 export function loadPictures() {
     return async (dispatch, getState) => {
         try {
@@ -9,28 +9,29 @@ export function loadPictures() {
                 type: SET_PICTURES,
                 pictures
             }
-            dispatch(action)
+
+            dispatch(action);
         } catch (error) {
-            console.log('error:', error)
+            
+            console.log('Error:', error);
         }
-    }
+    };
 }
 
 export function removePicture(pictureId) {
     return async (dispatch) => {
         try {
-            await pictureService.deletePicture(pictureId)
-            const action = { type: REMOVE_PICTURE, pictureId }
-            dispatch(action)
-            return 'Removed!'
+            await pictureService.deletePicture(pictureId);
+            dispatch({ type: REMOVE_PICTURE, pictureId });
+            return 'Removed!';
         } catch (error) {
-            console.log('error:', error)
+            console.log('Error:', error);
         }
-    }
+    };
 }
 
 export function setFilterBy(filterBy) {
     return (dispatch) => {
-        dispatch({ type: SET_FILTER_BY, filterBy })
-    }
+        dispatch({ type: SET_FILTER_BY, filterBy });
+    };
 }
