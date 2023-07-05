@@ -1,0 +1,37 @@
+.category-filter-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  
+    .label {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+  
+    .category-container {
+      display: flex;
+      flex-direction: column;
+  
+      .category {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        background-color: transparent;
+        color: #777777;
+  
+        &:hover {
+          background-color: #ededed;
+          color: #333333;
+        }
+  
+        &.active {
+          background-color: #ededed;
+          color: #333333;
+        }
+      }
+    }
+  }
+  

@@ -9,14 +9,22 @@ import GalleryPage from './pages/GalleryPage';
 import ContactUs from './cpm/ContactUs';
 import PhotoEdit from './pages/PhotoEdit';
 import LoginForm from './pages/LogIn';
+import CategoryFilter from './cpm/PhotosFilter';
 
 
 function App() {
+  const categories = ['Nature', 'Travel', 'Food', 'Fashion'];
+  const handleCategorySelect = (category) => {
+    // Handle the selected category
+    console.log('Selected Category:', category);
+  };
   return (
     <Router>
     <div className="App">
       <header className="">
 <AppHeader />
+<CategoryFilter categories={categories} onSelectCategory={handleCategorySelect} />
+
       </header>
       <Routes>
       <Route path="/" element={<HomePage />} />
