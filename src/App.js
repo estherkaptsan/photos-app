@@ -7,6 +7,7 @@ import AppHeader from './cpm/AppHeader';
 import About from './cpm/About';
 import GalleryPage from './pages/GalleryPage';
 import ContactUs from './cpm/ContactUs';
+import PhotoEdit from './pages/PhotoEdit';
 import LoginForm from './pages/LogIn';
 
 
@@ -19,6 +20,7 @@ function App() {
       </header>
       <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/edit" element={<PhotoEdit />} />
       <Route path="/about" element={<About />} />
       <Route path="/gallery" element={<GalleryPage />} />
       <Route path="/contact" element={<ContactUs />} />
