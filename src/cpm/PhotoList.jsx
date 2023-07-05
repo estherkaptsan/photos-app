@@ -1,7 +1,7 @@
 import React from 'react';
 import { PhotoPreview } from './PhotoPreview';
 
-export default function PhotoList({ pictures }) {
+export default function PhotoList({ pictures, onRemovePicture }) {
   // Get unique categories from pictures
   const categories = [...new Set(pictures.map((picture) => picture.categories))];
 
@@ -14,7 +14,8 @@ export default function PhotoList({ pictures }) {
             {pictures
               .filter((picture) => picture.categories === category)
               .map((picture) => (
-                <PhotoPreview picture={picture} key={picture._id} className='photo-preview ' />
+                <PhotoPreview picture={picture} onRemovePicture={onRemovePicture}
+                  key={picture._id} className='photo-preview' />
               ))}
           </div>
         </section>
