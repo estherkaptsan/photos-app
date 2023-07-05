@@ -7,7 +7,14 @@ function load(key, defaultValue = null) {
     var value = localStorage[key] || defaultValue;
     return JSON.parse(value);
 }
+
+function query(entityType, delay = 500) {
+    var entities = JSON.parse(localStorage.getItem(entityType)) || []
+    return new Promise(resolve => setTimeout(() => resolve(entities), delay))
+}
+
 export const storageService = {
+    query, 
     store,
     load
 }

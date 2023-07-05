@@ -32,7 +32,7 @@ const ImgUploader = () => {
           alt="Uploaded Image"
         />
       )}
-      <label htmlFor="imgUpload">{uploadMsg()}</label>
+      {/* <label htmlFor="imgUpload">{uploadMsg()}</label> */}
       <input
         type="file"
         onChange={uploadImg}

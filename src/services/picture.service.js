@@ -1,3 +1,5 @@
+import { storageService } from './storage.service'
+
 export const pictureService = {
   getPictures,
   getPictureById,
@@ -5,8 +7,9 @@ export const pictureService = {
   savePicture,
   getEmptyPicture,
 }
+const STORAGE_KEY = 'PhotoDB'
 
-const pictures = [
+const gDefaultPictures = [
   {
     "_id": "123",
     "categories": "Children",
@@ -69,6 +72,8 @@ const pictures = [
   },
 
 ]
+var gPictures = _loadPictures()
+
 
 function sort(arr) {
   return arr.sort((a, b) => {
@@ -83,39 +88,60 @@ function sort(arr) {
   })
 }
 
-function getPictures(filterBy = null) {
-  return new Promise((resolve, reject) => {
-    var picturesToReturn = pictures;
-    if (filterBy && filterBy.term) {
-      picturesToReturn = filter(filterBy.term)
-    }
-    resolve(sort(picturesToReturn))
-  })
-}
+async function getPictures(filterBy = null) {
+  // return new Promise(async (resolve, reject) => {
+  //   let picturesToReturn = null;
+
+  //   if (filterBy && filterBy.term) {
+  //     // Filter pictures based on the search term
+  //     const regex = new RegExp(filterBy.term, 'i');
+  //     const allPictures = await storageService.query(STORAGE_KEY);
+  //     picturesToReturn = allPictures.filter(
+  //       (picture) => regex.test(picture.title) || regex.test(picture.categories)
+  //     );
+  //   } else {
+  //     // If no search term, retrieve all pictures from storage
+  //     picturesToReturn = await storageService.query(STORAGE_KEY);
+  //     console.log(picturesToReturn.length)
+  //   }
+
+  //   if (picturesToReturn.length  === 0) {
+  //     // If no pictures in storage, use the pictures array (if available)
+
+  //     picturesToReturn = pictures;
+  //     // Store the pictures in storage for future retrieval
+  //     await storageService.store(STORAGE_KEY, pictures);
+  //   }
+
+  //   resolve(sort(picturesToReturn));
+  // })
+  let picturesToReturn = _loadPictures()
+
+  return Promise.resolve([...picturesToReturn])
+};
+
+
 
 function getPictureById(id) {
   return new Promise((resolve, reject) => {
-    const picture = pictures.find((picture) => picture._id === id)
+    const picture = gPictures.find((picture) => picture._id === id)
     picture ? resolve(picture) : reject(`Picture id ${id} not found!`)
   })
 }
 
 function deletePicture(id) {
-  console.log('id from service', id)
-  return new Promise((resolve, reject) => {
-    const index = pictures.findIndex((picture) => picture._id === id)
-    if (index !== -1) {
-      pictures.splice(index, 1)
-    }
-    resolve(pictures)
-  })
+  const idx = gPictures.findIndex(picture => picture._id === id)
+  gPictures.splice(idx, 1)
+
+  storageService.store(STORAGE_KEY, gPictures)
+  return Promise.resolve()
 }
 
 function _updatePicture(picture) {
   return new Promise((resolve, reject) => {
-    const index = pictures.findIndex((c) => picture._id === c._id)
+    const index = gPictures.findIndex((c) => picture._id === c._id)
     if (index !== -1) {
-      pictures[index] = picture
+      gPictures[index] = picture
     }
     resolve(picture)
   })
@@ -124,9 +150,16 @@ function _updatePicture(picture) {
 function _addPicture(picture) {
   return new Promise((resolve, reject) => {
     picture._id = _makeId()
-    pictures.unshift(picture)
+    gPictures.unshift(picture)
     resolve(picture)
   })
+}
+
+function _loadPictures() {
+  let pictures = storageService.load(STORAGE_KEY)
+  if(!pictures || !pictures.length) pictures = gDefaultPictures
+  storageService.store(STORAGE_KEY, pictures)
+  return pictures
 }
 
 function savePicture(picture) {
@@ -143,7 +176,7 @@ function getEmptyPicture() {
 
 function filter(term) {
   term = term.toLocaleLowerCase()
-  return pictures.filter((picture) => {
+  return gPictures.filter((picture) => {
     return (
       picture.title.toLocaleLowerCase().includes(term) ||
       picture.categories.toLocaleLowerCase().includes(term) ||
@@ -153,11 +186,11 @@ function filter(term) {
 }
 
 function _makeId(length = 10) {
-  var txt = ''
+  var title = ''
   var possible =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
   for (var i = 0; i < length; i++) {
-    txt += possible.charAt(Math.floor(Math.random() * possible.length))
+    title += possible.charAt(Math.floor(Math.random() * possible.length))
   }
-  return txt
+  return title
 }
