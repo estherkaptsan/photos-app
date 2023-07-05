@@ -1,26 +1,32 @@
-// import { userService } from '../../services/user.service'
+import { userService } from '../../services/user.service';
 
-// export function spendBalance(amount) {
-//   console.log('amount:', amount)
-//   return async (dispatch, getState) => {
-//     try {
-//       const user = userService.getUser()
-//       user.coins = user.coins - amount
-//       userService.update(user)
-//       dispatch({ type: 'SPEND_BALANCE', amount })
-//     } catch (error) {
-//       console.log('error:', error)
-//     }
-//   }
-// }
+export function login(username, password) {
+  return async (dispatch) => {
+    try {
+      // Perform login logic using the userService
+      const loggedInUser = userService.login(username, password);
 
-// export function transferCoins(amount, contact) {
-//   return async (dispatch, getState) => {
-//     try {
-//       const updatedUser = userService.transferCoins(amount, contact)
-//       dispatch({ type: 'SET_USER', user: updatedUser })
-//     } catch (error) {
-//       console.log('error:', error)
-//     }
-//   }
-// }
+      if (loggedInUser) {
+        console.log('Login successful!');
+        dispatch({ type: 'LOGIN', user: loggedInUser });
+        return true;
+      } else {
+        console.log('Invalid credentials');
+        return false;
+      }
+    } catch (error) {
+      console.log('error:', error);
+      return false;
+    }
+  };
+}
+
+export function logout() {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: 'LOGOUT' });
+    } catch (error) {
+      console.log('error:', error);
+    }
+  };
+}
