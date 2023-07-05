@@ -7,6 +7,8 @@ import AppHeader from './cpm/AppHeader';
 import About from './cpm/About';
 import GalleryPage from './pages/GalleryPage';
 import ContactUs from './cpm/ContactUs';
+import PhotoEdit from './pages/PhotoEdit';
+import LoginForm from './pages/LogIn';
 
 
 function App() {
