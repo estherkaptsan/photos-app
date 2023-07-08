@@ -4,12 +4,15 @@ export const ADD_PICTURE = 'ADD_PICTURE'
 export const REMOVE_PICTURE = 'REMOVE_PICTURE'
 export const UPDATE_PICTURE = 'UPDATE_PICTURE'
 export const SET_FILTER_BY = 'SET_FILTER_BY'
+export const SET_CATEGORIES = 'SET_CATEGORIES'
 
 const INITIAL_STATE = {
+
     pictures: [],
+    categories: [],
     filterBy: {
-      name: '',
-      phone: '',
+      categories: '',
+      title: '',
     }
   };
   
@@ -21,6 +24,11 @@ export function pictureReducer(state = INITIAL_STATE, action = {}) {
             return {
                 ...state,
                 pictures: action.pictures
+            }
+        case SET_CATEGORIES:
+            return {
+                ...state,
+                categories: action.categories
             }
 
         case ADD_PICTURE:

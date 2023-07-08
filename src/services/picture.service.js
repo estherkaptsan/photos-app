@@ -6,6 +6,7 @@ export const pictureService = {
   deletePicture,
   savePicture,
   getEmptyPicture,
+  getCategories
 }
 const STORAGE_KEY = 'PhotoDB'
 
@@ -88,35 +89,25 @@ function sort(arr) {
   })
 }
 
-async function getPictures(filterBy = null) {
-  // return new Promise(async (resolve, reject) => {
-  //   let picturesToReturn = null;
+async function getPictures(filterBy) {
 
-  //   if (filterBy && filterBy.term) {
-  //     // Filter pictures based on the search term
-  //     const regex = new RegExp(filterBy.term, 'i');
-  //     const allPictures = await storageService.query(STORAGE_KEY);
-  //     picturesToReturn = allPictures.filter(
-  //       (picture) => regex.test(picture.title) || regex.test(picture.categories)
-  //     );
-  //   } else {
-  //     // If no search term, retrieve all pictures from storage
-  //     picturesToReturn = await storageService.query(STORAGE_KEY);
-  //     console.log(picturesToReturn.length)
-  //   }
+  let picturesToReturn = gPictures
 
-  //   if (picturesToReturn.length  === 0) {
-  //     // If no pictures in storage, use the pictures array (if available)
 
-  //     picturesToReturn = pictures;
-  //     // Store the pictures in storage for future retrieval
-  //     await storageService.store(STORAGE_KEY, pictures);
-  //   }
+  if (filterBy.categories) {
 
-  //   resolve(sort(picturesToReturn));
-  // })
-  let picturesToReturn = _loadPictures()
+    var { categories } = filterBy
+  if (categories === 'ALL') {
+    picturesToReturn =gPictures
+  }
+  else{
 
+    picturesToReturn = gPictures.filter(picture => categories.includes(picture.categories))
+  }
+
+  }
+
+  console.log(picturesToReturn)
   return Promise.resolve([...picturesToReturn])
 };
 
@@ -157,10 +148,21 @@ function _addPicture(picture) {
 
 function _loadPictures() {
   let pictures = storageService.load(STORAGE_KEY)
-  if(!pictures || !pictures.length) pictures = gDefaultPictures
+  if (!pictures || !pictures.length) pictures = gDefaultPictures
   storageService.store(STORAGE_KEY, pictures)
   return pictures
 }
+
+
+function getCategories() {
+  let categories = _loadPictures();
+  let uniqueCategories = [...new Set(categories.map((picture) => picture.categories))];
+  uniqueCategories.unshift("ALL"); // Add "ALL" as the first element
+  return uniqueCategories;
+}
+
+
+
 
 function savePicture(picture) {
   return picture._id ? _updatePicture(picture) : _addPicture(picture)
