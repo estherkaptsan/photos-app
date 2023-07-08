@@ -5,8 +5,8 @@ export function PhotoPreview({ picture, onRemovePicture }) {
   return (
     <>
     <section className='photo-preview'>
+      <Link to={`/photo/${picture._id}`} className='details-link' > 
       <h3>{picture.title}</h3>
-      <Link to={`/photo/${picture._id}`} className='bla' > 
       <img src={picture.imgUrl} alt={picture.title} />
       </Link>
       <button className="delete-button" onClick={() => onRemovePicture(picture._id)}>
