@@ -9,6 +9,7 @@ import GalleryPage from './pages/GalleryPage';
 import ContactUs from './cpm/ContactUs';
 import PhotoEdit from './pages/PhotoEdit';
 import LoginForm from './pages/LogIn';
+import { PhotoDetails } from './pages/PhotoDetail';
 
 
 function App() {
@@ -21,9 +22,10 @@ function App() {
       </header>
       <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/edit" element={<PhotoEdit />} />
+      <Route path="/photo/edit" element={<PhotoEdit />} />
       <Route path="/about" element={<About />} />
       <Route path="/gallery" element={<GalleryPage />} />
+      <Route path="/photo/:id" element={<PhotoDetails />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/login" element={<LoginForm />} />
       </Routes>
