@@ -18,6 +18,12 @@ const gDefaultPictures = [
     "title": "Puki"
   },
   {
+    "_id": "123",
+    "categories": "coffe",
+    "imgUrl": "http://unsplash.it/460/340",
+    "title": "Puki"
+  },
+  {
     "_id": "535",
     "categories": "Home",
     "imgUrl": "http://unsplash.it/460/340",
@@ -54,6 +60,30 @@ const gDefaultPictures = [
     "title": "Waterfall"
   },
   {
+    "_id": "557",
+    "categories": "nature",
+    "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
+    "title": "cars"
+  },
+  {
+    "_id": "557",
+    "categories": "nature",
+    "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
+    "title": "cars"
+  },
+  {
+    "_id": "557",
+    "categories": "nature",
+    "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
+    "title": "photos"
+  },
+  {
+    "_id": "557",
+    "categories": "nature",
+    "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
+    "title": "photos"
+  },
+  {
     "_id": "558",
     "categories": "nature",
     "imgUrl": "https://parade.com/.image/t_share/MTkwNTgxMjMyNjM0ODMxOTk3/nature-quotes.jpg",
@@ -68,6 +98,24 @@ const gDefaultPictures = [
   {
     "_id": "560",
     "categories": "Work",
+    "imgUrl": "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg",
+    "title": "Thinking"
+  },
+  {
+    "_id": "560",
+    "categories": "sport",
+    "imgUrl": "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg",
+    "title": "Thinking"
+  },
+  {
+    "_id": "560",
+    "categories": "sport",
+    "imgUrl": "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg",
+    "title": "Thinking"
+  },
+  {
+    "_id": "560",
+    "categories": "coffe",
     "imgUrl": "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg",
     "title": "Thinking"
   },
