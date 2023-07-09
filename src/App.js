@@ -24,7 +24,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/photo/edit" element={<PhotoEdit />} />
       <Route path="/about" element={<About />} />
-      <Route path="/gallery" element={<GalleryPage />} />
+      <Route path="/gallery/:category?" element={<GalleryPage />} />
       <Route path="/photo/:id" element={<PhotoDetails />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/login" element={<LoginForm />} />

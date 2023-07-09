@@ -7,23 +7,21 @@ const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
 
   return (
     <div className="category-filter-container">
- 
       <div className="category-container">
-      {categories.map((category, index) => (
-  <div
-    key={index} // Use the index as the key
-    className={`category ${category === selectedCategory ? 'active' : ''}`}
-    onClick={() => onChangeFilter(category)}
-  >
-    {category}
-  </div>
-))}
-
+        {categories.map((category, index) => (
+          <div
+            key={index}
+            className={`category ${category === selectedCategory ? 'active' : ''}`}
+            onClick={() => onChangeFilter(category)}
+          >
+            {category}
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-
 export default CategoryFilter;
+
   
