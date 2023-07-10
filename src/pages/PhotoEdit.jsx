@@ -1,37 +1,59 @@
-import React, { useState } from 'react';
-import ImgUploader from '../cpm/ImgUploader';
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { loadPictures, removePicture, setFilterBy, loadCategories } from '../store/actions/picture.actions'
+import { pictureService } from '../services/picture.service'
+import ImgUploader from '../cpm/ImgUploader'
 
-export default function PhotoEdit() {
-  const [selectedOption, setSelectedOption] = useState('');
-  const [title, setTitle] = useState('');
-  const [uploadedImageUrl, setUploadedImageUrl] = useState('');
+
+export default function PhotoEdit(props) {
+  const [categories, setSelectedOption] = useState('')
+  const [title, setTitle] = useState('')
+  const [imgUrl, setUploadedImageUrl] = useState('')
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const allCategoties = useSelector((storeState) => storeState.pictureModule.categories);
+
+  useEffect(() => {
+    dispatch(loadPictures())
+  }, [])
+
+  useEffect(() => {
+    dispatch(loadCategories())
+  }, [])
 
   const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
+    setSelectedOption(event.target.value)
+  }
 
   const handleTitleChange = (event) => {
-    setTitle(event.target.value);
-  };
+    setTitle(event.target.value)
+  }
 
-  const handleImageUpload = (imageUrl) => {
-    console.log(imageUrl)
-    setUploadedImageUrl(imageUrl);
-  };
+  const handleImageUpload = (imgUrl) => {
+    console.log(imgUrl)
+    setUploadedImageUrl(imgUrl)
+  }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  async function handleSubmit(event) {
+    event.preventDefault()
 
-    // Perform any necessary logic with the submitted data
-    console.log('Title:', title);
-    console.log('Category:', selectedOption);
-    console.log('Uploaded Image URL:', uploadedImageUrl);
+    const newPhoto = {
+      title,
+      categories,
+      imgUrl
+    }
+
+    console.log('allCategoties', allCategoties)
+    // console.log('new photo', newPhoto)
+    await pictureService.savePicture(newPhoto)
+    navigate('/')
 
     // Reset the form
-    setTitle('');
-    setSelectedOption('');
-    setUploadedImageUrl('');
-  };
+    setTitle('')
+    setSelectedOption('')
+    setUploadedImageUrl('')
+  }
 
   return (
     <div>
@@ -44,15 +66,16 @@ export default function PhotoEdit() {
         />
         <select
           name="category"
-          value={selectedOption}
+          value={categories}
           onChange={handleSelectChange}
           className="edit-select"
         >
           <option value="">Select a category</option>
-          <option value="work">Work</option>
-          <option value="home">Home</option>
-          <option value="children">Children</option>
-          <option value="wedding">Wedding</option>
+          {allCategoties.map((category, index) => (
+            <option key={index} value={category}>
+              {category}
+            </option>
+          ))}
         </select>
         <ImgUploader onImageUpload={handleImageUpload} />
         <button type="submit" className="edit-button">
@@ -60,5 +83,5 @@ export default function PhotoEdit() {
         </button>
       </form>
     </div>
-  );
+  )
 }
