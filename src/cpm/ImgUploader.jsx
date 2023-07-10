@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { uploadService } from '../services/upload.service.js';
 
-const ImgUploader = () => {
+const ImgUploader = ({ onImageUpload }) => {
   const [imgUrl, setImgUrl] = useState(null);
   const [height, setHeight] = useState(500);
   const [width, setWidth] = useState(500);
@@ -14,8 +14,7 @@ const ImgUploader = () => {
     setImgUrl(secure_url);
     setHeight(height);
     setWidth(width);
-    // Assuming this component is a child and 'uploaded' is a prop function passed from the parent component
-    this.props.uploaded(this.imgUrl);
+    onImageUpload(secure_url)
   };
 
   const uploadMsg = () => {
