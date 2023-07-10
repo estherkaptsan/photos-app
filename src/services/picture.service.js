@@ -138,20 +138,17 @@ function sort(arr) {
 }
 
 async function getPictures(filterBy) {
-
+  console.log(filterBy)
   let picturesToReturn = gPictures
-
-
   if (filterBy.categories) {
-
     var { categories } = filterBy
-  if (categories === 'ALL') {
-    picturesToReturn =gPictures
-  }
-  else{
+    if (categories === 'ALL') {
+      picturesToReturn = gPictures
+    }
+    else {
 
-    picturesToReturn = gPictures.filter(picture => categories.includes(picture.categories))
-  }
+      picturesToReturn = gPictures.filter(picture => categories.includes(picture.categories))
+    }
 
   }
 

@@ -22,7 +22,7 @@ export function PhotoDetails(props) {
     }
 
     function onBack() {
-        navigate('/')
+        navigate('/gallery')
     }
 
     console.log('render');

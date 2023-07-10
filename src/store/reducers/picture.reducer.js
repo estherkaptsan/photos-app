@@ -12,7 +12,6 @@ const INITIAL_STATE = {
     categories: [],
     filterBy: {
       categories: '',
-      title: '',
     }
   };
   

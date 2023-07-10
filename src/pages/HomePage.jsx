@@ -2,8 +2,9 @@ import React, { useEffect, useCallback } from 'react';
 import { loadPictures, removePicture, setFilterBy, loadCategories } from '../store/actions/picture.actions';
 import CategoryFilter from '../cpm/PhotosFilter';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-export default function HomePage(props) {
+export default function HomePage() {
   const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
   const filterBy = useSelector((storeState) => storeState.pictureModule.filterBy);
   const categories = useSelector((storeState) => storeState.pictureModule.categories);
@@ -11,49 +12,42 @@ export default function HomePage(props) {
 
   useEffect(() => {
     dispatch(loadPictures());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(loadCategories());
-  }, []);
+  }, [dispatch]);
 
   const onChangeFilter = (selectedCategory) => {
     dispatch(setFilterBy({ ...filterBy, categories: selectedCategory }));
     dispatch(loadPictures());
   };
 
-  // Get the unique categories from the pictures
   const uniqueCategories = [...new Set(pictures.map((picture) => picture.categories))];
-console.log(uniqueCategories)
-  // Get the first picture for each category
-  const categoryPictures = uniqueCategories.map((categories) => {
-    const categoryPictures = pictures.filter((picture) => picture.categories === categories);
-    return categoryPictures.length > 0 ? categoryPictures[0] : null;
+
+  // Define categoryPictures here
+  const categoryPictures = uniqueCategories.map((category) => {
+    const picturesForCategory = pictures.filter((picture) => picture.categories === category);
+    return picturesForCategory.length > 0 ? picturesForCategory[0] : null;
   });
 
-
-  console.log(categoryPictures)
   return (
-  
-      <div className="home-page"> {/* Add the home-page class */}
+    <div className="home-page">
       <h1>Welcome to my website</h1>
-        {/* <CategoryFilter
-          categories={categories}
-          selectedCategory={filterBy.categories}
-          onSelectCategory={onChangeFilter}
-        /> */}
-        <div className="grid-container"> {/* Add the grid-container class */}
-          {categoryPictures.map((picture, index) => (
-            <div key={index} className={`grid-item grid-item-${index + 1}`}> {/* Add the grid-item class and index-based grid-item-{index + 1} class */}
-              {picture ? (
-                <img src={picture.imgUrl} alt={picture.category} />
+      <div className="grid-container">
+        {uniqueCategories.map((category, index) => (
+          <Link key={index} to={`/gallery?category=${encodeURIComponent(category)}`}>
+            <div className={`grid-item grid-item-${index + 1}`}>
+              {categoryPictures[index] ? (
+                <img src={categoryPictures[index].imgUrl} alt={categoryPictures[index].category} />
               ) : (
                 <div>No picture available</div>
               )}
-              <div className="category-name">{uniqueCategories[index]}</div>
+              <div className="category-name">{category}</div>
             </div>
-          ))}
-        </div>
+          </Link>
+        ))}
       </div>
-    );
+    </div>
+  );
 }

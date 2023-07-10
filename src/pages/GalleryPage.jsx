@@ -1,52 +1,69 @@
-  import React, { useEffect, useCallback } from 'react';
-  import { useDispatch, useSelector } from 'react-redux';
-  import PhotoList from '../cpm/PhotoList';
-  import { loadPictures, removePicture, setFilterBy , loadCategories} from '../store/actions/picture.actions';
-  import CategoryFilter from '../cpm/PhotosFilter';
+import React, { useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import PhotoList from '../cpm/PhotoList';
+import { loadPictures, removePicture, setFilterBy, loadCategories } from '../store/actions/picture.actions';
+import CategoryFilter from '../cpm/PhotosFilter';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 
-  export default function GalleryPage(props) {
-    const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
-    const filterBy = useSelector((storeState) => storeState.pictureModule.filterBy);
-    const categories = useSelector((storeState) => storeState.pictureModule.categories);
-    const dispatch = useDispatch();
+export default function GalleryPage() {
+  const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
+  const filterBy = useSelector((storeState) => storeState.pictureModule.filterBy);
+  const categories = useSelector((storeState) => storeState.pictureModule.categories);
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-      dispatch(loadPictures());
-    }, []);
+  useEffect(() => {
+    dispatch(loadPictures());
+  }, [dispatch]);
 
-    useEffect(() => {
-      dispatch(loadCategories());
-    }, []);
+  useEffect(() => {
+    dispatch(loadCategories());
+  }, [dispatch]);
 
+  const queryParams = new URLSearchParams(location.search);
+  const filterByCategory = queryParams.get('category');
 
-    const onRemovePicture = useCallback(async (pictureId) => {
+  const onChangeFilter = useCallback(
+    (selectedCategory) => {
+      const newParams = new URLSearchParams();
+      newParams.set('category', selectedCategory);
+      navigate(`/gallery?${newParams.toString()}`);
+    },
+    [navigate]
+  );
+
+  useEffect(() => {
+    // Call the filtering function when the URL parameters change
+    if (filterByCategory) {
+      onChangeFilter(filterByCategory);
+    }
+  }, [filterByCategory, onChangeFilter]);
+
+  const onRemovePicture = useCallback(
+    async (pictureId) => {
       try {
         dispatch(removePicture(pictureId));
       } catch (error) {
         console.log('error:', error);
       }
-    }, []);
+    },
+    [dispatch]
+  );
 
+  if (!pictures) return <div>Loading...</div>;
 
-
-    const onChangeFilter = (selectedCategory) => {
-      dispatch(setFilterBy({ ...filterBy, categories: selectedCategory }));
-      dispatch(loadPictures());
-    };
-
-    if (!pictures) return <div>Loading...</div>;
-
-    return (
-      <section className="gallery-page">
-        <div className="container"> 
-          <h2 className="section-title">Gallery</h2>
-          <CategoryFilter
-            categories={categories}
-            selectedCategory={filterBy.categories}
-            onSelectCategory={onChangeFilter}
-          />
-          <PhotoList pictures={pictures} onRemovePicture={onRemovePicture} />
-        </div>
-      </section>
-    );
-  }
+  return (
+    <section className="gallery-page">
+      <div className="container">
+        <h2 className="section-title">Gallery</h2>
+        <CategoryFilter
+          categories={categories}
+          selectedCategory={filterBy.categories}
+          onSelectCategory={onChangeFilter}
+        />
+        <PhotoList pictures={pictures} onRemovePicture={onRemovePicture} />
+      </div>
+    </section>
+  );
+}

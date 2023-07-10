@@ -1,8 +1,8 @@
 import React from 'react';
 
 const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
-  const onChangeFilter = (category) => {
-    onSelectCategory(category);
+  const onChangeFilter = (selectedCategory) => {
+    onSelectCategory(selectedCategory);
   };
 
   return (
@@ -23,5 +23,3 @@ const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
 };
 
 export default CategoryFilter;
-
-  

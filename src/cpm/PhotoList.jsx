@@ -13,9 +13,13 @@ export default function PhotoList({ pictures, onRemovePicture }) {
           <div className="photo-list">
             {pictures
               .filter((picture) => picture.categories === category)
-              .map((picture) => (
-                <PhotoPreview picture={picture} onRemovePicture={onRemovePicture}
-                  key={picture._id} className='photo-preview' />
+              .map((picture, index) => (
+                <PhotoPreview
+                  picture={picture}
+                  onRemovePicture={onRemovePicture}
+                  key={`${picture._id}-${index}`}
+                  className="photo-preview"
+                />
               ))}
           </div>
         </section>
