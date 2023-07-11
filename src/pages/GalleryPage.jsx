@@ -34,10 +34,10 @@ export default function GalleryPage() {
 
   useEffect(() => {
     // Call the filtering function when the URL parameters change
-    if (filterByCategory) {
+    if (filterByCategory && filterByCategory !== category) {
       onChangeFilter(filterByCategory);
     }
-  }, [filterByCategory, onChangeFilter]);
+  }, [category, filterByCategory, onChangeFilter]);
 
   useEffect(() => {
     // Load pictures when the filterBy state changes

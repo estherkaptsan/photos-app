@@ -145,14 +145,14 @@ async function getPictures(filterBy) {
   const str = values.join('');
   console.log(str)
   let picturesToReturn = gPictures
-  if (filterBy) {
+  // if (filterBy) {
     // var { categories } = filterBy
     if (str === 'ALL') {
       picturesToReturn = gPictures
     }
-    else {
+    else if (str){
       picturesToReturn = gPictures.filter(picture => str.includes(picture.categories))
-    }
+    // }  
 
   }
 
