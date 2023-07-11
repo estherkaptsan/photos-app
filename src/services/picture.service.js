@@ -18,7 +18,7 @@ const gDefaultPictures = [
     "title": "Puki"
   },
   {
-    "_id": "123",
+    "_id": "1213",
     "categories": "coffe",
     "imgUrl": "http://unsplash.it/460/340",
     "title": "Puki"
@@ -60,28 +60,28 @@ const gDefaultPictures = [
     "title": "Waterfall"
   },
   {
-    "_id": "557",
+    "_id": "567",
     "categories": "nature",
     "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
     "title": "cars"
   },
   {
-    "_id": "557",
+    "_id": "587",
     "categories": "nature",
     "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
     "title": "cars"
   },
   {
-    "_id": "557",
-    "categories": "nature",
+    "_id": "597",
+    "categories": "photos",
     "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
-    "title": "photos"
+    "title": "sdfsdf"
   },
   {
-    "_id": "557",
-    "categories": "nature",
+    "_id": "599",
+    "categories": "photos",
     "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
-    "title": "photos"
+    "title": "sfdsff"
   },
   {
     "_id": "558",
@@ -102,19 +102,19 @@ const gDefaultPictures = [
     "title": "Thinking"
   },
   {
-    "_id": "560",
+    "_id": "561",
     "categories": "sport",
     "imgUrl": "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg",
     "title": "Thinking"
   },
   {
-    "_id": "560",
+    "_id": "562",
     "categories": "sport",
     "imgUrl": "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg",
     "title": "Thinking"
   },
   {
-    "_id": "560",
+    "_id": "563",
     "categories": "coffe",
     "imgUrl": "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg",
     "title": "Thinking"
@@ -139,15 +139,19 @@ function sort(arr) {
 
 async function getPictures(filterBy) {
   console.log(filterBy)
+  
+  const values = Object.values(filterBy);
+  
+  const str = values.join('');
+  console.log(str)
   let picturesToReturn = gPictures
-  if (filterBy.categories) {
-    var { categories } = filterBy
-    if (categories === 'ALL') {
+  if (filterBy) {
+    // var { categories } = filterBy
+    if (str === 'ALL') {
       picturesToReturn = gPictures
     }
     else {
-
-      picturesToReturn = gPictures.filter(picture => categories.includes(picture.categories))
+      picturesToReturn = gPictures.filter(picture => str.includes(picture.categories))
     }
 
   }

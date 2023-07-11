@@ -36,7 +36,7 @@ export default function HomePage() {
       <h1>Welcome to my website</h1>
       <div className="grid-container">
         {uniqueCategories.map((category, index) => (
-          <Link key={index} to={`/gallery?category=${encodeURIComponent(category)}`}>
+          <Link key={index} to={`/gallery/category=${encodeURIComponent(category)}`}  onSelectCategory={onChangeFilter}>
             <div className={`grid-item grid-item-${index + 1}`}>
               {categoryPictures[index] ? (
                 <img src={categoryPictures[index].imgUrl} alt={categoryPictures[index].category} />

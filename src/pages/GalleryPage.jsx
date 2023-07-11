@@ -6,6 +6,7 @@ import CategoryFilter from '../cpm/PhotosFilter';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 
 export default function GalleryPage() {
+  const { category } = useParams();
   const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
   const filterBy = useSelector((storeState) => storeState.pictureModule.filterBy);
   const categories = useSelector((storeState) => storeState.pictureModule.categories);
@@ -15,9 +16,6 @@ export default function GalleryPage() {
 
   useEffect(() => {
     dispatch(loadPictures());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(loadCategories());
   }, [dispatch]);
 
@@ -26,11 +24,12 @@ export default function GalleryPage() {
 
   const onChangeFilter = useCallback(
     (selectedCategory) => {
-      const newParams = new URLSearchParams();
+      const newParams = queryParams;
       newParams.set('category', selectedCategory);
-      navigate(`/gallery?${newParams.toString()}`);
+      navigate(`/gallery/${newParams.toString()}`);
+      dispatch(setFilterBy(selectedCategory));
     },
-    [navigate]
+    [dispatch, navigate, queryParams]
   );
 
   useEffect(() => {
@@ -39,6 +38,11 @@ export default function GalleryPage() {
       onChangeFilter(filterByCategory);
     }
   }, [filterByCategory, onChangeFilter]);
+
+  useEffect(() => {
+    // Load pictures when the filterBy state changes
+    dispatch(loadPictures());
+  }, [dispatch, filterBy]);
 
   const onRemovePicture = useCallback(
     async (pictureId) => {
