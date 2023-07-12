@@ -13,6 +13,7 @@ export default function PhotoEdit(props) {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const allCategoties = useSelector((storeState) => storeState.pictureModule.categories);
+  const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
 
   useEffect(() => {
     dispatch(loadPictures())
@@ -55,6 +56,8 @@ export default function PhotoEdit(props) {
     setUploadedImageUrl('')
   }
 
+
+  if(!loggedInUser) return (<div>no loggedInUser</div>)
   return (
     <div>
       <form className="edit-form" onSubmit={handleSubmit}>

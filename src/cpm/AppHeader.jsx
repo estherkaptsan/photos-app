@@ -2,8 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-
-
 const AppHeader = () => {
     const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
 
