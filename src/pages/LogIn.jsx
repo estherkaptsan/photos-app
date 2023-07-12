@@ -49,7 +49,7 @@ const LoginForm = () => {
 
   if (loggedInUser) {
     return (
-      <div>
+      <div className='login-form'>
         <p>Welcome, {loggedInUser.name}!</p>
         <button onClick={handleLogout} className="logout-button">
           Log Out

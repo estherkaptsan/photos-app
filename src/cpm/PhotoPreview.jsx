@@ -6,6 +6,7 @@ export function PhotoPreview({ picture, onRemovePicture }) {
   const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
 
   const handleDelete = () => {
+    if (!loggedInUser) return
     onRemovePicture(picture._id);
   };
 
