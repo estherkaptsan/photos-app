@@ -12,7 +12,7 @@ export default function PhotoEdit(props) {
   const [imgUrl, setUploadedImageUrl] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const allCategoties = useSelector((storeState) => storeState.pictureModule.categories);
+  const allCategoties = useSelector((storeState) => storeState.pictureModule.categories) 
 
   useEffect(() => {
     dispatch(loadPictures())
@@ -77,7 +77,7 @@ export default function PhotoEdit(props) {
             </option>
           ))}
         </select>
-        <ImgUploader onImageUpload={handleImageUpload} />
+        <ImgUploader onFileUpload={handleImageUpload} />
         <button type="submit" className="edit-button">
           Save
         </button>

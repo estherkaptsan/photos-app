@@ -221,6 +221,7 @@ function getEmptyPicture() {
   return {
     title: '',
     imgurl: '',
+    // type: '',
     categories: '',
   }
 }
