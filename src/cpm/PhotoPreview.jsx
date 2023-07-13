@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 export function PhotoPreview({ picture, onRemovePicture }) {
   const isVideo = picture.mediaUrl.type === 'video';
+  const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
 
   return (
     <>
@@ -15,12 +17,14 @@ export function PhotoPreview({ picture, onRemovePicture }) {
             <img src={picture.mediaUrl.url} alt={picture.title} />
           )}
         </Link>
-        <button
-          className="delete-button"
-          onClick={() => onRemovePicture(picture._id)}
-        >
-          <i className="fa-regular fa-trash-can"></i>
-        </button>
+        {loggedInUser && (
+          <button
+            className="delete-button"
+            onClick={() => onRemovePicture(picture._id)}
+          >
+            <i className="fa-regular fa-trash-can"></i>
+          </button>
+        )}
       </section>
     </>
   );

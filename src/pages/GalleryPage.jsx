@@ -14,6 +14,9 @@ export default function GalleryPage() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
+
+
   useEffect(() => {
     dispatch(loadPictures());
     dispatch(loadCategories());
@@ -52,6 +55,7 @@ export default function GalleryPage() {
   const onRemovePicture = useCallback(
     async (pictureId) => {
       try {
+        if (!loggedInUser) return
         dispatch(removePicture(pictureId));
       } catch (error) {
         console.log('error:', error);
