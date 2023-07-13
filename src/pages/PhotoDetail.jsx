@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { pictureService } from '../services/picture.service';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadPictures, } from '../store/actions/picture.actions';
+import { loadPictures } from '../store/actions/picture.actions';
 
 export function PhotoDetails(props) {
   console.log('photo details', props);
@@ -61,7 +61,7 @@ export function PhotoDetails(props) {
     const nextIndex = (currentIndex + 1) % pictureIds.length;
     const nextPhoto = pictureIds[nextIndex]
     navigate(`/photo/${nextPhoto}`);
-    loadPhoto(nextPhoto); // Load the photo first
+    loadPhoto(nextPhoto);
   }
 
 
@@ -75,7 +75,7 @@ export function PhotoDetails(props) {
 
 
     navigate(`/photo/${prevPhoto}`);
-     loadPhoto(prevPhoto); // Load the photo first
+     loadPhoto(prevPhoto); 
 
   }
 
