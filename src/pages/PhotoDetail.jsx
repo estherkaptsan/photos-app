@@ -25,7 +25,7 @@ export function PhotoDetails(props) {
     loadPhoto();
   }, []);
 
-  const isVideo = photo.mediaUrl.type === 'video';
+  const isVideo = photo && photo.mediaUrl && photo.mediaUrl.type === 'video';
   console.log('isVideo', isVideo) 
 
   async function loadPictureIds() {
