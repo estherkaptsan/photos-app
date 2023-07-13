@@ -33,7 +33,8 @@ export default function HomePage() {
     const picturesForCategory = pictures.filter((picture) => picture.categories === category);
     return picturesForCategory.length > 0 ? picturesForCategory[0] : null;
   });
-
+  // const isVideo = categoryPictures.mediaUrl.type === 'video';
+  console.log('isVideo', categoryPictures);
   return (
     <div className="home-page">
       <h1>Welcome to my website</h1>
@@ -46,7 +47,11 @@ export default function HomePage() {
           >
             <div className={`grid-item grid-item-${index + 1}`}>
               {categoryPictures[index] ? (
-                <img src={categoryPictures[index].imgUrl} alt={categoryPictures[index].category} />
+                categoryPictures[index].mediaUrl.type !== 'video' ? (
+                  <img src={categoryPictures[index].mediaUrl.url} alt={categoryPictures[index].category} />
+                ) : (
+                  <video src={categoryPictures[index].mediaUrl.url} alt={categoryPictures[index].category} />
+                )
               ) : (
                 <div>No picture available</div>
               )}

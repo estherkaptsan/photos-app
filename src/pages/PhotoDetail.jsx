@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loadPictures } from '../store/actions/picture.actions';
 
 export function PhotoDetails(props) {
+
   console.log('photo details', props);
   const [photo, setPhoto] = useState(null);
   const [pictureIds, setPictureIds] = useState([]);
@@ -24,9 +25,12 @@ export function PhotoDetails(props) {
     loadPhoto();
   }, []);
 
+  const isVideo = photo && photo.mediaUrl && photo.mediaUrl.type === 'video';
+  console.log('isVideo', isVideo) 
+
   async function loadPictureIds() {
     try {
-        const ids = pictures.map((picture) => picture._id);
+      const ids = pictures.map((picture) => picture._id);
       console.log(ids);
       setPictureIds(ids);
     } catch (error) {
@@ -38,13 +42,13 @@ export function PhotoDetails(props) {
     let photo = ''
     try {
 
-      if (nextIndex)  {
-         photo = await pictureService.getPictureById(nextIndex);
-      } 
-        
+      if (nextIndex) {
+        photo = await pictureService.getPictureById(nextIndex);
+      }
+
       else {
 
-         photo = await pictureService.getPictureById(params.id);
+        photo = await pictureService.getPictureById(params.id);
       }
       setPhoto(photo);
     } catch (error) {
@@ -71,12 +75,11 @@ export function PhotoDetails(props) {
     const currentIndex = pictureIds.indexOf(currentId);
     const previousIndex = (currentIndex - 1 + pictureIds.length) % pictureIds.length;
 
-    const prevPhoto= pictureIds[previousIndex]
+    const prevPhoto = pictureIds[previousIndex]
 
 
     navigate(`/photo/${prevPhoto}`);
-     loadPhoto(prevPhoto); 
-
+    loadPhoto(prevPhoto);
   }
 
 
@@ -88,7 +91,11 @@ export function PhotoDetails(props) {
         <h3>{photo.title}</h3>
         <div className="photo-container">
           <button onClick={() => onPrevious(photo._id)}>Previous</button>
-          <img src={photo.imgUrl} />
+          {isVideo ? (
+            <video controls src={photo.mediaUrl.url} alt={photo.title} />
+          ) : (
+            <img src={photo.mediaUrl.url} alt={photo.title} />
+          )}
           <button onClick={() => onNext(photo._id)}>Next</button>
         </div>
       </section>
