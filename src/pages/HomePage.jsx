@@ -35,7 +35,10 @@ export default function HomePage() {
   });
   // const isVideo = categoryPictures.mediaUrl.type === 'video';
   console.log('isVideo', categoryPictures);
+
+  // if(!categoryPictures || !pictures) return <div>loading...</div>
   return (
+    
     <div className="home-page">
       <h1>Welcome to my website</h1>
       <div className="grid-container">
