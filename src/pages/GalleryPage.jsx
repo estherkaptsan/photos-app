@@ -17,6 +17,11 @@ export default function GalleryPage() {
   useEffect(() => {
     dispatch(loadPictures());
     dispatch(loadCategories());
+
+    // Cleanup function
+    return () => {
+      dispatch(setFilterBy('ALL'));
+    };
   }, [dispatch]);
 
   const queryParams = new URLSearchParams(location.search);

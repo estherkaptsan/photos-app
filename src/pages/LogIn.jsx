@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { login } from '../store/actions/user.actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, logout } from '../store/actions/user.actions';
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
@@ -9,6 +9,7 @@ const LoginForm = () => {
   const [loginFailed, setLoginFailed] = useState(false);
 
   const dispatch = useDispatch();
+  const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -41,6 +42,22 @@ const LoginForm = () => {
     setPassword('');
   };
 
+  const handleLogout = () => {
+    dispatch(logout());
+    console.log('Logged out');
+  };
+
+  if (loggedInUser) {
+    return (
+      <div className='login-form'>
+        <p>Welcome, {loggedInUser.name}!</p>
+        <button onClick={handleLogout} className="logout-button">
+          Log Out
+        </button>
+      </div>
+    );
+  }
+
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <label>
@@ -63,7 +80,9 @@ const LoginForm = () => {
         />
       </label>
       <br />
-      <button type="submit" className="submit-button">Log In</button>
+      <button type="submit" className="submit-button">
+        Log In
+      </button>
 
       {loginSuccess && <p>Login successful!</p>}
       {loginFailed && <p>Login failed. Please check your credentials.</p>}

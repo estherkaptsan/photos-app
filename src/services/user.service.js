@@ -8,7 +8,7 @@ export const userService = {
 };
 
 function login(name, password) {
-  const loggedInUser = {name:'kaz',password :'123'}
+  const loggedInUser = { name: 'kaz', password: '123' }
   if (loggedInUser && loggedInUser.name === name && loggedInUser.password === password) {
     return loggedInUser;
   }
