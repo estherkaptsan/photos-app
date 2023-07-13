@@ -9,118 +9,119 @@ export const pictureService = {
   getCategories
 }
 const STORAGE_KEY = 'PhotoDB'
-
 const gDefaultPictures = [
   {
     "_id": "123",
     "categories": "Children",
-    "imgUrl": "http://unsplash.it/460/340",
+    "mediaUrl": { url: "http://unsplash.it/440/340", type: "image" },
     "title": "Puki"
   },
   {
     "_id": "1213",
     "categories": "coffe",
-    "imgUrl": "http://unsplash.it/460/340",
+    "mediaUrl": { url: "http://unsplash.it/470/340", type: "image" },
     "title": "Puki"
   },
   {
     "_id": "535",
     "categories": "Home",
-    "imgUrl": "http://unsplash.it/460/340",
+    "mediaUrl": { url: "http://unsplash.it/469/340", type: "image" },
     "title": "Shmuki"
   },
   {
     "_id": "222",
     "categories": "Work",
-    "imgUrl": "http://unsplash.it/460/340",
+    "mediaUrl": { url: "http://unsplash.it/420/340", type: "image" },
     "title": "Toki"
   },
   {
     "_id": "111",
     "categories": "Children",
-    "imgUrl": "http://unsplash.it/460/340",
+    "mediaUrl": { url: "http://unsplash.it/450/340", type: "image" },
     "title": "Muki"
   },
   {
     "_id": "555",
     "categories": "nature",
-    "imgUrl": "https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg",
+    "mediaUrl": { url: "https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg", type: "image" },
     "title": "Park"
   },
   {
     "_id": "556",
     "categories": "nature",
-    "imgUrl": "https://insideclimatenews.org/wp-content/uploads/2021/09/whanganui-river_matthew-lovette-education-images-universal-images-group-getty-scaled.jpg",
+    "mediaUrl": { url: "https://insideclimatenews.org/wp-content/uploads/2021/09/whanganui-river_matthew-lovette-education-images-universal-images-group-getty-scaled.jpg", type: "image" },
     "title": "River"
   },
   {
     "_id": "557",
     "categories": "nature",
-    "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
+    "mediaUrl": { url: "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg", type: "image" },
     "title": "Waterfall"
   },
   {
     "_id": "567",
     "categories": "nature",
-    "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
+    "mediaUrl": { url: "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg", type: "image" },
     "title": "cars"
   },
   {
     "_id": "587",
     "categories": "nature",
-    "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
+    "mediaUrl": { url: "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg", type: "image" },
     "title": "cars"
   },
   {
     "_id": "597",
     "categories": "photos",
-    "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
+    "mediaUrl": { url: "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg", type: "image" },
     "title": "sdfsdf"
   },
   {
     "_id": "599",
     "categories": "photos",
-    "imgUrl": "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg",
+    "mediaUrl": { url: "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg", type: "image" },
     "title": "sfdsff"
   },
   {
     "_id": "558",
     "categories": "nature",
-    "imgUrl": "https://parade.com/.image/t_share/MTkwNTgxMjMyNjM0ODMxOTk3/nature-quotes.jpg",
+    "mediaUrl": { url: "https://parade.com/.image/t_share/MTkwNTgxMjMyNjM0ODMxOTk3/nature-quotes.jpg", type: "image" },
     "title": "Fanan"
   },
   {
     "_id": "559",
     "categories": "Work",
-    "imgUrl": "https://api.time.com/wp-content/uploads/2021/02/laptop-Home-office.jpg",
+    "mediaUrl": { url: "https://api.time.com/wp-content/uploads/2021/02/laptop-Home-office.jpg", type: "image" },
     "title": "Desk"
   },
   {
     "_id": "560",
     "categories": "Work",
-    "imgUrl": "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg",
+    "mediaUrl": { url: "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg", type: "image" },
     "title": "Thinking"
   },
   {
     "_id": "561",
     "categories": "sport",
-    "imgUrl": "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg",
+    "mediaUrl": { url: "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg", type: "image" },
     "title": "Thinking"
   },
   {
     "_id": "562",
     "categories": "sport",
-    "imgUrl": "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg",
+    "mediaUrl": { url: "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg", type: "image" },
     "title": "Thinking"
   },
   {
     "_id": "563",
     "categories": "coffe",
-    "imgUrl": "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg",
+    "mediaUrl": { url: "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg", type: "image" },
     "title": "Thinking"
-  },
+  }
+];
 
-]
+
+ 
 var gPictures = _loadPictures()
 
 
@@ -191,6 +192,7 @@ function _addPicture(picture) {
   return new Promise((resolve, reject) => {
     picture._id = _makeId()
     gPictures.unshift(picture)
+    storageService.store(STORAGE_KEY, gPictures)
     resolve(picture)
   })
 }
@@ -220,7 +222,7 @@ function savePicture(picture) {
 function getEmptyPicture() {
   return {
     title: '',
-    imgurl: '',
+    mediaurl: '',
     // type: '',
     categories: '',
   }
@@ -232,7 +234,7 @@ function filter(term) {
     return (
       picture.title.toLocaleLowerCase().includes(term) ||
       picture.categories.toLocaleLowerCase().includes(term) ||
-      picture.imgurl.toLocaleLowerCase().includes(term)
+      picture.mediaurl.toLocaleLowerCase().includes(term)
     )
   })
 }

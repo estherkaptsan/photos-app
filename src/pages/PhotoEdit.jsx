@@ -9,7 +9,7 @@ import ImgUploader from '../cpm/ImgUploader'
 export default function PhotoEdit(props) {
   const [categories, setSelectedOption] = useState('')
   const [title, setTitle] = useState('')
-  const [imgUrl, setUploadedImageUrl] = useState('')
+  const [mediaUrl, setUploadedImageUrl] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const allCategoties = useSelector((storeState) => storeState.pictureModule.categories) 
@@ -31,18 +31,18 @@ export default function PhotoEdit(props) {
     setTitle(event.target.value)
   }
 
-  const handleImageUpload = (imgUrl) => {
-    console.log(imgUrl)
-    setUploadedImageUrl(imgUrl)
+  const handleImageUpload = (mediaUrl) => {
+    console.log(mediaUrl)
+    setUploadedImageUrl(mediaUrl)
   }
 
   async function handleSubmit(event) {
     event.preventDefault()
-
+    console.log('mediaUrl', mediaUrl);
     const newPhoto = {
       title,
       categories,
-      imgUrl
+      mediaUrl
     }
 
     console.log('allCategoties', allCategoties)
