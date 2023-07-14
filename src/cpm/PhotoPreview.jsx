@@ -10,7 +10,7 @@ export function PhotoPreview({ picture, onRemovePicture }) {
     <>
       <section className='photo-preview'>
         <Link to={`/photo/${picture._id}`} className='details-link'>
-          <h3>{picture.title}</h3>
+          {/* <h3>{picture.title}</h3> */}
           {isVideo ? (
             <video controls src={picture.mediaUrl.url} alt={picture.title} />
           ) : (

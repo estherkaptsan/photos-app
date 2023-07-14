@@ -1,9 +1,9 @@
 .photo-preview {
-  border: 2px solid #eaeaea;
+  // border: 2px solid #eaeaea;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  background-color: #ffffff;
+  // background-color: #ffffff;
   overflow: hidden;
   width: fit-content;
   position: relative;
@@ -39,4 +39,15 @@
 .details-link{
   text-decoration: none;
   color:rgb(89, 115, 28)
+}
+
+img{
+
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  box-shadow: 1px 3px 8px rgba(0,0,0,0.5);
 }

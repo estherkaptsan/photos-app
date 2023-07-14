@@ -88,7 +88,7 @@ export function PhotoDetails(props) {
     <section className="photo-details">
     <i class="fa-solid fa-xmark" onClick={onBack}></i>
       <section>
-        <h3>{photo.title}</h3>
+        {/* <h3>{photo.title}</h3> */}
         <div className="photo-container">
         <i class="fa-solid fa-chevron-left"  onClick={() => onPrevious(photo._id)}></i>   
           {isVideo ? (
