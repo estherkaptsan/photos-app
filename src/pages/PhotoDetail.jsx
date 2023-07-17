@@ -86,17 +86,17 @@ export function PhotoDetails(props) {
   if (!photo) return <div>Loading...</div>;
   return (
     <section className="photo-details">
-    <i class="fa-solid fa-xmark" onClick={onBack}></i>
+    <i class="fa-solid fa-xmark da" onClick={onBack}></i>
       <section>
-        <h3>{photo.title}</h3>
+        {/* <h3>{photo.title}</h3> */}
         <div className="photo-container">
-        <i class="fa-solid fa-chevron-left"  onClick={() => onPrevious(photo._id)}></i>   
+        <i class="fa-solid fa-chevron-left da"  onClick={() => onPrevious(photo._id)}></i>   
           {isVideo ? (
             <video controls src={photo.mediaUrl.url} alt={photo.title} />
           ) : (
             <img src={photo.mediaUrl.url} alt={photo.title} />
           )}
-          <i className="fa-solid fa-chevron-right" onClick={() => onNext(photo._id)}></i>
+          <i className="fa-solid fa-chevron-right da" onClick={() => onNext(photo._id)}></i>
         </div>
       </section>
     </section>
