@@ -9,7 +9,7 @@ export default function PhotoList({ pictures, onRemovePicture }) {
     <div>
       {categories.map((category) => (
         <section key={category} className="photo-category">
-          <h3 className="category-title">{category}</h3>
+          {/* <h3 className="category-title">{category}</h3> */}
           <div className="photo-list">
             {pictures
               .filter((picture) => picture.categories === category)

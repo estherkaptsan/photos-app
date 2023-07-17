@@ -94,7 +94,7 @@ export function PhotoDetails(props) {
           {isVideo ? (
             <video controls src={photo.mediaUrl.url} alt={photo.title} />
           ) : (
-            <img src={photo.mediaUrl.url} alt={photo.title} />
+            <img className='details-pic' src={photo.mediaUrl.url} alt={photo.title} />
           )}
           <i className="fa-solid fa-chevron-right da" onClick={() => onNext(photo._id)}></i>
         </div>

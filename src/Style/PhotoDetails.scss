@@ -33,23 +33,34 @@ h3 {
 .da {
   padding: 20px 20px;
   cursor: pointer;
-  font-size: 3rem;
-  
+  font-size: 2rem;
+
 }
 
 
 
-img {
-  max-width: 100rem;
+.details-pic {
+  max-width: 50rem;
+  min-width: 50rem;
   max-height: 71vh;
   width: auto;
   height: auto;
   display: block;
-  margin: 0 10px;
+  margin: 0 0.5rem;
 }
 
 .fa-xmark {
   position: absolute;
   top: 60px;
   right: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .details-pic {
+    max-width: 22rem; 
+    min-width: 10rem;
+   }
+
+
 }
