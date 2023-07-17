@@ -16,7 +16,6 @@ export default function GalleryPage() {
 
   const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
 
-
   useEffect(() => {
     dispatch(loadPictures());
     dispatch(loadCategories());
@@ -55,13 +54,13 @@ export default function GalleryPage() {
   const onRemovePicture = useCallback(
     async (pictureId) => {
       try {
-        if (!loggedInUser) return
+        if (!loggedInUser) return;
         dispatch(removePicture(pictureId));
       } catch (error) {
         console.log('error:', error);
       }
     },
-    [dispatch]
+    [dispatch, loggedInUser]
   );
 
   if (!pictures) return <div>Loading...</div>;
@@ -70,12 +69,18 @@ export default function GalleryPage() {
     <section className="gallery-page">
       <div className="container">
         <h2 className="section-title">Gallery</h2>
-        <CategoryFilter
-          categories={categories}
-          selectedCategory={filterBy.categories}
-          onSelectCategory={onChangeFilter}
-        />
-        <PhotoList pictures={pictures} onRemovePicture={onRemovePicture} />
+        <div className="gallery-wrapper">
+          <div className="filter-sidebar">
+            <CategoryFilter
+              categories={categories}
+              selectedCategory={filterBy.categories}
+              onSelectCategory={onChangeFilter}
+            />
+          </div>
+          <div className="photo-list-container">
+            <PhotoList pictures={pictures} onRemovePicture={onRemovePicture} />
+          </div>
+        </div>
       </div>
     </section>
   );

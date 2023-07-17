@@ -12,8 +12,19 @@
   color: #372121;
   margin: 0;
   padding: 0.75em 0.25em;
-  // background: #2c2c2c;
   line-height: 1.1em;
+}
+
+.gallery-wrapper {
+  display: flex;
+}
+
+.filter-sidebar {
+  flex: 0 0 25%;
+}
+
+.photo-list-container {
+  flex: 1;
 }
 
 .photo-list {
