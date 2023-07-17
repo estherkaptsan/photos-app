@@ -1,32 +1,72 @@
-/* PhotoEdit.scss */
+// /* PhotoEdit.scss */
+
+// .edit-form {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
+//     .edit-input {
+//       margin-bottom: 10px;
+//       padding: 5px;
+//       width: 200px;
+//     }
+
+//     .edit-select {
+//       margin-bottom: 10px;
+//       padding: 5px;
+//       width: 200px;
+//     }
+
+//     .edit-button {
+//       padding: 10px;
+//       background-color: #4caf50;
+//       color: white;
+//       border: none;
+//       cursor: pointer;
+
+//       &:hover {
+//         background-color: #45a049;
+//       }
+//     }
+//   }
+
+// PhotoEdit.scss
 
 .edit-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  
-    .edit-input {
-      margin-bottom: 10px;
-      padding: 5px;
-      width: 200px;
-    }
-  
-    .edit-select {
-      margin-bottom: 10px;
-      padding: 5px;
-      width: 200px;
-    }
-  
-    .edit-button {
-      padding: 10px;
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: #45a049;
-      }
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  margin-top: 20px;
+  border: 1px solid gray;
+  width: max-content;
+  margin: auto;
+  padding: 22px;
+  border-radius: 4px;
+  gap: 20px;
+
+  .edit-input,
+  .edit-select {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .edit-select {
+    cursor: pointer;
+    width: 333px;
+  }
+
+  .edit-button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
     }
   }
-  
+}

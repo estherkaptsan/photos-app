@@ -10,5 +10,11 @@
 @import url('../Style/PhotoList.scss');
 @import url('../Style/PhotoPreview.scss');
 @import url('../Style/SignUp.scss');
+@import url('../Style/ImgUploader.scss');
 @import url('../Style/PhotosFilter.scss');
 @import url('../Style/PhotoDetails.scss');
+
+
+p, h1, h2,h3,h4, h5, a {
+    font-family:  Georgia, Times, 'Times New Roman', serif;
+}

@@ -1,25 +1,35 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const AppHeader = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const loggedInUser = useSelector((state) => state.userModule.loggedInUser)
 
     const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen); // Toggle the state value
-    };
+        setIsMenuOpen(!isMenuOpen)
+    }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsMenuOpen(false)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
 
     return (
         <header className="app-header">
             <nav className="navbar">
                 <Link to="/" className="logo">
-                    My Photography
+                    AVIGAIL
                 </Link>
 
-                <ul className="nav-links">
-                    <button className='btn-toggle' onClick={toggleMenu}><i className="fa-solid fa-bars"></i></button>
-                </ul>
+                <button className='btn-toggle' onClick={toggleMenu}><i className="fa-solid fa-bars"></i></button>
             </nav>
             {isMenuOpen && (
                 <section className='menu' onClick={toggleMenu}>
@@ -37,8 +47,7 @@ const AppHeader = () => {
             )}
 
         </header>
-    );
-};
+    )
+}
 
-export default AppHeader;
-
+export default AppHeader 
