@@ -86,7 +86,7 @@ export function PhotoDetails(props) {
   if (!photo) return <div>Loading...</div>;
   return (
     <section className="photo-details">
-    <i class="fa-solid fa-xmark da" onClick={onBack}></i>
+    <i className="fa-solid fa-xmark da" onClick={onBack}></i>
       <section>
         {/* <h3>{photo.title}</h3> */}
         <div className="photo-container">

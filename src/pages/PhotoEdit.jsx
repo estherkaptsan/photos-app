@@ -46,11 +46,9 @@ export default function PhotoEdit(props) {
     }
 
     console.log('allCategoties', allCategoties)
-    // console.log('new photo', newPhoto)
     await pictureService.savePicture(newPhoto)
     navigate('/')
 
-    // Reset the form
     setTitle('')
     setSelectedOption('')
     setUploadedImageUrl('')
@@ -59,7 +57,7 @@ export default function PhotoEdit(props) {
 
   if(!loggedInUser) return (<div>no loggedInUser</div>)
   return (
-    <div>
+    <div className='edit-page'>
       <form className="edit-form" onSubmit={handleSubmit}>
         <input
           placeholder="Title"

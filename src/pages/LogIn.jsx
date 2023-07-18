@@ -59,34 +59,42 @@ const LoginForm = () => {
   }
 
   return (
-    <form className="login-form" onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input
-          type="text"
-          value={username}
-          onChange={handleUsernameChange}
-          className="input-field"
-        />
-      </label>
-      <br />
-      <label>
-        Password:
-        <input
-          type="password"
-          value={password}
-          onChange={handlePasswordChange}
-          className="input-field"
-        />
-      </label>
-      <br />
-      <button type="submit" className="submit-button">
-        Log In
-      </button>
+    <section className='login-page'>
 
-      {loginSuccess && <p>Login successful!</p>}
-      {loginFailed && <p>Login failed. Please check your credentials.</p>}
-    </form>
+      <form className="login-form" onSubmit={handleSubmit}>
+        {/* <label>
+          Username:
+        </label> */}
+
+          <input
+            type="text"
+            value={username}
+            onChange={handleUsernameChange}
+            className="input-field"
+            placeholder='Username'
+          />
+        <br />
+        {/* <label>
+          Password:
+        </label> */}
+
+          <input
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+            className="input-field"
+            placeholder='Password'
+          />
+        <br />
+        <button type="submit" className="submit-button">
+          Log In
+        </button>
+
+        {loginSuccess && <p>Login successful!</p>}
+        {loginFailed && <p>Login failed. Please check your credentials.</p>}
+      </form>
+    </section>
+
   );
 };
 
