@@ -46,6 +46,9 @@
 @media (max-width: 701px) {
 
   .category-filter-container {
+    
+    position: initial;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
