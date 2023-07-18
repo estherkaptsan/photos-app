@@ -1,8 +1,10 @@
 .category-filter-container {
+  position: fixed;
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-  justify-content: space-around;  
+  justify-content: space-around;
+
   .label {
     font-size: 1.2rem;
     font-weight: bold;
@@ -36,5 +38,24 @@
         color: #333333;
       }
     }
+
   }
+}
+
+
+@media (max-width: 701px) {
+
+  .category-filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .category-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
 }
