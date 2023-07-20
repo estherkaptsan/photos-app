@@ -49,12 +49,14 @@ const LoginForm = () => {
 
   if (loggedInUser) {
     return (
+      <section className='welcome'>
       <div className='login-form'>
         <p>Welcome, {loggedInUser.name}!</p>
         <button onClick={handleLogout} className="logout-button">
           Log Out
         </button>
       </div>
+      </section>
     );
   }
 
@@ -62,29 +64,21 @@ const LoginForm = () => {
     <section className='login-page'>
 
       <form className="login-form" onSubmit={handleSubmit}>
-        {/* <label>
-          Username:
-        </label> */}
-
-          <input
-            type="text"
-            value={username}
-            onChange={handleUsernameChange}
-            className="input-field"
-            placeholder='Username'
-          />
+        <input
+          type="text"
+          value={username}
+          onChange={handleUsernameChange}
+          className="input-field"
+          placeholder='Username'
+        />
         <br />
-        {/* <label>
-          Password:
-        </label> */}
-
-          <input
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-            className="input-field"
-            placeholder='Password'
-          />
+        <input
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+          className="input-field"
+          placeholder='Password'
+        />
         <br />
         <button type="submit" className="submit-button">
           Log In

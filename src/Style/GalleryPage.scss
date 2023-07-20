@@ -50,6 +50,11 @@
   box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
 }
 
+video {
+  max-height: 300px;
+  max-width: 393px;
+}
+
 
 @media (max-width: 701px) {
 
@@ -63,10 +68,12 @@
       // flex: 15% 0 0;
       display: flex;
       justify-content: center;
-      position: absolute; 
+      position: absolute;
     }
   }
+
   .photo-list-container {
-margin-top: 6rem;  }
+    margin-top: 6rem;
+  }
 
 }

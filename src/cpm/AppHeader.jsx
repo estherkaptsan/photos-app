@@ -25,27 +25,39 @@ const AppHeader = () => {
     return (
         <header className="app-header">
             <nav className="navbar">
-                <Link to="/" className="logo">
-                    AVIGAIL
-                </Link>
+                {!isMenuOpen && (<Link to="/" className="logo">
+                    Avigail Tamuz
+                </Link>)}
 
-                <button className='btn-toggle' onClick={toggleMenu}><i className="fa-solid fa-bars"></i></button>
+                {!isMenuOpen && (<button className='btn-toggle' onClick={toggleMenu}>
+                    <i className="fa-solid fa-bars"></i>
+                </button>)}
+                {isMenuOpen && (<button className='btn-toggle' onClick={toggleMenu}
+                ><i class="fa-solid fa-bars fa-rotate-90"></i>
+                </button>)}
             </nav>
+
             {isMenuOpen && (
                 <section className='menu' onClick={toggleMenu}>
+                    <Link to="/" className="logo">
+                        Avigail Tamuz
+                    </Link>
                     <ul className="nav-links">
                         <li><Link to="/">Home</Link></li>
-                        {loggedInUser && (
+                        {/* {loggedInUser && ( */}
                             <li><Link to="/photo/edit">Edit</Link></li>
-                        )}
+                        {/* )} */}
                         <li><Link to="/gallery">Gallery</Link></li>
                         <li><Link to="/about">About</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
                         <li><Link to="/login">login</Link></li>
                     </ul>
+                    <ul className="nav-links">
+                        <li>0544678456</li>
+                        <li><Link to="https://www.instagram.com/">Instagram</Link></li>
+                    </ul>
                 </section>
             )}
-
         </header>
     )
 }

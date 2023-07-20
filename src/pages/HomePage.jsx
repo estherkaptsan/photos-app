@@ -40,7 +40,7 @@ export default function HomePage() {
   return (
     
     <div className="home-page">
-      <h1>Welcome to my website</h1>
+      {/* <h1>Welcome to my website</h1> */}
       <div className="grid-container">
         {uniqueCategories.map((category, index) => (
           <Link

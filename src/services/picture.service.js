@@ -12,110 +12,110 @@ const STORAGE_KEY = 'PhotoDB'
 const gDefaultPictures = [
   {
     "_id": "123",
-    "categories": "Children",
+    "categories": "Image",
     "mediaUrl": { url: "http://unsplash.it/440/340", type: "image" },
     "title": "Puki"
   },
   {
     "_id": "1213",
-    "categories": "coffe",
+    "categories": "Image",
     "mediaUrl": { url: "http://unsplash.it/470/340", type: "image" },
     "title": "Puki"
   },
   {
     "_id": "535",
-    "categories": "Home",
+    "categories": "Fashion",
     "mediaUrl": { url: "http://unsplash.it/469/340", type: "image" },
     "title": "Shmuki"
   },
   {
     "_id": "222",
-    "categories": "Work",
+    "categories": "Events",
     "mediaUrl": { url: "http://unsplash.it/420/340", type: "image" },
     "title": "Toki"
   },
   {
     "_id": "111",
-    "categories": "Children",
+    "categories": "Image",
     "mediaUrl": { url: "http://unsplash.it/450/340", type: "image" },
     "title": "Muki"
   },
   {
     "_id": "555",
-    "categories": "nature",
+    "categories": "Art",
     "mediaUrl": { url: "https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg", type: "image" },
     "title": "Park"
   },
   {
     "_id": "556",
-    "categories": "nature",
+    "categories": "Art",
     "mediaUrl": { url: "https://insideclimatenews.org/wp-content/uploads/2021/09/whanganui-river_matthew-lovette-education-images-universal-images-group-getty-scaled.jpg", type: "image" },
     "title": "River"
   },
   {
     "_id": "557",
-    "categories": "nature",
-    "mediaUrl": { url: "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg", type: "image" },
+    "categories": "Art",
+    "mediaUrl": { url: "http://unsplash.it/480/340", type: "image" },
     "title": "Waterfall"
   },
   {
     "_id": "567",
-    "categories": "nature",
-    "mediaUrl": { url: "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg", type: "image" },
+    "categories": "Art",
+    "mediaUrl": { url: "http://unsplash.it/490/340", type: "image" },
     "title": "cars"
   },
   {
     "_id": "587",
-    "categories": "nature",
-    "mediaUrl": { url: "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg", type: "image" },
+    "categories": "Art",
+    "mediaUrl": { url: "http://unsplash.it/460/340", type: "image" },
     "title": "cars"
   },
   {
     "_id": "597",
-    "categories": "photos",
-    "mediaUrl": { url: "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg", type: "image" },
+    "categories": "Fashion",
+    "mediaUrl": { url: "http://unsplash.it/540/340", type: "image" },
     "title": "sdfsdf"
   },
   {
     "_id": "599",
-    "categories": "photos",
-    "mediaUrl": { url: "https://www.discover-the-world.com/app/uploads/2020/05/south-west-iceland-seljalandsfoss-pink-sky-robert-lukeman-unsplash-800x0-c-default.jpg", type: "image" },
+    "categories": "Fashion",
+    "mediaUrl": { url: "http://unsplash.it/370/340", type: "image" },
     "title": "sfdsff"
   },
   {
     "_id": "558",
-    "categories": "nature",
-    "mediaUrl": { url: "https://parade.com/.image/t_share/MTkwNTgxMjMyNjM0ODMxOTk3/nature-quotes.jpg", type: "image" },
+    "categories": "Art",
+    "mediaUrl": { url: "https://parade.com/.image/t_share/MTkwNTgxMjMyNjM0ODMxOTk3/art-quotes.jpg", type: "image" },
     "title": "Fanan"
   },
   {
     "_id": "559",
-    "categories": "Work",
-    "mediaUrl": { url: "https://api.time.com/wp-content/uploads/2021/02/laptop-Home-office.jpg", type: "image" },
+    "categories": "Events",
+    "mediaUrl": { url: "http://unsplash.it/470/340", type: "image" },
     "title": "Desk"
   },
   {
     "_id": "560",
-    "categories": "Work",
-    "mediaUrl": { url: "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg", type: "image" },
+    "categories": "Events",
+    "mediaUrl": { url: "http://unsplash.it/490/340", type: "image" },
     "title": "Thinking"
   },
   {
     "_id": "561",
-    "categories": "sport",
-    "mediaUrl": { url: "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg", type: "image" },
+    "categories": "Art",
+    "mediaUrl": { url: "http://unsplash.it/407/340", type: "image" },
     "title": "Thinking"
   },
   {
     "_id": "562",
-    "categories": "sport",
-    "mediaUrl": { url: "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg", type: "image" },
+    "categories": "Art",
+    "mediaUrl": { url: "http://unsplash.it/270/350", type: "image" },
     "title": "Thinking"
   },
   {
     "_id": "563",
-    "categories": "coffe",
-    "mediaUrl": { url: "https://media.newyorker.com/photos/6222af6bed7fe93395914e83/master/w_2560%2Cc_limit/Harrington-IDoNotLikeWork.jpg", type: "image" },
+    "categories": "Image",
+    "mediaUrl": { url: "http://unsplash.it/440/350", type: "image" },
     "title": "Thinking"
   }
 ];

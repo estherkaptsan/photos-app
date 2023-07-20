@@ -12,8 +12,8 @@ export default function PhotoEdit(props) {
   const [mediaUrl, setUploadedImageUrl] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const allCategoties = useSelector((storeState) => storeState.pictureModule.categories) 
-  const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
+  const allCategoties = useSelector((storeState) => storeState.pictureModule.categories)
+  const loggedInUser = useSelector((state) => state.userModule.loggedInUser)
 
   useEffect(() => {
     dispatch(loadPictures())
@@ -35,10 +35,10 @@ export default function PhotoEdit(props) {
     console.log(mediaUrl)
     setUploadedImageUrl(mediaUrl)
   }
-
+  
   async function handleSubmit(event) {
     event.preventDefault()
-    console.log('mediaUrl', mediaUrl);
+    console.log('mediaUrl', mediaUrl)
     const newPhoto = {
       title,
       categories,
@@ -51,20 +51,20 @@ export default function PhotoEdit(props) {
 
     setTitle('')
     setSelectedOption('')
-    setUploadedImageUrl('')
+    setUploadedImageUrl([])
   }
 
 
-  if(!loggedInUser) return (<div>no loggedInUser</div>)
+  // if (!loggedInUser) return (<div>no loggedInUser</div>)
   return (
     <div className='edit-page'>
       <form className="edit-form" onSubmit={handleSubmit}>
-        <input
+        {/* <input
           placeholder="Title"
           className="edit-input"
           value={title}
           onChange={handleTitleChange}
-        />
+        /> */}
         <select
           name="category"
           value={categories}
