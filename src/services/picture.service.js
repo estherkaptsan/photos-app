@@ -14,43 +14,36 @@ const gDefaultPictures = [
     "_id": "123",
     "categories": "Image",
     "mediaUrl": { url: "http://unsplash.it/440/340", type: "image" },
-    "title": "Puki"
   },
   {
     "_id": "1213",
     "categories": "Image",
     "mediaUrl": { url: "http://unsplash.it/470/340", type: "image" },
-    "title": "Puki"
   },
   {
     "_id": "535",
     "categories": "Fashion",
     "mediaUrl": { url: "http://unsplash.it/469/340", type: "image" },
-    "title": "Shmuki"
   },
   {
     "_id": "222",
     "categories": "Events",
     "mediaUrl": { url: "http://unsplash.it/420/340", type: "image" },
-    "title": "Toki"
   },
   {
     "_id": "111",
     "categories": "Image",
     "mediaUrl": { url: "http://unsplash.it/450/340", type: "image" },
-    "title": "Muki"
   },
   {
     "_id": "555",
     "categories": "Art",
     "mediaUrl": { url: "https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg", type: "image" },
-    "title": "Park"
   },
   {
     "_id": "556",
     "categories": "Art",
     "mediaUrl": { url: "https://insideclimatenews.org/wp-content/uploads/2021/09/whanganui-river_matthew-lovette-education-images-universal-images-group-getty-scaled.jpg", type: "image" },
-    "title": "River"
   },
   {
     "_id": "557",
@@ -208,7 +201,7 @@ function _loadPictures() {
 function getCategories() {
   let categories = _loadPictures();
   let uniqueCategories = [...new Set(categories.map((picture) => picture.categories))];
-  uniqueCategories.unshift("ALL"); // Add "ALL" as the first element
+  // uniqueCategories.unshift("ALL"); // Add "ALL" as the first element
   return uniqueCategories;
 }
 
