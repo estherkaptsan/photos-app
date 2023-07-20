@@ -26,11 +26,11 @@ export default function HomePage() {
     [dispatch, filterBy]
   );
 
-  const uniqueCategories = [...new Set(pictures.map((picture) => picture.categories))];
+  const uniqueCategories = [...new Set(pictures.map((picture) => picture.category))];
 
   // Define categoryPictures here
   const categoryPictures = uniqueCategories.map((category) => {
-    const picturesForCategory = pictures.filter((picture) => picture.categories === category);
+    const picturesForCategory = pictures.filter((picture) => picture.category === category);
     return picturesForCategory.length > 0 ? picturesForCategory[0] : null;
   });
   // const isVideo = categoryPictures.mediaUrl.type === 'video';

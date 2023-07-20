@@ -12,109 +12,98 @@ const STORAGE_KEY = 'PhotoDB'
 const gDefaultPictures = [
   {
     "_id": "123",
-    "categories": "Image",
+    "category": "Image",
     "mediaUrl": { url: "http://unsplash.it/440/340", type: "image" },
   },
   {
     "_id": "1213",
-    "categories": "Image",
+    "category": "Image",
     "mediaUrl": { url: "http://unsplash.it/470/340", type: "image" },
   },
   {
     "_id": "535",
-    "categories": "Fashion",
+    "category": "Fashion",
     "mediaUrl": { url: "http://unsplash.it/469/340", type: "image" },
   },
   {
     "_id": "222",
-    "categories": "Events",
+    "category": "Events",
     "mediaUrl": { url: "http://unsplash.it/420/340", type: "image" },
   },
   {
     "_id": "111",
-    "categories": "Image",
+    "category": "Image",
     "mediaUrl": { url: "http://unsplash.it/450/340", type: "image" },
   },
   {
     "_id": "555",
-    "categories": "Art",
+    "category": "Art",
     "mediaUrl": { url: "https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg", type: "image" },
   },
   {
     "_id": "556",
-    "categories": "Art",
+    "category": "Art",
     "mediaUrl": { url: "https://insideclimatenews.org/wp-content/uploads/2021/09/whanganui-river_matthew-lovette-education-images-universal-images-group-getty-scaled.jpg", type: "image" },
   },
   {
     "_id": "557",
-    "categories": "Art",
+    "category": "Art",
     "mediaUrl": { url: "http://unsplash.it/480/340", type: "image" },
-    "title": "Waterfall"
   },
   {
     "_id": "567",
-    "categories": "Art",
+    "category": "Art",
     "mediaUrl": { url: "http://unsplash.it/490/340", type: "image" },
-    "title": "cars"
   },
   {
     "_id": "587",
-    "categories": "Art",
+    "category": "Art",
     "mediaUrl": { url: "http://unsplash.it/460/340", type: "image" },
-    "title": "cars"
   },
   {
     "_id": "597",
-    "categories": "Fashion",
+    "category": "Fashion",
     "mediaUrl": { url: "http://unsplash.it/540/340", type: "image" },
-    "title": "sdfsdf"
   },
   {
     "_id": "599",
-    "categories": "Fashion",
+    "category": "Fashion",
     "mediaUrl": { url: "http://unsplash.it/370/340", type: "image" },
-    "title": "sfdsff"
   },
   {
     "_id": "558",
-    "categories": "Art",
+    "category": "Art",
     "mediaUrl": { url: "https://parade.com/.image/t_share/MTkwNTgxMjMyNjM0ODMxOTk3/art-quotes.jpg", type: "image" },
-    "title": "Fanan"
   },
   {
     "_id": "559",
-    "categories": "Events",
+    "category": "Events",
     "mediaUrl": { url: "http://unsplash.it/470/340", type: "image" },
-    "title": "Desk"
   },
   {
     "_id": "560",
-    "categories": "Events",
+    "category": "Events",
     "mediaUrl": { url: "http://unsplash.it/490/340", type: "image" },
-    "title": "Thinking"
   },
   {
     "_id": "561",
-    "categories": "Art",
+    "category": "Art",
     "mediaUrl": { url: "http://unsplash.it/407/340", type: "image" },
-    "title": "Thinking"
   },
   {
     "_id": "562",
-    "categories": "Art",
+    "category": "Art",
     "mediaUrl": { url: "http://unsplash.it/270/350", type: "image" },
-    "title": "Thinking"
   },
   {
     "_id": "563",
-    "categories": "Image",
+    "category": "Image",
     "mediaUrl": { url: "http://unsplash.it/440/350", type: "image" },
-    "title": "Thinking"
   }
 ];
 
 
- 
+
 var gPictures = _loadPictures()
 
 
@@ -133,19 +122,19 @@ function sort(arr) {
 
 async function getPictures(filterBy) {
   console.log(filterBy)
-  
+
   const values = Object.values(filterBy);
-  
+
   const str = values.join('');
   console.log(str)
   let picturesToReturn = gPictures
   // if (filterBy) {
-    // var { categories } = filterBy
-    if (str === 'ALL') {
-      picturesToReturn = gPictures
-    }
-    else if (str){
-      picturesToReturn = gPictures.filter(picture => str.includes(picture.categories))
+  // var { category } = filterBy
+  if (str === 'ALL') {
+    picturesToReturn = gPictures
+  }
+  else if (str) {
+    picturesToReturn = gPictures.filter(picture => str.includes(picture.category))
     // }  
 
   }
@@ -183,12 +172,15 @@ function _updatePicture(picture) {
 
 function _addPicture(picture) {
   return new Promise((resolve, reject) => {
-    picture._id = _makeId()
-    gPictures.unshift(picture)
-    storageService.store(STORAGE_KEY, gPictures)
-    resolve(picture)
-  })
+    picture._id = _makeId();
+    gPictures.push(picture); // Directly add the picture object to the array
+    storageService.store(STORAGE_KEY, gPictures);
+    resolve(picture);
+  });
 }
+
+
+
 
 function _loadPictures() {
   let pictures = storageService.load(STORAGE_KEY)
@@ -200,7 +192,7 @@ function _loadPictures() {
 
 function getCategories() {
   let categories = _loadPictures();
-  let uniqueCategories = [...new Set(categories.map((picture) => picture.categories))];
+  let uniqueCategories = [...new Set(categories.map((picture) => picture.category))];
   // uniqueCategories.unshift("ALL"); // Add "ALL" as the first element
   return uniqueCategories;
 }
@@ -209,17 +201,17 @@ function getCategories() {
 
 
 function savePicture(picture) {
+
   return picture._id ? _updatePicture(picture) : _addPicture(picture)
 }
 
 function getEmptyPicture() {
   return {
-    title: '',
-    mediaurl: '',
-    // type: '',
-    categories: '',
-  }
+    mediaUrl: '', // Fix the property name here
+    category: '',
+  };
 }
+
 
 function filter(term) {
   term = term.toLocaleLowerCase()

@@ -3,7 +3,7 @@ import { PhotoPreview } from './PhotoPreview';
 
 export default function PhotoList({ pictures, onRemovePicture }) {
   // Get unique categories from pictures
-  const categories = [...new Set(pictures.map((picture) => picture.categories))];
+  const categories = [...new Set(pictures.map((picture) => picture.category))];
 
   return (
     <div>
@@ -12,7 +12,7 @@ export default function PhotoList({ pictures, onRemovePicture }) {
           {/* <h3 className="category-title">{category}</h3> */}
           <div className="photo-list">
             {pictures
-              .filter((picture) => picture.categories === category)
+              .filter((picture) => picture.category === category)
               .map((picture, index) => (
                 <PhotoPreview
                   picture={picture}
