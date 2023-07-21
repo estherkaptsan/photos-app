@@ -1,6 +1,6 @@
 .photo-preview {
   // border: 2px solid #eaeaea;
-  border-radius: 8px;
+  // border-radius: 8px;
   // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   // background-color: #ffffff;
@@ -9,8 +9,8 @@
   position: relative;
 
   &:hover {
-    transform: translateY(-5px);
-
+    // transform: translateY(-5px);
+opacity: 0.8;
     .delete-button {
       display: block;
     }
@@ -32,7 +32,7 @@
   width: 20.125rem;
   height: 20.125;
   object-fit: cover;
-  border-radius: 6px;
+  // border-radius: 6px;
 }
 
 
@@ -47,7 +47,7 @@ img{
   display: block;
   object-fit: cover;
   margin-top: 0px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   border: 1px solid#c3bebe;
-  box-shadow: 1px 3px 8px rgba(0,0,0,0.5);
+  // box-shadow: 1px 3px 8px rgba(0,0,0,0.5);
 }
