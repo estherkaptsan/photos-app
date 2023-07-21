@@ -34,8 +34,10 @@
       }
 
       &.active {
-        background-color: #ededed;
+        // background-color: #ededed;
         color: #333333;
+        font-weight: bold; /* Add bold font for active category */
+        transform: scale(1.1); /* Add scaling effect for active category */
       }
     }
 

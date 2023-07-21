@@ -71,3 +71,23 @@ h3 {
   }
 
 }
+
+
+.photo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  transition: opacity 0.5s ease-in-out; /* Add the transition for fading effect */
+}
+
+.photo-item {
+  flex: 1;
+  padding: 0 10px;
+  opacity: 0; /* Hide the photo by default */
+}
+
+.active-photo {
+  opacity: 1; /* Show the active photo with full opacity */
+}

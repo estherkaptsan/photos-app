@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 
 const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
+  const [activeCategory, setActiveCategory] = useState(selectedCategory);
+
   const onChangeFilter = (category) => {
+    setActiveCategory(category)
     onSelectCategory(category);
     console.log(category);
   };
@@ -12,7 +16,7 @@ const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
         {categories.map((category, index) => (
           <div
             key={index}
-            className={`category ${category === selectedCategory ? 'active' : ''}`}
+            className={`category ${category === activeCategory  ? 'active' : ''}`}
             onClick={() => onChangeFilter(category)}
           >
             {category}
