@@ -1,17 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const About = () => {
   return (
     <section className="about">
-      <div className="container">
-        <h2 className="section-title">About Us</h2>
-        <p className="section-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac ex sem. Mauris bibendum ex a fringilla rutrum. Sed posuere nisi mauris, ac rutrum arcu tristique et. Fusce condimentum interdum lacus, sed dapibus est tempus vel.
-        </p>
-        <p className="section-description">
-          Fusce lobortis sapien vel metus auctor, vitae lacinia ex consectetur. Proin a lacus eros. Nulla facilisi. Aenean volutpat augue a sapien congue, eget ultricies nunc aliquam. Donec tempus facilisis eros a fringilla.
-        </p>
-      </div>
+      <h2 className="">About</h2>
+      <ul className="nav-links">
+        <li>+972 (0) 528 891567</li>
+        <li><Link to="https://www.instagram.com/gulitamuz_photography/">Instagram</Link></li>
+      </ul>
+
     </section>
   );
 };

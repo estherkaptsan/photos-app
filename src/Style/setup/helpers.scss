@@ -1,0 +1,24 @@
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    align-content: space-between;
+    flex-direction: column;
+  
+    li {
+      display: inline-block;
+      color: #1d1b1b;
+  
+      a {
+        color: #1d1b1b;
+        text-decoration: none;
+  
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
