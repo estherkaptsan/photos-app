@@ -91,3 +91,14 @@ h3 {
 .active-photo {
   opacity: 1; /* Show the active photo with full opacity */
 }
+.fa-chevron-right:before {
+  position: absolute;
+  content: "\f054";
+  right: 2%;
+}
+
+.fa-chevron-left:before {
+  position: absolute;
+  content: "\f053";
+  left: 2%;
+}
