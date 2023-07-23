@@ -38,7 +38,7 @@ export default function HomePage() {
 
   // if(!categoryPictures || !pictures) return <div>loading...</div>
   return (
-    
+
     <div className="home-page">
       {/* <h1>Welcome to my website</h1> */}
       <div className="grid-container">
@@ -48,7 +48,8 @@ export default function HomePage() {
             to={`/gallery/${encodeURIComponent(category)}`}
             onClick={() => onChangeFilter(category)}
           >
-            <div className={`grid-item grid-item-${index + 1}`}>
+            <div className="grid-item grid-item-${index + 1}">
+              {/* <div className="category-name">{category}</div> */}
               {categoryPictures[index] ? (
                 categoryPictures[index].mediaUrl.type !== 'video' ? (
                   <img src={categoryPictures[index].mediaUrl.url} alt={categoryPictures[index].category} />
@@ -58,7 +59,7 @@ export default function HomePage() {
               ) : (
                 <div>No picture available</div>
               )}
-              <div className="category-name">{category}</div>
+              <div className="category-overlay">{category}</div>
             </div>
           </Link>
         ))}
