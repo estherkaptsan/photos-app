@@ -31,12 +31,10 @@ export default function GalleryPage() {
 
   const onChangeFilter = useCallback(
     (selectedCategory) => {
-      const newParams = queryParams;
-      newParams.set('category', selectedCategory);
-      navigate(`/gallery/${newParams.toString()}`);
+      navigate(`/gallery/${selectedCategory}`); // Directly navigate to the desired URL
       dispatch(setFilterBy(selectedCategory));
     },
-    [dispatch, navigate, queryParams]
+    [dispatch, navigate]
   );
 
   useEffect(() => {
