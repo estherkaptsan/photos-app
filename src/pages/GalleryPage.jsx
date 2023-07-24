@@ -66,7 +66,7 @@ export default function GalleryPage() {
   return (
     <section className="gallery-page">
       <div className="container">
-        <h2 className="section-title">{category}</h2>
+        {/* <h2 className="section-title">{category}</h2> */}
         <div className="gallery-wrapper">
           <div className="filter-sidebar">
             <CategoryFilter

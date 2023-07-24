@@ -88,20 +88,20 @@ export function PhotoDetails(props) {
 
   return (
     <section className="photo-details">
-      <i className="fa-solid fa-xmark dax" onClick={onBack}></i>
+      <i className="fa-solid fa-xmark " onClick={onBack}></i>
       <section>
         <div
           className="photo-container"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <i className="fa-solid fa-chevron-left da" onClick={() => onPrevious(photo._id)}></i>
+          <i className="fa-solid fa-chevron-left arrow-btn" onClick={() => onPrevious(photo._id)}></i>
           {isVideo ? (
             <video controls src={photo.mediaUrl.url} alt={photo.title} />
           ) : (
             <img className="details-pic" src={photo.mediaUrl.url} alt={photo.title} />
           )}
-          <i className="fa-solid fa-chevron-right da" onClick={() => onNext(photo._id)}></i>
+          <i className="fa-solid fa-chevron-right arrow-btn" onClick={() => onNext(photo._id)}></i>
         </div>
       </section>
     </section>
