@@ -50,7 +50,7 @@ const AppHeader = () => {
                         <li><Link to="/login">login</Link></li>
                     </ul>
                     <ul className="nav-links">
-                        <li>0544678456</li>
+                        <li>+972 (0) 528 891567</li>
                         <li><Link to="https://www.instagram.com/gulitamuz_photography/">Instagram</Link></li>
                     </ul>
                 </section>
