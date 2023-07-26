@@ -13,7 +13,7 @@ function query(entityType, delay = 500) {
     return new Promise(resolve => setTimeout(() => resolve(entities), delay))
 }
 
-export const storageService = {
+export const storageServiceB = {
     query, 
     store,
     load

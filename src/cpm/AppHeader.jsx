@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import WhatsAppLink from './WhatsApp';
+
 
 const AppHeader = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -38,22 +40,27 @@ const AppHeader = () => {
             </nav>
 
             {isMenuOpen && (
-                <section className='menu' onClick={toggleMenu}>
+                <div className='menu' onClick={toggleMenu}>
                     <ul className="nav-links">
                         <li><Link to="/">Home</Link></li>
                         {/* {loggedInUser && ( */}
-                            <li><Link to="/photo/edit">Edit</Link></li>
+                        <li><Link to="/photo/edit">Edit</Link></li>
                         {/* )} */}
-                        <li><Link to="/gallery">Work</Link></li>
+                        <li><Link to="/gallery">Gallery</Link></li>
                         <li><Link to="/about">About</Link></li>
                         {/* <li><Link to="/contact">Contact</Link></li> */}
                         <li><Link to="/login">login</Link></li>
                     </ul>
-                    <ul className="nav-links">
-                        <li>+972 (0) 528 891567</li>
-                        <li><Link to="https://www.instagram.com/gulitamuz_photography/">Instagram</Link></li>
-                    </ul>
-                </section>
+                    <div className='icons-section'>
+                        {/* <ul className="nav-links"> */}
+                        <WhatsAppLink phoneNumber="0528891567" />
+                        <Link to="https://www.instagram.com/gulitamuz_photography/">
+                            <i className="fa-brands fa-instagram"></i>
+                        </Link>
+
+                        {/* </ul> */}
+                    </div>
+                </div>
             )}
         </header>
     )

@@ -9,7 +9,6 @@ window.onLoadUsers = onLoadUsers
 window.onAddPhoto = onAddPhoto
 window.onGetPhotoById = onGetPhotoById
 window.onRemovePhoto = onRemovePhoto
-window.onAddPhotoMsg = onAddPhotoMsg
 
 async function onLoadPhotos() {
     const photos = await photoService.query()

@@ -3,13 +3,15 @@ const photoService = require('./photo.service.js')
 const logger = require('../../services/logger.service.js')
 
 async function getPhotos(req, res) {
+  console.log('req.query--------------------------------------------------',req.query)
   try {
     logger.debug('Getting Photos')
     const filterBy = {
       category: req.query.category || ''
     }
     const photos = await photoService.query(filterBy)
-    console.log('photos from query function', photos)
+    // console.log('filterBy from query function', filterBy)
+    // console.log('photos from query function', photos)
     res.json(photos)
   } catch (err) {
     logger.error('Failed to get photos', err)
@@ -18,6 +20,7 @@ async function getPhotos(req, res) {
 }
 
 async function getPhotoById(req, res) {
+  console.log('req.params ----------------------------------------------------------------', req.params) 
   try {
     const photoId = req.params.id
     const photo = await photoService.getById(photoId)
@@ -67,22 +70,7 @@ async function removePhoto(req, res) {
   }
 }
 
-async function addPhotoMsg(req, res) {
-  const {loggedinUser} = req
-  try {
-    const photoId = req.params.id
-    const msg = {
-      txt: req.body.txt,
-      by: loggedinUser
-    }
-    const savedMsg = await photoService.addPhotoMsg(photoId, msg)
-    res.json(savedMsg)
-  } catch (err) {
-    logger.error('Failed to update photo', err)
-    res.status(500).send({ err: 'Failed to update photo' })
 
-  }
-}
 
 async function removePhotoMsg(req, res) {
   const {loggedinUser} = req
@@ -105,6 +93,5 @@ module.exports = {
   addPhoto,
   updatePhoto,
   removePhoto,
-  addPhotoMsg,
-  removePhotoMsg
+
 }

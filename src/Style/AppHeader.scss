@@ -22,6 +22,19 @@
     flex-direction: column-reverse;
     /* flex-wrap: nowrap; */
     align-items: flex-end;
+
+    position: relative;
+    min-height: 50vh;
+  }
+
+  .icons-section {
+
+    position: absolute;
+    bottom: 120px;
+    right: 50%;
+    gap: 10px;
+    display: flex;
+    font-size: 24px;
   }
 }
 
@@ -35,8 +48,8 @@
 
 .logo {
   color: #131212;
+  font-weight: bold;
   font-size: 20px;
   text-decoration: none;
-  font-family: "NHaasGroteskDSPro-65Md",sans-serif;
+  font-family: "NHaasGroteskDSPro-65Md", sans-serif;
 }
-

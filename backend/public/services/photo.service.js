@@ -10,12 +10,11 @@ export const photoService = {
     save,
     remove,
     getEmptyPhoto,
-    addPhotoMsg
 }
 window.cs = photoService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = { category : 'ALL' }) {
     return httpService.get('photo', filterBy)
 }
 function getById(photoId) {
@@ -36,10 +35,6 @@ async function save(photo) {
     return savedPhoto
 }
 
-async function addPhotoMsg(photoId, txt) {
-    const savedMsg = await httpService.post(`photo/${photoId}/msg`, {txt})
-    return savedMsg
-}
 
 
 function getEmptyPhoto() {

@@ -1,4 +1,4 @@
-import { storageService } from './storage.service';
+import { storageServiceB } from './storage.service';
 
 const KEY = 'UserDB';
 
@@ -17,5 +17,5 @@ function login(name, password) {
 }
 
 function update(user) {
-  storageService.store(KEY, user);
+  storageServiceB.store(KEY, user);
 }

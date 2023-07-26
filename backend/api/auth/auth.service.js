@@ -8,7 +8,7 @@ module.exports = {
     signup,
     login,
     getLoginToken,
-    validateToken
+    // validateToken
 }
 
 async function login(username, password) {

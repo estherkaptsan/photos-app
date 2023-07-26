@@ -1,4 +1,6 @@
-import { storageService } from './storage.service'
+import { storageService } from './async-storage.service'
+// import { httpService } from './http.service.js'
+import { storageServiceB } from './storage.service';
 
 export const pictureService = {
   getPictures,
@@ -102,62 +104,71 @@ const gDefaultPictures = [
   }
 ];
 
-
-
 var gPictures = _loadPictures()
 
 
-function sort(arr) {
-  return arr.sort((a, b) => {
-    if (a.title.toLocaleLowerCase() < b.title.toLocaleLowerCase()) {
-      return -1
-    }
-    if (a.title.toLocaleLowerCase() > b.title.toLocaleLowerCase()) {
-      return 1
-    }
-
-    return 0
-  })
-}
-
 async function getPictures(filterBy) {
-  console.log(filterBy)
+
+  // return httpService.get(STORAGE_KEY, filterBy)
 
   const values = Object.values(filterBy);
 
   const str = values.join('');
   console.log(str)
   let picturesToReturn = gPictures
-  // if (filterBy) {
-  // var { category } = filterBy
+
   if (str === 'ALL') {
     picturesToReturn = gPictures
   }
   else if (str) {
     picturesToReturn = gPictures.filter(picture => str.includes(picture.category))
-    // }  
+
 
   }
 
   console.log(picturesToReturn)
   return Promise.resolve([...picturesToReturn])
+
+
 };
 
 
 
-function getPictureById(id) {
-  return new Promise((resolve, reject) => {
-    const picture = gPictures.find((picture) => picture._id === id)
-    picture ? resolve(picture) : reject(`Picture id ${id} not found!`)
-  })
+function getPictureById(pictureId) {
+
+  // return httpService.get(`picture/${pictureId}`)
+  return storageService.get(STORAGE_KEY, pictureId)
+
+  // return new Promise((resolve, reject) => {
+  //   const picture = gPictures.find((picture) => picture._id === id)
+  //   picture ? resolve(picture) : reject(`Picture id ${id} not found!`)
+  // })
 }
 
-function deletePicture(id) {
-  const idx = gPictures.findIndex(picture => picture._id === id)
-  gPictures.splice(idx, 1)
+async function savePicture(picture) {
+  var savedpicture
+  if (picture._id) {
+    savedpicture = await storageService.put(STORAGE_KEY, picture)
+    //     savedpicture = await httpService.put(`picture/${picture._id}`, picture)
 
-  storageService.store(STORAGE_KEY, gPictures)
-  return Promise.resolve()
+  } else {
+    savedpicture = await storageService.post(STORAGE_KEY, picture)
+    //     savedpicture = await httpService.post('picture', picture)
+  }
+  return savedpicture
+
+  // return picture._id ? _updatePicture(picture) : _addPicture(picture)
+}
+
+async function deletePicture(pictureId) {
+  // return httpService.delete(`picture/${pictureId}`)
+
+  await storageService.remove(STORAGE_KEY, pictureId)
+  // const idx = gPictures.findIndex(picture => picture._id === id)
+  // gPictures.splice(idx, 1)
+
+  // storageServiceB.store(STORAGE_KEY, gPictures)
+  // return Promise.resolve()
 }
 
 function _updatePicture(picture) {
@@ -174,7 +185,7 @@ function _addPicture(picture) {
   return new Promise((resolve, reject) => {
     picture._id = _makeId();
     gPictures.push(picture); // Directly add the picture object to the array
-    storageService.store(STORAGE_KEY, gPictures);
+    storageServiceB.store(STORAGE_KEY, gPictures);
     resolve(picture);
   });
 }
@@ -183,9 +194,9 @@ function _addPicture(picture) {
 
 
 function _loadPictures() {
-  let pictures = storageService.load(STORAGE_KEY)
+  let pictures = storageServiceB.load(STORAGE_KEY)
   if (!pictures || !pictures.length) pictures = gDefaultPictures
-  storageService.store(STORAGE_KEY, pictures)
+  storageServiceB.store(STORAGE_KEY, pictures)
   return pictures
 }
 
@@ -198,12 +209,22 @@ function getCategories() {
 }
 
 
+function sort(arr) {
+  return arr.sort((a, b) => {
+    if (a.title.toLocaleLowerCase() < b.title.toLocaleLowerCase()) {
+      return -1
+    }
+    if (a.title.toLocaleLowerCase() > b.title.toLocaleLowerCase()) {
+      return 1
+    }
 
-
-function savePicture(picture) {
-
-  return picture._id ? _updatePicture(picture) : _addPicture(picture)
+    return 0
+  })
 }
+
+
+
+
 
 function getEmptyPicture() {
   return {

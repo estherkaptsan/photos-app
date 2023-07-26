@@ -3,23 +3,33 @@ const logger = require('../../services/logger.service')
 const utilService = require('../../services/util.service')
 const ObjectId = require('mongodb').ObjectId
 
-async function query(filterBy={txt:''}) {
+async function query(filterBy) {
     try {
-        const criteria = {
-            vendor: { $regex: filterBy.txt, $options: 'i' }
-        }
+        const criteria = _buildCriteria(filterBy)
+        
+        // if (filterBy.category && filterBy.category !== 'ALL') {
+            // criteria.category = { $in: [category] };
+        // }
+        
         const collection = await dbService.getCollection('photo')
-        var photos = await collection.find(criteria).toArray()
-        return photos
+        // console.log('collection', collection);
+        const photos = await collection.find(criteria);
+
+
+
+        
+        return photos;
     } catch (err) {
-        logger.error('cannot find photos', err)
-        throw err
+        logger.error('cannot find photos', err);
+        throw err;
     }
 }
+
 
 async function getById(photoId) {
     try {
         const collection = await dbService.getCollection('photo')
+        console.log('collection-------------------------------------------------------', collection) 
         const photo = collection.findOne({ _id: ObjectId(photoId) })
         return photo
     } catch (err) {
@@ -65,28 +75,21 @@ async function update(photo) {
     }
 }
 
-async function addPhotoMsg(photoId, msg) {
-    try {
-        msg.id = utilService.makeId()
-        const collection = await dbService.getCollection('photo')
-        await collection.updateOne({ _id: ObjectId(photoId) }, { $push: { msgs: msg } })
-        return msg
-    } catch (err) {
-        logger.error(`cannot add photo msg ${photoId}`, err)
-        throw err
+
+
+function _buildCriteria(filterBy = {  category: null}) {
+    const {  category } = filterBy
+
+    const criteria = {}
+
+    if (category) {
+        // criteria.category = { $elemMatch: { tags: { $in: category } } }
+        criteria.category = { $in: [category] };
     }
+
+    return criteria
 }
 
-async function removePhotoMsg(photoId, msgId) {
-    try {
-        const collection = await dbService.getCollection('photo')
-        await collection.updateOne({ _id: ObjectId(photoId) }, { $pull: { msgs: {id: msgId} } })
-        return msgId
-    } catch (err) {
-        logger.error(`cannot add photo msg ${photoId}`, err)
-        throw err
-    }
-}
 
 module.exports = {
     remove,
@@ -94,6 +97,4 @@ module.exports = {
     getById,
     add,
     update,
-    addPhotoMsg,
-    removePhotoMsg
 }
