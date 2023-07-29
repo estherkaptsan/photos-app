@@ -5,19 +5,12 @@ const ObjectId = require('mongodb').ObjectId
 
 async function query(filterBy) {
     try {
-        const criteria = _buildCriteria(filterBy)
+        const criteria = _buildCriteria(filterBy);
         
-        // if (filterBy.category && filterBy.category !== 'ALL') {
-            // criteria.category = { $in: [category] };
-        // }
-        
-        const collection = await dbService.getCollection('photo')
-        // console.log('collection', collection);
-        const photos = await collection.find(criteria);
-
-
-
-        
+        const collection = await dbService.getCollection('photo');
+        console.log('collection',collection)
+        const photos = await collection.find(criteria).toArray()
+        console.log('photos from query', photos)
         return photos;
     } catch (err) {
         logger.error('cannot find photos', err);
@@ -79,11 +72,11 @@ async function update(photo) {
 
 function _buildCriteria(filterBy = {  category: null}) {
     const {  category } = filterBy
-
+console.log('category',category)
+console.log('filterBy',filterBy)
     const criteria = {}
 
     if (category) {
-        // criteria.category = { $elemMatch: { tags: { $in: category } } }
         criteria.category = { $in: [category] };
     }
 
