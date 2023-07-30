@@ -3,7 +3,6 @@ const photoService = require('./photo.service.js')
 const logger = require('../../services/logger.service.js')
 
 async function getPhotos(req, res) {
-  console.log('req.query--------------------------------------------------')
   try {
     logger.debug('Getting Photos')
     const filterBy = {
@@ -19,7 +18,6 @@ async function getPhotos(req, res) {
 }
 
 async function getPhotoById(req, res) {
-  console.log('req.params ----------------------------------------------------------------', req.params) 
   try {
     const photoId = req.params.id
     const photo = await photoService.getById(photoId)
@@ -32,10 +30,13 @@ async function getPhotoById(req, res) {
 
 async function addPhoto(req, res) {
   const {loggedinUser} = req
+  console.log('req',req)
+  console.log('req.body',req.body)
 
   try {
     const photo = req.body
-    photo.owner = loggedinUser
+    // photo.owner = loggedinUser
+    console.log('photo',photo)
     const addedPhoto = await photoService.add(photo)
     res.json(addedPhoto)
   } catch (err) {

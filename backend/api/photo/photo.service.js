@@ -22,7 +22,6 @@ async function query(filterBy) {
 async function getById(photoId) {
     try {
         const collection = await dbService.getCollection('photo')
-        console.log('collection-------------------------------------------------------', collection) 
         const photo = collection.findOne({ _id: ObjectId(photoId) })
         return photo
     } catch (err) {
@@ -56,8 +55,8 @@ async function add(photo) {
 async function update(photo) {
     try {
         const photoToSave = {
-            vendor: photo.vendor,
-            price: photo.price
+            category: photo.category,
+            mediaUrl: photo.mediaUrl
         }
         const collection = await dbService.getCollection('photo')
         await collection.updateOne({ _id: ObjectId(photo._id) }, { $set: photoToSave })
@@ -72,8 +71,7 @@ async function update(photo) {
 
 function _buildCriteria(filterBy = {  category: null}) {
     const {  category } = filterBy
-console.log('category',category)
-console.log('filterBy',filterBy)
+
     const criteria = {}
 
     if (category) {
