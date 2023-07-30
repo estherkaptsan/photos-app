@@ -3,15 +3,14 @@ const photoService = require('./photo.service.js')
 const logger = require('../../services/logger.service.js')
 
 async function getPhotos(req, res) {
-  console.log('req.query--------------------------------------------------',req.query)
+  console.log('req.query--------------------------------------------------')
   try {
     logger.debug('Getting Photos')
     const filterBy = {
       category: req.query.category || ''
     }
     const photos = await photoService.query(filterBy)
-    // console.log('filterBy from query function', filterBy)
-    // console.log('photos from query function', photos)
+
     res.json(photos)
   } catch (err) {
     logger.error('Failed to get photos', err)
