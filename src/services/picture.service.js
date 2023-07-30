@@ -14,92 +14,92 @@ const STORAGE_KEY = 'PhotoDB'
 const gDefaultPictures = [
   {
     "_id": "123",
-    "category": "Image",
+    "category": "WONDERING",
     "mediaUrl": { url: "http://unsplash.it/440/340", type: "image" },
   },
   {
     "_id": "1213",
-    "category": "Image",
+    "category": "WONDERING",
     "mediaUrl": { url: "http://unsplash.it/470/340", type: "image" },
   },
   {
     "_id": "535",
-    "category": "Fashion",
+    "category": "PROJECTS",
     "mediaUrl": { url: "http://unsplash.it/469/340", type: "image" },
   },
   {
     "_id": "222",
-    "category": "Events",
+    "category": "EVENTS",
     "mediaUrl": { url: "http://unsplash.it/420/340", type: "image" },
   },
   {
     "_id": "111",
-    "category": "Image",
+    "category": "WONDERING",
     "mediaUrl": { url: "http://unsplash.it/450/340", type: "image" },
   },
   {
     "_id": "555",
-    "category": "Art",
+    "category": "PR photos",
     "mediaUrl": { url: "https://www.rd.com/wp-content/uploads/2020/04/GettyImages-1093840488-5-scaled.jpg", type: "image" },
   },
   {
     "_id": "556",
-    "category": "Art",
+    "category": "PR photos",
     "mediaUrl": { url: "https://insideclimatenews.org/wp-content/uploads/2021/09/whanganui-river_matthew-lovette-education-images-universal-images-group-getty-scaled.jpg", type: "image" },
   },
   {
     "_id": "557",
-    "category": "Art",
+    "category": "PR photos",
     "mediaUrl": { url: "http://unsplash.it/480/340", type: "image" },
   },
   {
     "_id": "567",
-    "category": "Art",
+    "category": "PR photos",
     "mediaUrl": { url: "http://unsplash.it/490/340", type: "image" },
   },
   {
     "_id": "587",
-    "category": "Art",
+    "category": "PR photos",
     "mediaUrl": { url: "http://unsplash.it/460/340", type: "image" },
   },
   {
     "_id": "597",
-    "category": "Fashion",
+    "category": "PROJECTS",
     "mediaUrl": { url: "http://unsplash.it/540/340", type: "image" },
   },
   {
     "_id": "599",
-    "category": "Fashion",
+    "category": "PROJECTS",
     "mediaUrl": { url: "http://unsplash.it/370/340", type: "image" },
   },
   {
     "_id": "558",
-    "category": "Art",
-    "mediaUrl": { url: "https://parade.com/.image/t_share/MTkwNTgxMjMyNjM0ODMxOTk3/art-quotes.jpg", type: "image" },
+    "category": "PR photos",
+    "mediaUrl": { url: "https://parade.com/.image/t_share/MTkwNTgxMjMyNjM0ODMxOTk3/pr photos-quotes.jpg", type: "image" },
   },
   {
     "_id": "559",
-    "category": "Events",
+    "category": "EVENTS",
     "mediaUrl": { url: "http://unsplash.it/470/340", type: "image" },
   },
   {
     "_id": "560",
-    "category": "Events",
+    "category": "EVENTS",
     "mediaUrl": { url: "http://unsplash.it/490/340", type: "image" },
   },
   {
     "_id": "561",
-    "category": "Art",
+    "category": "PR photos",
     "mediaUrl": { url: "http://unsplash.it/407/340", type: "image" },
   },
   {
     "_id": "562",
-    "category": "Art",
+    "category": "PR photos",
     "mediaUrl": { url: "http://unsplash.it/270/350", type: "image" },
   },
   {
     "_id": "563",
-    "category": "Image",
+    "category": "WONDERING",
     "mediaUrl": { url: "http://unsplash.it/440/350", type: "image" },
   }
 ];
