@@ -4,6 +4,7 @@ import PhotoList from '../cpm/PhotoList';
 import { loadPictures, removePicture, setFilterBy, loadCategories } from '../store/actions/picture.actions';
 import CategoryFilter from '../cpm/PhotosFilter';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress'
 
 export default function GalleryPage() {
   const { category } = useParams();
@@ -61,7 +62,7 @@ export default function GalleryPage() {
     [dispatch, loggedInUser]
   );
 
-  if (!pictures) return <div>Loading...</div>;
+  if (!pictures) return <CircularProgress />
 
   return (
     <section className="gallery-page">
