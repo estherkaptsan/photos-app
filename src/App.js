@@ -10,6 +10,16 @@ import ContactUs from './cpm/ContactUs';
 import PhotoEdit from './pages/PhotoEdit';
 import LoginForm from './pages/LogIn';
 import { PhotoDetails } from './pages/PhotoDetail';
+import ResetPassword from './pages/ResetPassword';
+
+
+
+function Header() {
+  const location = useLocation();
+  const showHeader = !(location.pathname.includes('/photo/') && !location.pathname.includes('/photo/edit'));
+
+  return showHeader ? <AppHeader /> : null;
+}
 
 
 function App() {
@@ -18,7 +28,7 @@ function App() {
     <Router>
     <div className="App">
       <header className="">
-<AppHeader />
+<Header />
       </header>
       <Routes>
       <Route path="/" element={<HomePage />} />
@@ -28,6 +38,7 @@ function App() {
       <Route path="/photo/:id" element={<PhotoDetails />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/login" element={<LoginForm />} />
+      <Route path="/reset/password" element={<ResetPassword />} />
       </Routes>
      <Footer />
     </div>
