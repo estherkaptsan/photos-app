@@ -1,6 +1,7 @@
 // stup::after
 @import url('../Style/setup/typography.scss');
 @import url('../Style/setup/helpers.scss');
+
 // cmp :
 @import url('../Style/footer.scss');
 @import url('../Style/AppHeader.scss');
@@ -16,8 +17,3 @@
 @import url('../Style/PhotosFilter.scss');
 @import url('../Style/PhotoDetails.scss');
 
-
-p, h1, h2,h3,h4, h5, a {
-    font-family: "NHaasGroteskDSPro-65Md",sans-serif;
-    // font-family:  Georgia, Times, 'Times New Roman', serif;
-}

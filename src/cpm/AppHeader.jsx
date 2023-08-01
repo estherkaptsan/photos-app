@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import WhatsAppLink from './WhatsApp';
+// import WhatsAppLink from './WhatsApp';
 
 
 const AppHeader = () => {
@@ -51,14 +51,12 @@ const AppHeader = () => {
                         {/* <li><Link to="/contact">Contact</Link></li> */}
                         {/* <li><Link to="/login">login</Link></li> */}
                     </ul>
-                    <div className='icons-section'>
-                        {/* <ul className="nav-links"> */}
+                    {/* <div className='icons-section'>
                         <WhatsAppLink phoneNumber="0528891567" />
                         <Link to="https://www.instagram.com/gulitamuz_photography/">
                             <i className="fa-brands fa-instagram"></i>
                         </Link>
-                        {/* </ul> */}
-                    </div>
+                    </div> */}
                 </div>
             )}
         </header>

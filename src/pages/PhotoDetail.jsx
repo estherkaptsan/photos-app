@@ -3,6 +3,7 @@ import { pictureService } from '../services/picture.service';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { loadPictures } from '../store/actions/picture.actions';
+import CircularProgress from '@mui/material/CircularProgress'
 
 export function PhotoDetails(props) {
   console.log('photo details', props);
@@ -67,7 +68,7 @@ export function PhotoDetails(props) {
     loadPhoto(prevPhoto);
   }
 
-  if (!photo) return <div>Loading...</div>;
+  if (!photo) return <CircularProgress />
 
   let touchStartX = 0;
 

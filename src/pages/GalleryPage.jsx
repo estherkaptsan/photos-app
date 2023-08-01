@@ -62,7 +62,7 @@ export default function GalleryPage() {
     [dispatch, loggedInUser]
   );
 
-  if (!pictures) return <CircularProgress />
+  if (!pictures) return <div className='loader'><CircularProgress /></div>
 
   return (
     <section className="gallery-page">

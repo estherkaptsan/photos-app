@@ -1,3 +1,12 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the entire viewport height is used */
+  margin: 0;
+}
+
+
 .photo-details {
   display: flex;
   flex-direction: column;
