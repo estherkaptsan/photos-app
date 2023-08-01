@@ -1,5 +1,5 @@
 import { storageService } from './async-storage.service'
-// import { httpService } from './http.service.js'
+import { httpService } from './http.service.js'
 import { storageServiceB } from './storage.service';
 
 export const pictureService = {
@@ -10,7 +10,7 @@ export const pictureService = {
   getEmptyPicture,
   getCategories
 }
-const STORAGE_KEY = 'PhotoDB'
+const STORAGE_KEY = 'photo'
 const gDefaultPictures = [
   {
     "_id": "123",
@@ -109,35 +109,31 @@ var gPictures = _loadPictures()
 
 async function getPictures(filterBy) {
 
-  // return httpService.get(STORAGE_KEY, filterBy)
+  return httpService.get(STORAGE_KEY, filterBy)
 
-  const values = Object.values(filterBy);
+  // const values = Object.values(filterBy);
 
-  const str = values.join('');
-  console.log(str)
-  let picturesToReturn = gPictures
+  // const str = values.join('');
+  // console.log(str)
+  // let picturesToReturn = gPictures
 
-  if (str === 'ALL') {
-    picturesToReturn = gPictures
-  }
-  else if (str) {
-    picturesToReturn = gPictures.filter(picture => str.includes(picture.category))
+  // if (str === 'ALL') {
+  //   picturesToReturn = gPictures
+  // }
+  // else if (str) {
+  //   picturesToReturn = gPictures.filter(picture => str.includes(picture.category))
+  // }
 
-
-  }
-
-  console.log(picturesToReturn)
-  return Promise.resolve([...picturesToReturn])
-
-
+  // console.log(picturesToReturn)
+  // return Promise.resolve([...picturesToReturn])
 };
 
 
 
 function getPictureById(pictureId) {
 
-  // return httpService.get(`picture/${pictureId}`)
-  return storageService.get(STORAGE_KEY, pictureId)
+  return httpService.get(`picture/${pictureId}`)
+  // return storageService.get(STORAGE_KEY, pictureId)
 
   // return new Promise((resolve, reject) => {
   //   const picture = gPictures.find((picture) => picture._id === id)
@@ -148,12 +144,12 @@ function getPictureById(pictureId) {
 async function savePicture(picture) {
   var savedpicture
   if (picture._id) {
-    savedpicture = await storageService.put(STORAGE_KEY, picture)
-    //     savedpicture = await httpService.put(`picture/${picture._id}`, picture)
+    // savedpicture = await storageService.put(STORAGE_KEY, picture)
+    savedpicture = await httpService.put(`picture/${picture._id}`, picture)
 
   } else {
-    savedpicture = await storageService.post(STORAGE_KEY, picture)
-    //     savedpicture = await httpService.post('picture', picture)
+    // savedpicture = await storageService.post(STORAGE_KEY, picture)
+    savedpicture = await httpService.post('picture', picture)
   }
   return savedpicture
 
@@ -161,9 +157,9 @@ async function savePicture(picture) {
 }
 
 async function deletePicture(pictureId) {
-  // return httpService.delete(`picture/${pictureId}`)
+  return httpService.delete(`picture/${pictureId}`)
 
-  await storageService.remove(STORAGE_KEY, pictureId)
+  // await storageService.remove(STORAGE_KEY, pictureId)
   // const idx = gPictures.findIndex(picture => picture._id === id)
   // gPictures.splice(idx, 1)
 

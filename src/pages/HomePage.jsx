@@ -36,7 +36,7 @@ export default function HomePage() {
   // const isVideo = categoryPictures.mediaUrl.type === 'video';
   console.log('isVideo', categoryPictures);
 
-  // if(!categoryPictures || !pictures) return <div>loading...</div>
+  if(!categoryPictures || !pictures) return <div>loading...</div>
   return (
 
     <div className="home-page">

@@ -35,7 +35,7 @@ const AppHeader = () => {
                     <i className="fa-solid fa-bars"></i>
                 </button>)}
                 {isMenuOpen && (<button className='btn-toggle' onClick={toggleMenu}
-                ><i class="fa-solid fa-bars fa-rotate-90"></i>
+                ><i className="fa-solid fa-bars fa-rotate-90"></i>
                 </button>)}
             </nav>
 

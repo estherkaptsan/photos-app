@@ -14,7 +14,7 @@ export const photoService = {
 window.cs = photoService
 
 
-async function query(filterBy = { category : 'ALL' }) {
+async function query(filterBy = { category : '' }) {
     return httpService.get('photo', filterBy)
 }
 function getById(photoId) {
