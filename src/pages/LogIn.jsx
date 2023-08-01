@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../store/actions/user.actions';
+import {Link} from 'react-router-dom'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
@@ -69,7 +70,7 @@ const LoginForm = () => {
           value={username}
           onChange={handleUsernameChange}
           className="input-field"
-          placeholder='Username'
+          placeholder='Enter your e-mail '
         />
         <br />
         <input
@@ -83,10 +84,13 @@ const LoginForm = () => {
         <button type="submit" className="submit-button">
           Log In
         </button>
-
+        <Link to='/reset/password' >forget password</Link>
         {loginSuccess && <p>Login successful!</p>}
         {loginFailed && <p>Login failed. Please check your credentials.</p>}
       </form>
+
+
+   
     </section>
 
   );
