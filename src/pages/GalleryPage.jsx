@@ -23,7 +23,7 @@ export default function GalleryPage() {
 
     // Cleanup function
     return () => {
-      dispatch(setFilterBy('ALL'));
+      dispatch(setFilterBy(''));
     };
   }, [dispatch]);
 

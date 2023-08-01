@@ -6,6 +6,8 @@ export function PhotoPreview({ picture, onRemovePicture }) {
   const isVideo = picture.mediaUrl.type === 'video';
   const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
 
+
+  console.log('picture from the preview', picture)
   return (
     <>
       <section className='photo-preview'>

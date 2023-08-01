@@ -4,7 +4,7 @@ import { PhotoPreview } from './PhotoPreview';
 export default function PhotoList({ pictures, onRemovePicture }) {
   // Get unique categories from pictures
   const categories = [...new Set(pictures.map((picture) => picture.category))];
-
+console.log('pictures from photo list',{pictures})
   return (
     <div>
       {categories.map((category) => (

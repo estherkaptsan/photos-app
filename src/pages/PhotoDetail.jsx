@@ -6,13 +6,17 @@ import { loadPictures } from '../store/actions/picture.actions';
 import CircularProgress from '@mui/material/CircularProgress'
 
 export function PhotoDetails(props) {
-  console.log('photo details', props);
+  // console.log('photo details', props);
   const [photo, setPhoto] = useState(null);
   const [pictureIds, setPictureIds] = useState([]);
   const params = useParams();
   const navigate = useNavigate();
   const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
   const dispatch = useDispatch();
+
+
+console.log('photo',photo)
+
 
   useEffect(() => {
     dispatch(loadPictures());
@@ -96,13 +100,13 @@ export function PhotoDetails(props) {
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          <i className="fa-solid fa-chevron-left arrow-btn" onClick={() => onPrevious(photo._id)}></i>
+          <i className="fa-solid fa-chevron-left arrow-btn" onClick={() => onPrevious(photo?._id)}></i>
           {isVideo ? (
-            <video controls src={photo.mediaUrl.url} alt={photo.title} />
+            <video controls src={photo?.mediaUrl?.url} alt={photo?.title} />
           ) : (
-            <img className="details-pic" src={photo.mediaUrl.url} alt={photo.title} />
+            <img className="details-pic" src={photo?.mediaUrl?.url} alt={photo.title} />
           )}
-          <i className="fa-solid fa-chevron-right arrow-btn" onClick={() => onNext(photo._id)}></i>
+          <i className="fa-solid fa-chevron-right arrow-btn" onClick={() => onNext(photo?._id)}></i>
         </div>
       </section>
     </section>

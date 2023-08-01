@@ -104,11 +104,11 @@ const gDefaultPictures = [
   }
 ];
 
-var gPictures = _loadPictures()
+// var gPictures = _loadPictures()
 
 
 async function getPictures(filterBy) {
-
+console.log(filterBy)
   return httpService.get(STORAGE_KEY, filterBy)
 
   // const values = Object.values(filterBy);
@@ -167,40 +167,43 @@ async function deletePicture(pictureId) {
   // return Promise.resolve()
 }
 
-function _updatePicture(picture) {
-  return new Promise((resolve, reject) => {
-    const index = gPictures.findIndex((c) => picture._id === c._id)
-    if (index !== -1) {
-      gPictures[index] = picture
-    }
-    resolve(picture)
-  })
-}
+// function _updatePicture(picture) {
+//   return new Promise((resolve, reject) => {
+//     const index = gPictures.findIndex((c) => picture._id === c._id)
+//     if (index !== -1) {
+//       gPictures[index] = picture
+//     }
+//     resolve(picture)
+//   })
+// }
 
-function _addPicture(picture) {
-  return new Promise((resolve, reject) => {
-    picture._id = _makeId();
-    gPictures.push(picture); // Directly add the picture object to the array
-    storageServiceB.store(STORAGE_KEY, gPictures);
-    resolve(picture);
-  });
-}
-
-
+// function _addPicture(picture) {
+//   return new Promise((resolve, reject) => {
+//     picture._id = _makeId();
+//     gPictures.push(picture); // Directly add the picture object to the array
+//     storageServiceB.store(STORAGE_KEY, gPictures);
+//     resolve(picture);
+//   });
+// }
 
 
-function _loadPictures() {
-  let pictures = storageServiceB.load(STORAGE_KEY)
-  if (!pictures || !pictures.length) pictures = gDefaultPictures
-  storageServiceB.store(STORAGE_KEY, pictures)
-  return pictures
-}
+
+
+// function _loadPictures() {
+//   let pictures = storageServiceB.load(STORAGE_KEY)
+//   if (!pictures || !pictures.length) pictures = gDefaultPictures
+//   storageServiceB.store(STORAGE_KEY, pictures)
+//   return pictures
+// }
 
 
 function getCategories() {
-  let categories = _loadPictures();
-  let uniqueCategories = [...new Set(categories.map((picture) => picture.category))];
+  // let categories = _loadPictures();
+  // let uniqueCategories = [...new Set(categories.map((picture) => picture.category))];
   // uniqueCategories.unshift("ALL"); // Add "ALL" as the first element
+
+  let uniqueCategories = ['Image','Fashion','Events','Art']
+
   return uniqueCategories;
 }
 
@@ -230,16 +233,16 @@ function getEmptyPicture() {
 }
 
 
-function filter(term) {
-  term = term.toLocaleLowerCase()
-  return gPictures.filter((picture) => {
-    return (
-      picture.title.toLocaleLowerCase().includes(term) ||
-      picture.categories.toLocaleLowerCase().includes(term) ||
-      picture.mediaurl.toLocaleLowerCase().includes(term)
-    )
-  })
-}
+// function filter(term) {
+//   term = term.toLocaleLowerCase()
+//   return gPictures.filter((picture) => {
+//     return (
+//       picture.title.toLocaleLowerCase().includes(term) ||
+//       picture.categories.toLocaleLowerCase().includes(term) ||
+//       picture.mediaurl.toLocaleLowerCase().includes(term)
+//     )
+//   })
+// }
 
 function _makeId(length = 10) {
   var title = ''
