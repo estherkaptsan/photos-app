@@ -19,7 +19,7 @@ async function query(filterBy = {}) {
         var users = await collection.find(criteria).toArray()
         users = users.map(user => {
             delete user.password
-            user.createdAt = ObjectId(user._id).getTimestamp()
+            // user.createdAt = ObjectId(user._id).getTimestamp()
             // Returning fake fresh data
             // user.createdAt = Date.now() - (1000 * 60 * 60 * 24 * 3) // 3 days ago
             return user
@@ -32,16 +32,18 @@ async function query(filterBy = {}) {
 }
 
 
+
+
 async function getById(userId) {
+    console.log('userid',userId)
     try {
         const collection = await dbService.getCollection('user')
+        // const user = await collection.findOne({ _id: ObjectId(userId) })
         const user = await collection.findOne({ _id: ObjectId(userId) })
+        console.log('user', user)
+
         delete user.password
 
-        // user.givenReviews = user.givenReviews.map(review => {
-        //     delete review.byUser
-        //     return review
-        // })
 
         return user
     } catch (err) {
@@ -76,7 +78,6 @@ async function update(user) {
         const userToSave = {
             _id: ObjectId(user._id), // needed for the returnd obj
             fullname: user.fullname,
-            score: user.score,
         }
         const collection = await dbService.getCollection('user')
         await collection.updateOne({ _id: userToSave._id }, { $set: userToSave })
@@ -94,8 +95,7 @@ async function add(user) {
             username: user.username,
             password: user.password,
             fullname: user.fullname,
-            imgUrl: user.imgUrl,
-            score: 100
+
         }
         const collection = await dbService.getCollection('user')
         await collection.insertOne(userToAdd)
@@ -105,7 +105,6 @@ async function add(user) {
         throw err
     }
 }
-
 function _buildCriteria(filterBy) {
     const criteria = {}
     if (filterBy.txt) {
@@ -119,11 +118,11 @@ function _buildCriteria(filterBy) {
             }
         ]
     }
-    if (filterBy.minBalance) {
-        criteria.score = { $gte: filterBy.minBalance }
-    }
+
     return criteria
 }
+
+
 
 
 
