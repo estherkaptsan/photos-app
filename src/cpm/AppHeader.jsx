@@ -44,12 +44,12 @@ const AppHeader = () => {
                     <ul className="nav-links">
                         <li><Link to="/">Home</Link></li>
                         {/* {loggedInUser && ( */}
-                        <li><Link to="/photo/edit">Edit</Link></li>
+                        {/* <li><Link to="/photo/edit">Edit</Link></li> */}
                         {/* )} */}
                         <li><Link to="/gallery">Gallery</Link></li>
                         <li><Link to="/about">About</Link></li>
                         {/* <li><Link to="/contact">Contact</Link></li> */}
-                        <li><Link to="/login">login</Link></li>
+                        {/* <li><Link to="/login">login</Link></li> */}
                     </ul>
                     <div className='icons-section'>
                         {/* <ul className="nav-links"> */}
@@ -57,7 +57,6 @@ const AppHeader = () => {
                         <Link to="https://www.instagram.com/gulitamuz_photography/">
                             <i className="fa-brands fa-instagram"></i>
                         </Link>
-
                         {/* </ul> */}
                     </div>
                 </div>
