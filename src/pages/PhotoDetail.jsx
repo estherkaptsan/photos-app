@@ -14,6 +14,10 @@ export function PhotoDetails(props) {
   const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
   const dispatch = useDispatch();
 
+
+// console.log('photo',photo)
+
+
   useEffect(() => {
     dispatch(loadPictures());
   }, [dispatch]);
