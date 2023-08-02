@@ -93,5 +93,4 @@ module.exports = {
   addPhoto,
   updatePhoto,
   removePhoto,
-
 }

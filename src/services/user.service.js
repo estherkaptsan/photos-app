@@ -13,7 +13,6 @@ function login(name, password) {
   if (loggedInUser && loggedInUser.name === name && loggedInUser.password === password) {
     return loggedInUser;
   }
-
   return null;
 }
 
