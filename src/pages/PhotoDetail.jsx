@@ -14,10 +14,6 @@ export function PhotoDetails(props) {
   const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
   const dispatch = useDispatch();
 
-
-console.log('photo',photo)
-
-
   useEffect(() => {
     dispatch(loadPictures());
   }, [dispatch]);
@@ -72,7 +68,6 @@ console.log('photo',photo)
     loadPhoto(prevPhoto);
   }
 
-  if (!photo) return <CircularProgress />
 
   let touchStartX = 0;
 
@@ -90,6 +85,8 @@ console.log('photo',photo)
       onNext(photo._id);
     }
   };
+
+  if (!photo) return <CircularProgress />
 
   return (
     <section className="photo-details">

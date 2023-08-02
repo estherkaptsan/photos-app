@@ -20,6 +20,7 @@ async function getPhotos(req, res) {
 async function getPhotoById(req, res) {
   try {
     const photoId = req.params.id
+    console.log('get photoo by id', photoId)
     const photo = await photoService.getById(photoId)
     res.json(photo)
   } catch (err) {

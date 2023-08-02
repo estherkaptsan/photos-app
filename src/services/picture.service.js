@@ -131,8 +131,7 @@ console.log(filterBy)
 
 
 function getPictureById(pictureId) {
-
-  return httpService.get(`picture/${pictureId}`)
+  return httpService.get(`photo/${pictureId}`)
   // return storageService.get(STORAGE_KEY, pictureId)
 
   // return new Promise((resolve, reject) => {
@@ -145,11 +144,11 @@ async function savePicture(picture) {
   var savedpicture
   if (picture._id) {
     // savedpicture = await storageService.put(STORAGE_KEY, picture)
-    savedpicture = await httpService.put(`picture/${picture._id}`, picture)
+    savedpicture = await httpService.put(`photo/${picture._id}`, picture)
 
   } else {
     // savedpicture = await storageService.post(STORAGE_KEY, picture)
-    savedpicture = await httpService.post('picture', picture)
+    savedpicture = await httpService.post('photo', picture)
   }
   return savedpicture
 
@@ -157,7 +156,7 @@ async function savePicture(picture) {
 }
 
 async function deletePicture(pictureId) {
-  return httpService.delete(`picture/${pictureId}`)
+  return httpService.delete(`photo/${pictureId}`)
 
   // await storageService.remove(STORAGE_KEY, pictureId)
   // const idx = gPictures.findIndex(picture => picture._id === id)
