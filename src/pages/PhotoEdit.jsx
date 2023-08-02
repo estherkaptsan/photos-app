@@ -34,6 +34,8 @@ export default function PhotoEdit(props) {
     const newPhotos = uniqueUrls.map((url, index) => ({
       category,
       mediaUrl: { url: url, type: types[index] },
+      created_at: new Date()
+
     }));
   
     setUploadedPhotos((prevPhotos) => [...prevPhotos, ...newPhotos]);
