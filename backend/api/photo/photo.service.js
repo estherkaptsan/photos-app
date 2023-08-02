@@ -8,16 +8,22 @@ async function query(filterBy) {
         const criteria = _buildCriteria(filterBy);
         
         const collection = await dbService.getCollection('photo');
-        console.log('collection',collection)
-        const photos = await collection.find(criteria).toArray() 
-        // .sort({cteated_at : -1})
-        console.log('photos from query', photos)
+        console.log('collection', collection);
+        
+        // Add sorting based on the created_at field in descending order
+        const sortOptions = { created_at: -1 };
+        
+        // Use the sort options in the find query
+        const photos = await collection.find(criteria).sort(sortOptions).toArray();
+        console.log('photos from query', photos);
+        
         return photos;
     } catch (err) {
         logger.error('cannot find photos', err);
         throw err;
     }
 }
+
 
 
 async function getById(photoId) {
