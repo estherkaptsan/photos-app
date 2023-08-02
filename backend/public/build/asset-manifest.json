@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ccc8c881.css",
+    "main.js": "/static/js/main.b516154b.js",
+    "static/js/787.68542ffa.chunk.js": "/static/js/787.68542ffa.chunk.js",
+    "static/media/DancingScript-Bold.ttf": "/static/media/DancingScript-Bold.72fc35f38c2864ca2cd5.ttf",
+    "index.html": "/index.html",
+    "main.ccc8c881.css.map": "/static/css/main.ccc8c881.css.map",
+    "main.b516154b.js.map": "/static/js/main.b516154b.js.map",
+    "787.68542ffa.chunk.js.map": "/static/js/787.68542ffa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ccc8c881.css",
+    "static/js/main.b516154b.js"
+  ]
+}
