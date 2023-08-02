@@ -30,7 +30,6 @@ export function removePicture(pictureId) {
 }
 
 export function setFilterBy(filterBy) {
-  console.log(filterBy)
   return (dispatch) => {
     dispatch({ type: SET_FILTER_BY, filterBy });
   };

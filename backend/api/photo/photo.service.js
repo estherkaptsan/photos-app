@@ -9,7 +9,8 @@ async function query(filterBy) {
         
         const collection = await dbService.getCollection('photo');
         console.log('collection',collection)
-        const photos = await collection.find(criteria).toArray()
+        const photos = await collection.find(criteria).toArray() 
+        // .sort({cteated_at : -1})
         console.log('photos from query', photos)
         return photos;
     } catch (err) {
