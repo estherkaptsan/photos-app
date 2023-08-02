@@ -202,7 +202,7 @@ function getCategories() {
   // let uniqueCategories = [...new Set(categories.map((picture) => picture.category))];
   // uniqueCategories.unshift("ALL"); // Add "ALL" as the first element
 
-  let uniqueCategories = ['EVENTS','FaWONDERING','PROJECTS','PR PHOTO']
+  let uniqueCategories = ['EVENTS','WONDERING','PROJECTS','PR PHOTO']
 
   return uniqueCategories;
 }
