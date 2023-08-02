@@ -32,11 +32,13 @@ export default function GalleryPage() {
 
   const onChangeFilter = useCallback(
     (selectedCategory) => {
-      navigate(`/gallery/${selectedCategory}`); // Directly navigate to the desired URL
+      const {category} = selectedCategory
+      navigate(`/gallery/${category}`); // Directly navigate to the desired URL
       dispatch(setFilterBy(selectedCategory));
     },
     [dispatch, navigate]
   );
+  
 
   useEffect(() => {
     // Call the filtering function when the URL parameters change

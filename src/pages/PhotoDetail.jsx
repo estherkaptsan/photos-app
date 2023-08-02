@@ -15,7 +15,7 @@ export function PhotoDetails(props) {
   const dispatch = useDispatch();
 
 
-console.log('photo',photo)
+// console.log('photo',photo)
 
 
   useEffect(() => {

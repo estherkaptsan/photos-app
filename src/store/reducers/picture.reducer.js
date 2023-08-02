@@ -11,7 +11,7 @@ const INITIAL_STATE = {
     pictures: [],
     categories: [],
     filterBy: {
-      categories: '',
+      category: '',
     }
   };
   

@@ -7,7 +7,7 @@ export function PhotoPreview({ picture, onRemovePicture }) {
   const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
 
 
-  console.log('picture from the preview', picture)
+  // console.log('picture from the preview', picture)
   return (
     <>
       <section className='photo-preview'>

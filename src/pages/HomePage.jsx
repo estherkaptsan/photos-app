@@ -20,7 +20,7 @@ export default function HomePage() {
 
   const onChangeFilter = useCallback(
     (selectedCategory) => {
-      dispatch(setFilterBy({ ...filterBy, categories: selectedCategory }));
+      dispatch(setFilterBy({ ...filterBy, category: selectedCategory }));
       dispatch(loadPictures());
     },
     [dispatch, filterBy]
