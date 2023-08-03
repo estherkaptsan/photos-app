@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { loadPictures, removePicture, setFilterBy, loadCategories } from '../store/actions/picture.actions';
+import { loadPictures, loadCategories } from '../store/actions/picture.actions';
 import { pictureService } from '../services/picture.service';
 import ImgUploader from '../cpm/ImgUploader';
+import '../Style/PhotoEdit.scss';
 
-export default function PhotoEdit(props) {
+export default function PhotoEdit() {
   const [category, setSelectedOption] = useState('');
   const [uploadedPhotos, setUploadedPhotos] = useState([]);
+  const [isUploading, setIsUploading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const allCategories = useSelector((storeState) => storeState.pictureModule.categories);
@@ -15,60 +17,54 @@ export default function PhotoEdit(props) {
 
   useEffect(() => {
     dispatch(loadPictures());
-  }, []);
-
-  useEffect(() => {
     dispatch(loadCategories());
-  }, []);
+  }, [dispatch]);
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
   };
+
   const handleImageUpload = ({ urls, types }) => {
-    // Filter out duplicate mediaUrls from already uploaded photos
     const uniqueUrls = urls.filter((url, index) => {
       const type = types[index];
-      return !uploadedPhotos.some((photo) => photo.mediaUrl.url === url && photo.mediaUrl.type === type);
+      setIsUploading(true);
+
+      return !uploadedPhotos.some(
+        (photo) => photo.mediaUrl.url === url && photo.mediaUrl.type === type
+      );
     });
-  
+
     const newPhotos = uniqueUrls.map((url, index) => ({
       category,
       mediaUrl: { url: url, type: types[index] },
-      created_at: new Date()
-
+      created_at: new Date(),
     }));
-  
-    setUploadedPhotos((prevPhotos) => [...prevPhotos, ...newPhotos]);
-  };
-  
 
-  async function handleSubmit(event) {
+    setUploadedPhotos((prevPhotos) => [...prevPhotos, ...newPhotos]);
+    setIsUploading(false);
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log('uploadedPhotos', uploadedPhotos);
+    setIsUploading(true);
 
-    // Save each uploaded photo separately
     for (const photo of uploadedPhotos) {
       await pictureService.savePicture(photo);
     }
 
+    setIsUploading(false);
     navigate('/');
-
     setSelectedOption('');
     setUploadedPhotos([]);
-  }
+  };
 
+  const isCategorySelected = category !== '';
+  const isFormReadyToSubmit = isCategorySelected && uploadedPhotos.length > 0 && !isUploading;
 
-  // if (!loggedInUser) return (<div>no loggedInUser</div>)
   return (
     <div className='edit-page'>
       <form className="edit-form" onSubmit={handleSubmit}>
-        {/* <input
-          placeholder="Title"
-          className="edit-input"
-          value={title}
-          onChange={handleTitleChange}
-        /> */}
         <select
           name="category"
           value={category}
@@ -82,11 +78,19 @@ export default function PhotoEdit(props) {
             </option>
           ))}
         </select>
-        <ImgUploader onFileUpload={handleImageUpload} />
-        <button type="submit" className="edit-button">
+        <ImgUploader
+          onFileUpload={handleImageUpload}
+          isUploading={isUploading}
+          isCategorySelected={isCategorySelected}
+        />
+        <button
+          disabled={!isFormReadyToSubmit}
+          type="submit"
+          className={`edit-button ${isFormReadyToSubmit ? 'enabled' : 'disabled'}`}
+        >
           Save
         </button>
       </form>
     </div>
-  )
+  );
 }

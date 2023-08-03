@@ -1,29 +1,28 @@
 import React, { useState } from 'react';
 import { uploadService } from '../services/upload.service.js';
 
-const ImgUploader = ({ onFileUpload }) => {
+const ImgUploader = ({ onFileUpload, isUploading, isCategorySelected }) => {
   const [fileUrls, setFileUrls] = useState([]);
   const [fileTypes, setFileTypes] = useState([]);
-  const [isUploading, setIsUploading] = useState(false);
 
   const uploadFile = async (ev) => {
-    setIsUploading(true);
+    if (!isCategorySelected) {
+      alert("Please choose a category first.");
+      return;
+    }
+
     const files = ev.target.files;
 
-    // Use Promise.all to upload multiple files concurrently
     const uploadedFiles = await Promise.all(
       Array.from(files).map((file) => uploadService.uploadFile(file))
     );
 
-    // Extract the URLs and types from the uploaded files
     const urls = uploadedFiles.map(({ secure_url }) => secure_url);
     const types = uploadedFiles.map(({ resource_type }) => resource_type);
 
-    setIsUploading(false);
     setFileUrls((prevUrls) => [...prevUrls, ...urls]);
     setFileTypes((prevTypes) => [...prevTypes, ...types]);
 
-    // Pass the array of URLs and types to the onFileUpload callback
     onFileUpload({ urls: [...fileUrls, ...urls], types: [...fileTypes, ...types] });
   };
 
@@ -57,8 +56,9 @@ const ImgUploader = ({ onFileUpload }) => {
         }
         return null;
       })}
-      <label htmlFor="fileUpload">{uploadMsg()}</label>
+      <label htmlFor="fileUpload"  className={isCategorySelected && !isUploading ? 'enabled' : 'disabled'}>{uploadMsg()}</label>
       <input
+        disabled={!isCategorySelected || isUploading}
         type="file"
         onChange={uploadFile}
         accept="image/*,video/*"

@@ -28,17 +28,15 @@ export default function HomePage() {
 
   const uniqueCategories = [...new Set(pictures.map((picture) => picture.category))];
 
-  // Define categoryPictures here
   const categoryPictures = uniqueCategories.map((category) => {
     const picturesForCategory = pictures.filter((picture) => picture.category === category);
-    return picturesForCategory.length > 0 ? picturesForCategory[0] : null;
+    const imagePicture = picturesForCategory.find((picture) => picture.mediaUrl.type !== 'video');
+    return imagePicture || picturesForCategory.find((picture) => picture.mediaUrl.type === 'video');
   });
-  // const isVideo = categoryPictures.mediaUrl.type === 'video';
-  console.log('isVideo', categoryPictures);
 
-  if(!categoryPictures || !pictures) return <div>loading...</div>
+  if (!categoryPictures || !pictures) return <div>loading...</div>;
+
   return (
-
     <div className="home-page">
       {/* <h1>Welcome to my website</h1> */}
       <div className="grid-container">
@@ -48,7 +46,7 @@ export default function HomePage() {
             to={`/gallery/${encodeURIComponent(category)}`}
             onClick={() => onChangeFilter(category)}
           >
-            <div className="grid-item grid-item-${index + 1}">
+            <div className={`grid-item grid-item-${index + 1}`}>
               {/* <div className="category-name">{category}</div> */}
               {categoryPictures[index] ? (
                 categoryPictures[index].mediaUrl.type !== 'video' ? (
