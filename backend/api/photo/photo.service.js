@@ -25,7 +25,7 @@ async function query(filterBy) {
 }
 
 
-
+ 
 async function getById(photoId) {
     try {
         const collection = await dbService.getCollection('photo')
