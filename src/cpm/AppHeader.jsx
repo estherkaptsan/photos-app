@@ -43,13 +43,13 @@ const AppHeader = () => {
                 <div className='menu' onClick={toggleMenu}>
                     <ul className="nav-links">
                         <li><Link to="/">Home</Link></li>
-                        {/* {loggedInUser && ( */}
-                        {/* <li><Link to="/photo/edit">Edit</Link></li> */}
-                        {/* )} */}
+                        {loggedInUser && ( 
+                         <li><Link to="/photo/edit">Edit</Link></li> 
+                         )}
                         <li><Link to="/gallery">Gallery</Link></li>
                         <li><Link to="/about">About</Link></li>
-                        {/* <li><Link to="/contact">Contact</Link></li> */}
-                        {/* <li><Link to="/login">login</Link></li> */}
+                        <li><Link to="/contact">Contact</Link></li> 
+                        <li><Link to="/login">login</Link></li>
                     </ul>
                     {/* <div className='icons-section'>
                         <WhatsAppLink phoneNumber="0528891567" />
