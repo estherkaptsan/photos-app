@@ -3,6 +3,8 @@ import { loadPictures, removePicture, setFilterBy, loadCategories } from '../sto
 import CategoryFilter from '../cpm/PhotosFilter';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress'
+
 
 export default function HomePage() {
   const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
@@ -34,7 +36,7 @@ export default function HomePage() {
     return imagePicture || picturesForCategory.find((picture) => picture.mediaUrl.type === 'video');
   });
 
-  if (!categoryPictures || !pictures) return <div>loading...</div>;
+  if (!categoryPictures || !pictures) return <div className='loader'><CircularProgress /></div>;
 
   return (
     <div className="home-page">

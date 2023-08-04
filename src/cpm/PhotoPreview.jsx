@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux'
+import CircularProgress from '@mui/material/CircularProgress'
 
 export function PhotoPreview({ picture, onRemovePicture }) {
   const isVideo = picture.mediaUrl.type === 'video';
   const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
 
 
+
+  if (!picture) return <div className='loader'><CircularProgress /></div>
   // console.log('picture from the preview', picture)
   return (
     <>

@@ -106,7 +106,7 @@ export function PhotoDetails(props) {
     }
   };
 
-  if (!photo) return <CircularProgress />
+  if (!photo) return <div className='loader'><CircularProgress /></div>
 
   return (
     <section className="photo-details">

@@ -1,10 +1,13 @@
 import React from 'react';
 import { PhotoPreview } from './PhotoPreview';
+import CircularProgress from '@mui/material/CircularProgress'
 
 export default function PhotoList({ pictures, onRemovePicture }) {
   // Get unique categories from pictures
   const categories = [...new Set(pictures.map((picture) => picture.category))];
 // console.log('pictures from photo list',{pictures})
+
+if(!pictures) return <div className='loader'><CircularProgress /></div>
   return (
     <div>
       {categories.map((category) => (
