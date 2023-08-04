@@ -22,9 +22,12 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const credentials = {
+      username: username,
+      password: password
+    };
     // Dispatch the login action
-    const success = await dispatch(login(username, password));
+    const success = await dispatch(login(credentials));
 
     if (success) {
       // Set login success state and display a success message

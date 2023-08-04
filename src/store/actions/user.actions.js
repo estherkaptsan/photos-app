@@ -1,10 +1,10 @@
 import { userService } from '../../services/user.service';
 
-export function login(username, password) {
+export function login(credentials) {
   return async (dispatch) => {
     try {
       // Perform login logic using the userService
-      const loggedInUser = userService.login(username, password);
+      const loggedInUser = userService.login(credentials);
 
       if (loggedInUser) {
         console.log('Login successful!');

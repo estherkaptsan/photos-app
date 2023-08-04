@@ -20,7 +20,7 @@ async function getPhotos(req, res) {
 async function getPhotoById(req, res) {
   try {
     const photoId = req.params.id
-    console.log('get photoo by id', photoId)
+    // console.log('get photoo by id', photoId)
     const photo = await photoService.getById(photoId)
     res.json(photo)
   } catch (err) {
@@ -31,13 +31,13 @@ async function getPhotoById(req, res) {
 
 async function addPhoto(req, res) {
   const {loggedinUser} = req
-  console.log('req',req)
-  console.log('req.body',req.body)
+  // console.log('req',req)
+  // console.log('req.body',req.body)
 
   try {
     const photo = req.body
     // photo.owner = loggedinUser
-    console.log('photo',photo)
+    // console.log('photo',photo)
     const addedPhoto = await photoService.add(photo)
     res.json(addedPhoto)
   } catch (err) {
