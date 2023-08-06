@@ -1,6 +1,13 @@
 .edit-page {
-  width: 100vw;
+  // width: 100vw;
   height: 90vh;
+}
+
+.loggin-msg {
+  display: flex;
+  justify-content: center;
+  font-size: 23px;
+  font-family: "NHaasGroteskDSPro-65Md", sans-serif;
 }
 
 .edit-form {
@@ -12,7 +19,7 @@
   padding: 22px;
   border-radius: 4px;
   gap: 20px;
-  transform: translateY(30%);
+  // transform: translateY(30%);
   background-color: #ffffff6d;
 
   .edit-input,

@@ -23,25 +23,25 @@ function Header() {
 
 
 function App() {
-  
+
   return (
     <Router>
-    <div className="App">
-      <header className="">
-<Header />
-      </header>
-      <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/photo/edit" element={<PhotoEdit />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/gallery/:category?" element={<GalleryPage />} />
-      <Route path="/photo/:id" element={<PhotoDetails />} />
-      <Route path="/contact" element={<ContactUs />} />
-      <Route path="/login" element={<LoginForm />} />
-      <Route path="/reset/password" element={<ResetPassword />} />
-      </Routes>
-     <Footer />
-    </div>
+      <div className="App">
+        <header className="">
+          <Header />
+        </header>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/photo/edit" element={<PhotoEdit />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/gallery/:category?" element={<GalleryPage />} />
+          <Route path="/photo/:id" element={<PhotoDetails />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/reset/password" element={<ResetPassword />} />
+        </Routes>
+        {/* <Footer /> */}
+      </div>
     </Router>
   );
 }

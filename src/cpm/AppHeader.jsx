@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-// import WhatsAppLink from './WhatsApp';
+import Footer from './Footer';
 
 
 const AppHeader = () => {
@@ -43,12 +43,12 @@ const AppHeader = () => {
                 <div className='menu' onClick={toggleMenu}>
                     <ul className="nav-links">
                         <li><Link to="/">Home</Link></li>
-                        {loggedInUser && ( 
-                         <li><Link to="/photo/edit">Edit</Link></li> 
-                         )}
+                        {loggedInUser && (
+                            <li><Link to="/photo/edit">Edit</Link></li>
+                        )}
                         <li><Link to="/gallery">Gallery</Link></li>
                         <li><Link to="/about">About</Link></li>
-                        <li><Link to="/contact">Contact</Link></li> 
+                        <li><Link to="/contact">Contact</Link></li>
                         <li><Link to="/login">login</Link></li>
                     </ul>
                     {/* <div className='icons-section'>
@@ -57,6 +57,7 @@ const AppHeader = () => {
                             <i className="fa-brands fa-instagram"></i>
                         </Link>
                     </div> */}
+                    <Footer />
                 </div>
             )}
         </header>
