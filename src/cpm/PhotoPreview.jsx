@@ -7,15 +7,11 @@ export function PhotoPreview({ picture, onRemovePicture }) {
   const isVideo = picture.mediaUrl.type === 'video';
   const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
 
-
-
   if (!picture) return <div className='loader'><CircularProgress /></div>
-  // console.log('picture from the preview', picture)
   return (
     <>
       <section className='photo-preview'>
         <Link to={`/photo/${picture._id}`} className='details-link'>
-          {/* <h3>{picture.title}</h3> */}
           {isVideo ? (
             <video controls src={picture.mediaUrl.url} alt={picture.title} />
           ) : (

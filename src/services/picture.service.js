@@ -108,14 +108,10 @@ const gDefaultPictures = [
 
 
 async function getPictures(filterBy) {
-
-  console.log(filterBy)
   return httpService.get(STORAGE_KEY, filterBy)
   // const values = Object.values(filterBy);
   
   // const str = values.join('');
-  // console.log(str)
-  // console.log(str)
   // let picturesToReturn = gPictures
 
   // if (str === 'ALL') {
@@ -126,11 +122,8 @@ async function getPictures(filterBy) {
   //   picturesToReturn = gPictures.filter(picture => str.includes(picture.category))
   // }
 
-  // console.log(picturesToReturn)
   // return Promise.resolve([...picturesToReturn])
 };
-
-
 
 function getPictureById(pictureId) {
   return httpService.get(`photo/${pictureId}`)
@@ -222,17 +215,12 @@ function sort(arr) {
   })
 }
 
-
-
-
-
 function getEmptyPicture() {
   return {
     mediaUrl: '', // Fix the property name here
     category: '',
   };
 }
-
 
 // function filter(term) {
 //   term = term.toLocaleLowerCase()

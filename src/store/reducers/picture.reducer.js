@@ -11,10 +11,9 @@ const INITIAL_STATE = {
     pictures: [],
     categories: [],
     filterBy: {
-      category: '',
+        category: '',
     }
-  };
-  
+};
 
 export function pictureReducer(state = INITIAL_STATE, action = {}) {
 
@@ -46,11 +45,10 @@ export function pictureReducer(state = INITIAL_STATE, action = {}) {
                 pictures: state.pictures.map(picture => picture._id === action.picture._id ? action.picture : picture)
             }
         case SET_FILTER_BY:
-            console.log(action)
             return {
                 ...state,
                 filterBy: { ...action.filterBy }
-                
+
             }
 
         default:

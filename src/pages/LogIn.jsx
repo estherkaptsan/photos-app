@@ -26,29 +26,22 @@ const LoginForm = () => {
       username: username,
       password: password
     };
-    // Dispatch the login action
     const success = await dispatch(login(credentials));
 
     if (success) {
-      // Set login success state and display a success message
       setLoginSuccess(true);
       setLoginFailed(false);
-      console.log('Login successful!');
     } else {
-      // Set login failure state and display a failure message
       setLoginSuccess(false);
       setLoginFailed(true);
-      console.log('Invalid credentials');
     }
 
-    // Reset form fields
     setUsername('');
     setPassword('');
   };
 
   const handleLogout = () => {
     dispatch(logout());
-    console.log('Logged out');
   };
 
   if (loggedInUser) {
@@ -91,9 +84,6 @@ const LoginForm = () => {
         {loginSuccess && <p>Login successful!</p>}
         {loginFailed && <p>Login failed. Please check your credentials.</p>}
       </form>
-
-
-   
     </section>
 
   );

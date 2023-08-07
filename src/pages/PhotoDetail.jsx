@@ -7,7 +7,6 @@ import { loadPictures, removePicture, setFilterBy, loadCategories } from '../sto
 
 
 export function PhotoDetails(props) {
-  // console.log('photo details', props);
   const [photo, setPhoto] = useState(null);
   const [pictureIds, setPictureIds] = useState([]);
   const params = useParams();
@@ -15,11 +14,6 @@ export function PhotoDetails(props) {
   const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
   const dispatch = useDispatch();
   const filterBy = useSelector((storeState) => storeState.pictureModule.filterBy);
-
-
-
-  // console.log('photo',photo)
-
 
   useEffect(() => {
     dispatch(loadPictures());
@@ -31,7 +25,6 @@ export function PhotoDetails(props) {
   }, []);
 
   if (photo) {
-
     const { category } = photo
   }
   const onChangeFilter = useCallback(

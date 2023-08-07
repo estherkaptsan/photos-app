@@ -15,12 +15,9 @@ async function login(username, password) {
     logger.debug(`auth.service - login with username: ${username}`)
 
     const user = await userService.getByUsername(username)
-    console.log('user',user)
     if (!user) return Promise.reject('Invalid username or password')
     // TODO: un-comment for real login
     const match = await bcrypt.compare(password, user.password)
-
-    console.log(' user.password', user.password)
 
     if (!match) return Promise.reject('Invalid username or password')
 
@@ -46,7 +43,6 @@ async function signup({username, password, fullname}) {
 
 function getLoginToken(user) {
     const userInfo = {_id : user._id, fullname: user.fullname, isAdmin: user.isAdmin}
-    console.log('user',user)
     return cryptr.encrypt(JSON.stringify(userInfo))    
 }
 

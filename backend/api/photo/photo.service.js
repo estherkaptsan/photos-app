@@ -6,16 +6,9 @@ const ObjectId = require('mongodb').ObjectId
 async function query(filterBy) {
     try {
         const criteria = _buildCriteria(filterBy);
-        
         const collection = await dbService.getCollection('photo');
-        // console.log('collection', collection);
-        
-        // Add sorting based on the created_at field in descending order
         const sortOptions = { created_at: -1 };
-        
-        // Use the sort options in the find query
         const photos = await collection.find(criteria).sort(sortOptions).toArray();
-        // console.log('photos from query', photos);
         
         return photos;
     } catch (err) {

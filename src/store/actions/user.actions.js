@@ -7,7 +7,6 @@ export function login(credentials) {
       const loggedInUser = userService.login(credentials);
 
       if (loggedInUser) {
-        console.log('Login successful!');
         dispatch({ type: 'LOGIN', user: loggedInUser });
         return true;
       } else {
@@ -34,19 +33,17 @@ export function logout() {
 export function updateUser(user) {
   return async (dispatch, getState) => {
     try {
-      const { loggedInUser } = getState().user; // Get the logged-in user from the state
+      const { loggedInUser } = getState().user;
       if (!loggedInUser) {
         console.log('User not logged in');
         return false;
       }
 
-      // Check if the logged-in user matches the user to be updated
       if (loggedInUser.name !== user.name) {
         console.log('Unauthorized: Cannot update another user');
         return false;
       }
 
-      // Perform update logic using the userService
       userService.update(user);
 
       console.log('User updated successfully');

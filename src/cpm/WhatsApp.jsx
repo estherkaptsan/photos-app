@@ -10,7 +10,7 @@ const WhatsAppLink = ({ phoneNumber }) => {
 
   return (
     <Link to={link} target="_blank">
-      <i className="fa-brands fa-whatsapp"></i>
+      <i className="fa-brands fa-whatsapp" style={{color: "#262627"}}></i>
     </Link>
   );
 };

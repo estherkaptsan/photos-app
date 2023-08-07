@@ -1,17 +1,15 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the page takes up at least the viewport height */
+    min-height: 100vh;
   }
   
   .footer {
     position: fixed;
     bottom: 0;
     background-color: #ffffff;
-    padding: 0.1rem;
-    // text-align: center;
-    // margin-top: auto; /* Push the footer to the bottom of the page */
-    // left: 0;
+    padding: 15px;
+  
     width: 100%;
     border-top: 1px solid lightgray;
    
