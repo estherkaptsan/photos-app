@@ -36,7 +36,7 @@ function App() {
       <Route path="/about" element={<About />} />
       <Route path="/gallery/:category?" element={<GalleryPage />} />
       <Route path="/photo/:id" element={<PhotoDetails />} />
-      <Route path="/contact" element={<ContactUs />} />
+      {/* <Route path="/contact" element={<ContactUs />} /> */}
       <Route path="/login" element={<LoginForm />} />
       <Route path="/reset/password" element={<ResetPassword />} />
       </Routes>

@@ -53,7 +53,8 @@
       &:hover {
         border-color: rgb(91, 75, 70);
 
-        img {
+        img,
+        video {
           filter: grayscale(100%);
         }
 
@@ -64,7 +65,8 @@
         }
       }
 
-      img {
+      img,
+      video {
         width: 100%;
         filter: grayscale(0);
         // border-radius: 5px;

@@ -16,7 +16,7 @@ const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
         {categories.map((category, index) => (
           <div
             key={index}
-            className={`category ${category === activeCategory  ? 'active' : ''}`}
+            className={`category ${category === activeCategory.category  ? 'active' : ''}`}
             onClick={() => onChangeFilter(category)}
           >
             {category}
