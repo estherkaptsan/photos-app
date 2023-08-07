@@ -22,9 +22,10 @@
   top: 0.5rem;
   right: 0.5rem;
   background-color: transparent;
-  color: lightgrey;
+  color:#222121;
   border: none;
   cursor: pointer;
+  font-size: 23px;
 }
 
 .photo-preview img {
@@ -51,7 +52,7 @@ img {
   object-fit: cover;
   margin-top: 0px;
   // margin-bottom: 20px;
-  border: 1px solid#c3bebe;
+  // border: 1px solid#c3bebe;
   // box-shadow: 1px 3px 8px rgba(0,0,0,0.5);
 }
 .photo-preview img,

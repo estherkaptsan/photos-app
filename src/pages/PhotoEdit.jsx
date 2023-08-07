@@ -64,7 +64,7 @@ export default function PhotoEdit() {
   const isFormReadyToSubmit = isCategorySelected && uploadedPhotos.length > 0 && !isUploading;
 
 
-  if (!loggedInUser) return <div>log in  order to add photos</div>
+  if (!loggedInUser) return <div className='loggin-msg'>log in order to add photos</div>
   return (
     <div className='edit-page'>
       <form className="edit-form" onSubmit={handleSubmit}>
