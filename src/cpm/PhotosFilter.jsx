@@ -3,11 +3,11 @@ import React, { useState , useEffect} from 'react';
 const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
   const [activeCategory, setActiveCategory] = useState({category : selectedCategory});
 
-  useEffect(() => {
-    if (selectedCategory) {
-      setActiveCategory({ category: selectedCategory });
-    }
-  }, [selectedCategory, activeCategory.category]);
+  // useEffect(() => {
+  //   if (selectedCategory) {
+  //     setActiveCategory({ category: selectedCategory });
+  //   }
+  // }, [selectedCategory, activeCategory.category]);
 
 
   const onChangeFilter = (category) => {

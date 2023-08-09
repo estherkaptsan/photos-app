@@ -76,7 +76,7 @@ export default function GalleryPage() {
           <div className="filter-sidebar">
             <CategoryFilter
               categories={categories}
-              selectedCategory={category}
+              selectedCategory={filterBy.category}
               onSelectCategory={onChangeFilter}
             />
           </div>
