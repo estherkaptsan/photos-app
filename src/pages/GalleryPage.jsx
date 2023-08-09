@@ -18,6 +18,7 @@ export default function GalleryPage() {
   const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
 
   useEffect(() => {
+
     dispatch(loadPictures());
     dispatch(loadCategories());
 
@@ -29,6 +30,7 @@ export default function GalleryPage() {
 
   const queryParams = new URLSearchParams(location.search);
   const filterByCategory = queryParams.get('category');
+
 
   const onChangeFilter = useCallback(
     (selectedCategory) => {
@@ -74,7 +76,7 @@ export default function GalleryPage() {
           <div className="filter-sidebar">
             <CategoryFilter
               categories={categories}
-              selectedCategory={filterBy.categories}
+              selectedCategory={category}
               onSelectCategory={onChangeFilter}
             />
           </div>
