@@ -15,6 +15,8 @@ export const userService = {
     getById,
     remove,
     update,
+    sendPasswordResetEmail,
+    resetPassword
 }
 
 window.userService = userService
@@ -98,4 +100,16 @@ function saveLocalUser(user) {
 
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+}
+
+
+
+
+
+async function sendPasswordResetEmail(email) {
+     await httpService.post('auth/sreset-password', {email});
+}
+
+async function resetPassword(token, newPassword) {
+   await httpService.put('auth/reset-password', {token, newPassword});
 }

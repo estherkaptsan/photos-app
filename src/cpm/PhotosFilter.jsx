@@ -1,15 +1,9 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState } from 'react';
 
 const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
   const [activeCategory, setActiveCategory] = useState({category : selectedCategory});
 
-  // useEffect(() => {
-  //   if (selectedCategory) {
-  //     setActiveCategory({ category: selectedCategory });
-  //   }
-  // }, [selectedCategory, activeCategory.category]);
-
-
+  
   const onChangeFilter = (category) => {
     setActiveCategory({category : category})
     onSelectCategory({category : category});

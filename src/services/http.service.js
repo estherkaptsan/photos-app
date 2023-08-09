@@ -22,7 +22,14 @@ export const httpService = {
     },
     delete(endpoint, data) {
         return ajax(endpoint, 'DELETE', data)
-    }
+    },
+    // sendPasswordResetEmail(email) {
+    //     return ajax(endpoint, 'POST',data);
+    // },
+    // resetPassword(token, newPassword) {
+    //     return ajax(endpoint, 'PUT', data);
+    // },
+
 }
 
 async function ajax(endpoint, method = 'GET', data = null) {

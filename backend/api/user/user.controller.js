@@ -48,9 +48,13 @@ async function updateUser(req, res) {
     }
 }
 
+
+
+
 module.exports = {
     getUser,
     getUsers,
     deleteUser,
-    updateUser
+    updateUser,
+
 }

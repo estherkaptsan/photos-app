@@ -9,7 +9,8 @@ module.exports = {
     getByUsername,
     remove,
     update,
-    add
+    add ,
+
 }
 
 async function query(filterBy = {}) {
@@ -91,6 +92,7 @@ async function add(user) {
             username: user.username,
             password: user.password,
             fullname: user.fullname,
+            email : user.email
 
         }
         const collection = await dbService.getCollection('user')
@@ -117,9 +119,6 @@ function _buildCriteria(filterBy) {
 
     return criteria
 }
-
-
-
 
 
 
