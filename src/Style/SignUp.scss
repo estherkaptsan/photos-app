@@ -77,3 +77,23 @@
     background-color: #c82333;
   }
 }
+.reset-password-page {
+  // ... existing styling ...
+
+  .message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin-top: 10px;
+
+    .success-message {
+      color: green;
+      margin: 0;
+    }
+
+    .error-message {
+      color: red;
+      margin: 0;
+    }
+  }
+}

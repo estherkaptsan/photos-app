@@ -11,6 +11,7 @@ import PhotoEdit from './pages/PhotoEdit';
 import LoginForm from './pages/LogIn';
 import { PhotoDetails } from './pages/PhotoDetail';
 import ResetPassword from './pages/ResetPassword';
+import PasswordResetPage from './pages/PasswordResetPage';
 
 
 
@@ -39,6 +40,7 @@ function App() {
       {/* <Route path="/contact" element={<ContactUs />} /> */}
       <Route path="/login" element={<LoginForm />} />
       <Route path="/reset/password" element={<ResetPassword />} />
+      <Route path="/reset-password/:token" element={<PasswordResetPage />} />
       </Routes>
      <Footer />
     </div>

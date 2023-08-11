@@ -16,7 +16,8 @@ export const userService = {
     remove,
     update,
     sendPasswordResetEmail,
-    resetPassword
+    resetPassword,
+    getByResetToken
 }
 
 window.userService = userService
@@ -112,4 +113,17 @@ async function sendPasswordResetEmail(email) {
 
 async function resetPassword(token, newPassword) {
    await httpService.put('auth/reset-password', {token, newPassword});
+}
+
+
+async function getByResetToken(token) {
+    try {
+      const response = await httpService.get(`user/validate-reset-token/${token}`);
+      console.log('response.message',response.message)
+      return response.message
+      ;
+    } catch (error) {
+      console.error('Error validating reset token:', error);
+      throw error;
+    }
 }

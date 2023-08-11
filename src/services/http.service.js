@@ -12,9 +12,12 @@ const axios = Axios.create({
 
 export const httpService = {
     get(endpoint, data) {
+
+        console.log('endpoint',endpoint,data)
         return ajax(endpoint, 'GET', data)
     },
     post(endpoint, data) {
+        console.log('endpoint and data',endpoint,data)
         return ajax(endpoint, 'POST', data)
     },
     put(endpoint, data) {
@@ -23,12 +26,6 @@ export const httpService = {
     delete(endpoint, data) {
         return ajax(endpoint, 'DELETE', data)
     },
-    // sendPasswordResetEmail(email) {
-    //     return ajax(endpoint, 'POST',data);
-    // },
-    // resetPassword(token, newPassword) {
-    //     return ajax(endpoint, 'PUT', data);
-    // },
 
 }
 

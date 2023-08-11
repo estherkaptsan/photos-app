@@ -49,6 +49,7 @@ async function logout(req, res) {
 async function sendPasswordResetEmail(req, res) {
     const { email } = req.body;
   
+    console.log('email',email)
     try {
       await authService.sendPasswordResetEmail(email);
       res.json({ message: 'Password reset email sent successfully' });
@@ -61,7 +62,7 @@ async function sendPasswordResetEmail(req, res) {
 
   async function resetPassword(req, res) {
     const { token, newPassword } = req.body;
-  
+  console.log('token and new password',newPassword)
     try {
       await authService.resetPassword(token, newPassword);
       res.json({ message: 'Password reset successful' });

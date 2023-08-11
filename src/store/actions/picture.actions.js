@@ -44,7 +44,7 @@ export function loadCategories() {
         categories
       };
 
-      dispatch(action);
+      dispatch(action); 
     } catch (error) {
       console.log('Error:', error);
     }

@@ -66,8 +66,27 @@ export function sendPasswordResetEmail(email) {
       dispatch({ type: 'PASSWORD_RESET_EMAIL_SENT', email }); // Include email in the payload
     } catch (error) {
       console.error('Error sending password reset email:', error);
-      // Dispatch an error action if needed
+      // Dispatch an error action with the error message
       dispatch({ type: 'PASSWORD_RESET_EMAIL_ERROR' });
+      throw error;
+
+    }
+  };
+}
+
+
+
+export function resetPassword(token, newPassword) {
+  return async (dispatch) => {
+    try {
+      // Call the resetPassword function from the userService
+      await userService.resetPassword(token, newPassword);
+      // Dispatch a success action if needed
+      dispatch({ type: 'PASSWORD_RESET_SUCCESS' });
+    } catch (error) {
+      console.log('Error resetting password:', error);
+      // Dispatch an error action if needed
+      dispatch({ type: 'PASSWORD_RESET_ERROR' });
     }
   };
 }

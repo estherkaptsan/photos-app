@@ -3,6 +3,8 @@ const bcrypt = require('bcrypt')
 const userService = require('../user/user.service')
 const logger = require('../../services/logger.service')
 const cryptr = new Cryptr(process.env.SECRET1 || 'Secret-Puk-1234')
+const crypto = require('crypto');
+const emailService = require('../../services/email.service')
 
 module.exports = {
     signup,
@@ -61,28 +63,40 @@ function validateToken(loginToken) {
     return null
 }
 
+function generateUniqueToken() {
+    return crypto.randomBytes(32).toString('hex');
+}
 
-async function sendPasswordResetEmail(email) {
-    // Find user by email in your database
-    const user = await getByEmail(email);
-    if (!user) {
-      throw new Error('User not found');
+async function sendPasswordResetEmail(email, token) {
+    try {
+        // Find user by email in your database
+        const user = await userService.getByEmail(email);
+        
+        if (!user) {
+            throw new Error('User not found');
+        }
+        
+        // Generate a unique token and store it in the user's document
+        const token = generateUniqueToken();
+        user.passwordResetToken = token;
+        user.passwordResetExpires = Date.now() + 3600000; // Token expires in 1 hour
+        await userService.update(user);
+        
+        // Send password reset email to user's email address
+        await emailService.sendPasswordResetEmailToUser(email, token); // Use the function you just created
+    } catch (error) {
+        console.error('Error sending password reset email:', error);
+        throw error;
     }
-
-    // Generate a unique token and store it in the user's document
-    const token = generateUniqueToken();
-    user.passwordResetToken = token;
-    user.passwordResetExpires = Date.now() + 3600000; // Token expires in 1 hour
-    await update(user);
-
-    // Send password reset email to user's email address
-    await sendPasswordResetEmail(email, token);
-  }
+}
 
 
-  async function resetPassword(token, newPassword) {
+
+
+  async function resetPassword(token, newPassword) {    
     // Find user by token and check if the token is still valid
-    const user = await getByResetToken(token);
+    const user = await userService.getByResetToken(token);
+    console.log('user',user)
     if (!user) {
       throw new Error('Invalid or expired token');
     }
@@ -92,7 +106,7 @@ async function sendPasswordResetEmail(email) {
     user.password = hashedPassword;
     user.passwordResetToken = undefined;
     user.passwordResetExpires = undefined;
-    await update(user);
+    await userService.update(user);
   }
 
 
