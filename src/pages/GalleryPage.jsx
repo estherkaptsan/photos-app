@@ -32,7 +32,6 @@ export default function GalleryPage() {
 
   const onChangeFilter = useCallback(
     (selectedCategory) => {
-      console.log('selectedCategory',selectedCategory)
       const {category} = selectedCategory
       navigate(`/gallery/${category}`); // Directly navigate to the desired URL
       dispatch(setFilterBy(selectedCategory));

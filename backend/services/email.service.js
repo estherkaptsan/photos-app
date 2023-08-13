@@ -17,8 +17,8 @@ async function sendPasswordResetEmailToUser(email, token) {
         to: email,
         subject: 'Password Reset',
         html: `<p>Click <a href="http://localhost:3000/reset-password/${token}">here</a> to reset your password.</p>`
+        // http://avigailtamuz.onrender.com/reset-password/${token}  for the production 
     };
-    
     try {
         const info = await transporter.sendMail(mailOptions);
         console.log('Email sent: ', info.response);
