@@ -9,7 +9,9 @@ module.exports = {
     getByUsername,
     remove,
     update,
-    add
+    add,
+    getByEmail,
+    getByResetToken
 }
 
 async function query(filterBy = {}) {
@@ -58,6 +60,17 @@ async function getByUsername(username) {
     }
 }
 
+async function getByEmail(email) {
+    try {
+        const collection = await dbService.getCollection('user');
+        const user = await collection.findOne({ email });
+        return user;
+    } catch (err) {
+        logger.error(`while finding user by email: ${email}`, err);
+        throw err;
+    }
+}
+
 async function remove(userId) {
     try {
         const collection = await dbService.getCollection('user')
@@ -73,7 +86,12 @@ async function update(user) {
         // peek only updatable properties
         const userToSave = {
             _id: ObjectId(user._id), // needed for the returnd obj
-            fullname: user.fullname,
+            username: user.username,
+            password: user.password,
+            passwordResetToken: user.passwordResetToken,
+            passwordResetExpires: user.passwordResetExpires
+
+
         }
         const collection = await dbService.getCollection('user')
         await collection.updateOne({ _id: userToSave._id }, { $set: userToSave })
@@ -91,6 +109,7 @@ async function add(user) {
             username: user.username,
             password: user.password,
             fullname: user.fullname,
+            email: user.email
 
         }
         const collection = await dbService.getCollection('user')
@@ -120,6 +139,13 @@ function _buildCriteria(filterBy) {
 
 
 
-
-
-
+async function getByResetToken(token) {
+    try {
+        const collection = await dbService.getCollection('user');
+        const user = await collection.findOne({ passwordResetToken: token });
+        return user;
+    } catch (err) {
+        logger.error(`Error while finding user by reset token: ${token}`, err);
+        throw err;
+    }
+}

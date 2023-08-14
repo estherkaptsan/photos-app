@@ -5,7 +5,7 @@ const EmailAddress = ({ emailAddress }) => {
 
   return (
     <a href={mailtoLink}>
-      <i class="fa-regular fa-envelope" style={{color: "#2b2b2c"}}></i>
+      <i className="fa-regular fa-envelope" style={{color: "#2b2b2c"}}></i>
     </a>
   );
 };

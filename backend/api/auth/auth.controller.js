@@ -20,6 +20,7 @@ async function login(req, res) {
 async function signup(req, res) {
     try {
         const credentials = req.body
+        console.log('credentials',credentials)
         // Never log passwords
         // logger.debug(credentials)
         const account = await authService.signup(credentials)
@@ -44,8 +45,37 @@ async function logout(req, res) {
     }
 }
 
+
+async function sendPasswordResetEmail(req, res) {
+    const { email } = req.body;
+  
+    console.log('email',email)
+    try {
+      await authService.sendPasswordResetEmail(email);
+      res.json({ message: 'Password reset email sent successfully' });
+    } catch (err) {
+      logger.error('Failed to send password reset email', err);
+      res.status(500).json({ error: 'Failed to send password reset email' });
+    }
+  }
+
+
+  async function resetPassword(req, res) {
+    const { token, newPassword } = req.body;
+  console.log('token and new password',newPassword)
+    try {
+      await authService.resetPassword(token, newPassword);
+      res.json({ message: 'Password reset successful' });
+    } catch (err) {
+      logger.error('Failed to reset password', err);
+      res.status(500).json({ error: 'Failed to reset password' });
+    }
+  }
+
 module.exports = {
     login,
     signup,
-    logout
+    logout,
+    sendPasswordResetEmail,
+    resetPassword
 }

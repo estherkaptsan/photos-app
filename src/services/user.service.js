@@ -15,6 +15,9 @@ export const userService = {
     getById,
     remove,
     update,
+    sendPasswordResetEmail,
+    resetPassword,
+    getByResetToken
 }
 
 window.userService = userService
@@ -98,4 +101,29 @@ function saveLocalUser(user) {
 
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+}
+
+
+
+
+
+async function sendPasswordResetEmail(email) {
+     await httpService.post('auth/sreset-password', {email});
+}
+
+async function resetPassword(token, newPassword) {
+   await httpService.put('auth/reset-password', {token, newPassword});
+}
+
+
+async function getByResetToken(token) {
+    try {
+      const response = await httpService.get(`user/validate-reset-token/${token}`);
+      console.log('response.message',response.message)
+      return response.message
+      ;
+    } catch (error) {
+      console.error('Error validating reset token:', error);
+      throw error;
+    }
 }
