@@ -10,6 +10,7 @@ export default function PasswordResetPage() {
     const [newPassword, setNewPassword] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(false); // New loading state
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -31,16 +32,18 @@ export default function PasswordResetPage() {
         validateToken();
     }, [token]);
 
-
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        setIsLoading(true); // Set loading to true when starting the process
         try {
             await dispatch(resetPassword(token, newPassword));
             setSuccessMessage('Password reset successfully!');
         } catch (error) {
             setErrorMessage('Error resetting password. Please try again.');
             console.log('Error resetting password:', error);
+        } finally {
+            setIsLoading(false); // Reset loading to false when the process is complete
         }
     };
 
@@ -61,8 +64,8 @@ export default function PasswordResetPage() {
                             />
                         </div>
 
-                        <button type="submit" className="reset-button">
-                            Reset Password
+                        <button type="submit" className="reset-button" disabled={isLoading}>
+                            {isLoading ? 'Resetting...' : 'Reset Password'}
                         </button>
                     </form>
                 ) : (
