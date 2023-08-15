@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { loadPictures, removePicture, setFilterBy, loadCategories } from '../store/actions/picture.actions';
 import CategoryFilter from '../cpm/PhotosFilter';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +10,7 @@ export default function HomePage() {
   const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
   const filterBy = useSelector((storeState) => storeState.pictureModule.filterBy);
   const categories = useSelector((storeState) => storeState.pictureModule.categories);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,6 +29,23 @@ export default function HomePage() {
     [dispatch, filterBy]
   );
 
+  const imageUrls = [
+    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1691070374/aqo4vdmnimgy3fkzgiy0.jpg',
+    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1691336469/swrjyfphhlgokhv73z7l.jpg',
+    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692108663/vxr0xhlcykjkc3ecfdnu.jpg',
+    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692108532/edjycuq0cni70vlwelbi.jpg',
+    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1691336075/ct2zqjigutwe1thq82iu.png',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [imageUrls]);
+
+
   const uniqueCategories = [...new Set(pictures.map((picture) => picture.category))];
 
   const categoryPictures = uniqueCategories.map((category) => {
@@ -38,31 +56,25 @@ export default function HomePage() {
 
   if (!categoryPictures || !pictures) return <div className='loader'><CircularProgress /></div>;
 
+
   return (
     <div className="home-page">
-      {/* <h1>Welcome to my website</h1> */}
-      <div className="grid-container">
-        {uniqueCategories.map((category, index) => (
-          <Link
-            key={index}
-            to={`/gallery/${encodeURIComponent(category)}`}
-            onClick={() => onChangeFilter(category)}
-          >
-            <div className={`grid-item grid-item-${index + 1}`}>
-              {/* <div className="category-name">{category}</div> */}
-              {categoryPictures[index] ? (
-                categoryPictures[index].mediaUrl.type !== 'video' ? (
-                  <img src={categoryPictures[index].mediaUrl.url} alt={categoryPictures[index].category} />
-                ) : (
-                  <video src={categoryPictures[index].mediaUrl.url} alt={categoryPictures[index].category} />
-                )
-              ) : (
-                <div>No picture available</div>
-              )}
+      <div className='hero-container' style={{
+            backgroundImage: `url(${imageUrls[currentImageIndex]})`,
+            display: 'block'
+          }}>
+       
+        <div className="links-categories">
+          {uniqueCategories.map((category, index) => (
+            <Link
+              key={index}
+              to={`/gallery/${encodeURIComponent(category)}`}
+              onClick={() => onChangeFilter(category)}
+            >
               <div className="category-overlay">{category}</div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

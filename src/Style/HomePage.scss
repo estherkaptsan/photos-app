@@ -1,5 +1,3 @@
-// homePage.scss
-
 .home-page {
   // margin-top: 50px;
   display: flex;
@@ -14,6 +12,30 @@
 
   h1 {
     color: coral;
+  }
+
+  .hero-container {
+    object-fit: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 1s ease 0s;
+
+    .links-categories {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+
+      a {
+        border: 1px solid white;
+        color: white;
+        padding: 10px;
+      }
+    }
   }
 
   .grid-container {

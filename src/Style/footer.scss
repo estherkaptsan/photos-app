@@ -4,24 +4,3 @@ body {
     min-height: 100vh;
   }
   
-  .footer {
-    position: fixed;
-    bottom: 0;
-    background-color: #ffffff;
-    padding: 15px 0 15px 0;  
-    width: 100%;
-    border-top: 1px solid lightgray;
-   
-    .icons-section{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-size: 20px;
-      color: gray;
-    }
-  }
-  
-
-
- 
