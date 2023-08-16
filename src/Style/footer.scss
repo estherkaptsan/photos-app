@@ -5,7 +5,12 @@ body {
   }
   
   .footer {
- 
+    background-color: #fff;
+    border-top: 1px solid #d3d3d3;
+    bottom: 0;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
    
     .icons-section{
       display: flex;
