@@ -31,7 +31,7 @@ export default function HomePage() {
   const imageUrls = [
     'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692108663/vxr0xhlcykjkc3ecfdnu.jpg',
     'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692108532/edjycuq0cni70vlwelbi.jpg',
-    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692180740/slqpbkook3cwbyeqfolu.jpg',,
+    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692180740/slqpbkook3cwbyeqfolu.jpg',
   ];
 
   useEffect(() => {
