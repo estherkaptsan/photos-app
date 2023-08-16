@@ -5,13 +5,23 @@
   flex-direction: column;
   font-family: sans-serif;
 
-  .avigail {
-    p {
-      text-align: center;
+  .header-homepage {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
       color: white;
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 18px;
+
     }
+
   }
 
   .hero-container {
@@ -32,19 +42,21 @@
       transition: all 1s ease 0s;
 
       a {
-        border: 1px solid white;
+        // border: 1px solid white;
         text-decoration: none;
         color: white;
         padding: 10px;
         transition: all 1s ease 0s;
         font-family: Chivo;
         font-weight: 400;
-        font-family: 'Helvetica Neue','Arial','sans-serif';
+        font-family: 'Helvetica Neue', 'Arial', 'sans-serif';
+        font-size: large;
       }
 
       :hover {
-        color: rgb(84, 82, 82);
-        background-color: white;
+        // color: rgb(84, 82, 82);
+        // background-color: white;
+        scale: 1.2;
         transition: all 0.25s ease 0s;
       }
     }

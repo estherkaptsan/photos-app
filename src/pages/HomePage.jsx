@@ -43,13 +43,15 @@ export default function HomePage() {
   }, [imageUrls]);
 
 
-  const uniqueCategories = [...new Set(pictures.map((picture) => picture.category))];
+  const uniqueCategories = ['Work', 'Personal', 'Projects']
+  //  [...new Set(pictures.map((picture) => picture.category))];
 
-  const categoryPictures = uniqueCategories.map((category) => {
-    const picturesForCategory = pictures.filter((picture) => picture.category === category);
-    const imagePicture = picturesForCategory.find((picture) => picture.mediaUrl.type !== 'video');
-    return imagePicture || picturesForCategory.find((picture) => picture.mediaUrl.type === 'video');
-  });
+  const categoryPictures = ['Work', 'Personal', 'Projects']
+  //  uniqueCategories.map((category) => {
+  //   const picturesForCategory = pictures.filter((picture) => picture.category === category);
+  //   const imagePicture = picturesForCategory.find((picture) => picture.mediaUrl.type !== 'video');
+  //   return imagePicture || picturesForCategory.find((picture) => picture.mediaUrl.type === 'video');
+  // });
 
   if (!categoryPictures || !pictures) return <div className='loader'><CircularProgress /></div>;
 
@@ -60,21 +62,22 @@ export default function HomePage() {
         backgroundImage: `url(${imageUrls[currentImageIndex]})`,
         display: 'block'
       }}>
-      <section className='avigail'>
-        <p>Avigail Tamuz</p>
-      </section>
+        <section className='header-homepage'>
+          Avigail Tamuz
+          <div> <Link to="/about">About</Link>
+          </div>
+        </section>
 
         <div className="links-categories">
           {uniqueCategories.map((category, index) => (
             <Link
-            key={index}
-            to={`/gallery/${encodeURIComponent(category)}`}
-            onClick={() => onChangeFilter(category)}
+              key={index}
+              to={`/gallery/${encodeURIComponent(category)}`}
+              onClick={() => onChangeFilter(category)}
             >
               <div className="category-overlay">{category}</div>
             </Link>
           ))}
-          <Link to="/about">About</Link>
         </div>
       </div>
     </div>
