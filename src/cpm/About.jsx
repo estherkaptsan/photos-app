@@ -1,4 +1,6 @@
 import React from 'react';
+import WhatsAppLink from './WhatsApp';
+import EmailAddress from './EmailAddress';
 import { Link } from 'react-router-dom'
 
 const About = () => {
@@ -14,8 +16,15 @@ const About = () => {
         </ul>
       </section>
       <section>
-        <img src='https://res.cloudinary.com/dcwibf9o5/image/upload/v1691998110/nkuti5izrkwqwfzyhrfn.png'/>
+        <img src='https://res.cloudinary.com/dcwibf9o5/image/upload/v1691998110/nkuti5izrkwqwfzyhrfn.png' />
       </section>
+      {/* <ul className="nav-links">
+        <EmailAddress emailAddress="avigailtamuz@gmail.com" /> 
+        <WhatsAppLink phoneNumber="0528891567" />
+        <Link to="https://www.instagram.com/gulitamuz_photography/">
+          <i className="fa-brands fa-instagram"  style={{color: "#262627"}}></i>
+        </Link>
+        </ul> */}
     </section>
   );
 };

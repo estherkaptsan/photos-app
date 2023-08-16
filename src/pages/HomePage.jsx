@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress'
 
-
 export default function HomePage() {
   const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
   const filterBy = useSelector((storeState) => storeState.pictureModule.filterBy);
@@ -30,11 +29,9 @@ export default function HomePage() {
   );
 
   const imageUrls = [
-    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1691070374/aqo4vdmnimgy3fkzgiy0.jpg',
-    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1691336469/swrjyfphhlgokhv73z7l.jpg',
     'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692108663/vxr0xhlcykjkc3ecfdnu.jpg',
     'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692108532/edjycuq0cni70vlwelbi.jpg',
-    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1691336075/ct2zqjigutwe1thq82iu.png',
+    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692180740/slqpbkook3cwbyeqfolu.jpg'
   ];
 
   useEffect(() => {
@@ -60,20 +57,24 @@ export default function HomePage() {
   return (
     <div className="home-page">
       <div className='hero-container' style={{
-            backgroundImage: `url(${imageUrls[currentImageIndex]})`,
-            display: 'block'
-          }}>
-       
+        backgroundImage: `url(${imageUrls[currentImageIndex]})`,
+        display: 'block'
+      }}>
+      <section className='avigail'>
+        <p>Avigail Tamuz</p>
+      </section>
+
         <div className="links-categories">
           {uniqueCategories.map((category, index) => (
             <Link
-              key={index}
-              to={`/gallery/${encodeURIComponent(category)}`}
-              onClick={() => onChangeFilter(category)}
+            key={index}
+            to={`/gallery/${encodeURIComponent(category)}`}
+            onClick={() => onChangeFilter(category)}
             >
               <div className="category-overlay">{category}</div>
             </Link>
           ))}
+          <Link to="/about">About</Link>
         </div>
       </div>
     </div>

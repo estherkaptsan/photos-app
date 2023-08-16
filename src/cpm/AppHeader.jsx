@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 const AppHeader = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const loggedInUser = useSelector((state) => state.userModule.loggedInUser)
+    const location = useLocation();
+    
+    const isHomePage = location.pathname === '/';
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
@@ -23,7 +26,7 @@ const AppHeader = () => {
     }, [])
 
     return (
-        <header className="app-header">
+        !isHomePage && (<header className="app-header">
             <nav className="navbar">
                 <Link to="/" className="logo">
                     Avigail Tamuz
@@ -41,9 +44,9 @@ const AppHeader = () => {
                 <div className='menu' onClick={toggleMenu}>
                     <ul className="nav-links">
                         <li><Link to="/">Home</Link></li>
-                        {loggedInUser && ( 
-                         <li><Link to="/photo/edit">Edit</Link></li> 
-                         )}
+                        {loggedInUser && (
+                            <li><Link to="/photo/edit">Edit</Link></li>
+                        )}
                         {/* <li><Link to="/gallery">Gallery</Link></li> */}
                         <li><Link to="/about">About</Link></li>
                         <li><Link to="/login">login</Link></li>
@@ -51,6 +54,7 @@ const AppHeader = () => {
                 </div>
             )}
         </header>
+        )
     )
 }
 
