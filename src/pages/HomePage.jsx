@@ -32,6 +32,9 @@ export default function HomePage() {
     'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692108663/vxr0xhlcykjkc3ecfdnu.jpg',
     'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692108532/edjycuq0cni70vlwelbi.jpg',
     'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692180740/slqpbkook3cwbyeqfolu.jpg',
+    'https://res.cloudinary.com/de3pvycqi/image/upload/v1692267340/AvigailTamuz/4_1_kmwezj.jpg',
+    'https://res.cloudinary.com/de3pvycqi/image/upload/v1692267340/AvigailTamuz/3_1_kq48ex.jpg',
+
   ];
 
   useEffect(() => {
