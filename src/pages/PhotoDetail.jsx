@@ -114,7 +114,9 @@ export function PhotoDetails(props) {
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
+
           <i className="fa-solid fa-chevron-left arrow-btn" onClick={() => onPrevious(photo?._id)}></i>
+          
           {isVideo ? (
             <video controls src={photo?.mediaUrl?.url} alt={photo?.title} />
           ) : (

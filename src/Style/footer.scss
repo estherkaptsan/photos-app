@@ -8,18 +8,44 @@
   background-color: #fff0;
   bottom: 0;
   position: fixed;
-  width: 100%;
+  width: 95%;
   color: white;
-  margin-left: 20px;
-  padding: 0;
+  // margin-left: 20px;
+  padding: 1rem;
   border-color: #fff0;
+  display: flex;
+    justify-content: space-between;
+
+
+
+.copyrigth {
+  
+  
+}
 
   .icons-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    // gap: 10px;
     font-size: 20px;
-    color: gray;
   }
+
+  .fa-brands , .fa-whatsapp:before , .fa-envelope:before  {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+
+
+  }
+}
+
+
+@media (max-width: 701px) {
+
+.footer{
+  padding: .5rem;
+  font-size: 14px;
+}
+
 }
