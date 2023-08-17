@@ -29,7 +29,23 @@
     justify-content: center;
     // gap: 10px;
     font-size: 20px;
-    color: white;
-    cursor: pointer;
   }
+
+  .fa-brands , .fa-whatsapp:before , .fa-envelope:before  {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+
+
+  }
+}
+
+
+@media (max-width: 701px) {
+
+.footer{
+  padding: .5rem;
+  font-size: 14px;
+}
+
 }
