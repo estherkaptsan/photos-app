@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     isHomePage && (<footer className="footer">
       <div className='copyright'>
-        <p>Copyright 2020-2023 © Avigail Tamuz</p>
+        <p>Copyright 2023 © Avigail Tamuz</p>
       </div>
       <div className='icons-section'>
         <Link to="https://www.instagram.com/gulitamuz_photography/"> <i class="fa-brands fa-instagram"></i> </Link>

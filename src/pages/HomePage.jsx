@@ -38,6 +38,12 @@ export default function HomePage() {
   ];
 
   useEffect(() => {
+    // Preload images
+    imageUrls.forEach((imageUrl) => {
+      const img = new Image();
+      img.src = imageUrl;
+    });
+
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
     }, 5000);
@@ -45,26 +51,27 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, [imageUrls]);
 
+  const backgroundImageStyle = {
+    backgroundImage: `url(${imageUrls[currentImageIndex]})`,
+  };
 
-  const uniqueCategories = ['Work', 'Personal', 'Projects']
+
+  // const uniqueCategories = ['Work', 'Personal', 'Projects']
   //  [...new Set(pictures.map((picture) => picture.category))];
 
-  const categoryPictures = ['Work', 'Personal', 'Projects']
+  // const categoryPictures = ['Work', 'Personal', 'Projects']
   //  uniqueCategories.map((category) => {
   //   const picturesForCategory = pictures.filter((picture) => picture.category === category);
   //   const imagePicture = picturesForCategory.find((picture) => picture.mediaUrl.type !== 'video');
   //   return imagePicture || picturesForCategory.find((picture) => picture.mediaUrl.type === 'video');
   // });
 
-  if (!categoryPictures || !pictures) return <div className='loader'><CircularProgress /></div>;
+  if (!categories || !pictures) return <div className='loader'><CircularProgress /></div>;
 
 
   return (
     <div className="home-page">
-      <div className='hero-container' style={{
-        backgroundImage: `url(${imageUrls[currentImageIndex]})`,
-        display: 'block'
-      }}>
+      <div className='hero-container' style={backgroundImageStyle}>
         <section className='header-homepage'>
           Avigail Tamuz
           <div> <Link to="/about">About</Link>
