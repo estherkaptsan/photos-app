@@ -15,11 +15,11 @@ export default function Footer() {
       <div className='copyright'>
         <p>Copyright 2023 © Avigail Tamuz</p>
       </div>
-      <div className='icons-section'>
+      {/* <div className='icons-section'>
         <Link to="https://www.instagram.com/gulitamuz_photography/"> <i class="fa-brands fa-instagram"></i> </Link>
         <WhatsAppLink phoneNumber="0528891567" />
         <EmailAddress emailAddress="avigailtamuz@gmail.com" />
-      </div>
+      </div> */}
     </footer>)
   )
 }

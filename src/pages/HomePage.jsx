@@ -4,6 +4,8 @@ import CategoryFilter from '../cpm/PhotosFilter';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress'
+import WhatsAppLink from '../cpm/WhatsApp';
+import EmailAddress from '../cpm/EmailAddress';
 
 export default function HomePage() {
   const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
@@ -12,6 +14,7 @@ export default function HomePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const dispatch = useDispatch();
 
+  
   useEffect(() => {
     dispatch(loadPictures());
   }, [dispatch]);
@@ -88,6 +91,11 @@ export default function HomePage() {
               <div className="category-overlay">{category}</div>
             </Link>
           ))}
+        </div>
+        <div className='icons-section'>
+          <Link to="https://www.instagram.com/gulitamuz_photography/"> <i class="fa-brands fa-instagram"></i></Link>
+          <WhatsAppLink phoneNumber="0528891567" />
+          <EmailAddress emailAddress="avigailtamuz@gmail.com" />
         </div>
       </div>
     </div>
