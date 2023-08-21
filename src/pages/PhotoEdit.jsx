@@ -16,7 +16,6 @@ export default function PhotoEdit() {
   const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
   const [errorMessage, setErrorMessage] = useState('');
 
-
   useEffect(() => {
     dispatch(loadPictures());
     dispatch(loadCategories());
@@ -52,7 +51,7 @@ export default function PhotoEdit() {
   };
 
   const handleSubmit = async (event) => {
-    if (!loggedInUser) return
+    if (!loggedInUser) return;
     event.preventDefault();
 
     setIsUploading(true);
@@ -70,10 +69,11 @@ export default function PhotoEdit() {
   const isCategorySelected = category !== '';
   const isFormReadyToSubmit = isCategorySelected && uploadedPhotos.length > 0 && !isUploading;
 
+  if (!loggedInUser) return <div className='loggin-msg'>Log in to add photos</div>;
 
-  if (!loggedInUser) return <div className='loggin-msg'>log in order to add photos</div>
   return (
     <div className='edit-page'>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <form className="edit-form" onSubmit={handleSubmit}>
         <select
           name="category"

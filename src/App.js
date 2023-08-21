@@ -12,6 +12,9 @@ import LoginForm from './pages/LogIn';
 import { PhotoDetails } from './pages/PhotoDetail';
 import ResetPassword from './pages/ResetPassword';
 import PasswordResetPage from './pages/PasswordResetPage';
+import { Helmet } from 'react-helmet';
+import Logo from '../src/assets/logo.svg'
+
 
 
 
@@ -28,6 +31,9 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Helmet>
+          <link rel="icon" type="image/svg+xml" href={Logo} />
+        </Helmet>
         <header className="">
           <Header />
         </header>
@@ -44,7 +50,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </Router> 
+    </Router>
   );
 }
 
