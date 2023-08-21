@@ -29,6 +29,7 @@ h3 {
   justify-content: center;
   flex-wrap: wrap;
   margin: 0 -10px;
+  display: block;
 }
 
 .button-container {
@@ -49,9 +50,9 @@ h3 {
 
 
 .details-pic {
-  max-width: 50rem;
-  min-width: 50rem;
-  max-height: 71vh;
+  // max-width: 50rem;
+  // min-width: 50rem;
+  max-height: 75vh;
   width: auto;
   height: auto;
   display: block;
