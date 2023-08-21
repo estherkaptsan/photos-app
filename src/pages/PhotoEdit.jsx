@@ -14,6 +14,8 @@ export default function PhotoEdit() {
   const navigate = useNavigate();
   const allCategories = useSelector((storeState) => storeState.pictureModule.categories);
   const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
+  const [errorMessage, setErrorMessage] = useState('');
+
 
   useEffect(() => {
     dispatch(loadPictures());
@@ -28,6 +30,11 @@ export default function PhotoEdit() {
     const uniqueUrls = urls.filter((url, index) => {
       const type = types[index];
       setIsUploading(true);
+
+      if (!url) {
+        setErrorMessage('One or more images have no URL. Please check your uploads.');
+        return false;
+      }
 
       return !uploadedPhotos.some(
         (photo) => photo.mediaUrl.url === url && photo.mediaUrl.type === type
