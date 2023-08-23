@@ -11,7 +11,7 @@
   width: 95%;
   color: white;
   // margin-left: 20px;
-  padding: 1rem;
+  padding: 0 20px;
   border-color: #fff0;
   display: flex;
   justify-content: space-between;
@@ -22,7 +22,7 @@
 @media (max-width: 701px) {
 
   .footer {
-    padding: .5rem;
+    padding: 0 20px;
     font-size: 14px;
   }
 
