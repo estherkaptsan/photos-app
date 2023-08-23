@@ -10,7 +10,7 @@ export default function PasswordResetPage() {
     const [newPassword, setNewPassword] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [isLoading, setIsLoading] = useState(false); // New loading state
+    const [isLoading, setIsLoading] = useState(false);  
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -35,7 +35,7 @@ export default function PasswordResetPage() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        setIsLoading(true); // Set loading to true when starting the process
+        setIsLoading(true);  
         try {
             await dispatch(resetPassword(token, newPassword));
             setSuccessMessage('Password reset successfully!');
@@ -43,7 +43,7 @@ export default function PasswordResetPage() {
             setErrorMessage('Error resetting password. Please try again.');
             console.log('Error resetting password:', error);
         } finally {
-            setIsLoading(false); // Reset loading to false when the process is complete
+            setIsLoading(false);  
         }
     };
 

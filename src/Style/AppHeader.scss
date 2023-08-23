@@ -31,14 +31,12 @@
   }
 
   .icons-section {
-
     position: absolute;
     bottom: 120px;
     right: 50%;
     gap: 10px;
     display: flex;
     font-size: 24px;
-
     transform: translateY(250%);
   }
 }
@@ -47,8 +45,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // flex-direction: column-reverse;
-  // align-items: flex-end;
 }
 
 .logo {

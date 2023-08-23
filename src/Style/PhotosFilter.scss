@@ -34,26 +34,22 @@
       }
 
       &.active {
-        // background-color: #ededed;
         color: #333333;
-        font-weight: bold; /* Add bold font for active category */
-        transform: scale(1.1); /* Add scaling effect for active category */
+        font-weight: bold;
+        transform: scale(1.1);
       }
     }
-
   }
 }
-
 
 @media (max-width: 701px) {
 
   .category-filter-container {
-    
     position: initial;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
     .category-container {
       display: flex;
       flex-wrap: wrap;
@@ -62,5 +58,4 @@
       align-items: center;
     }
   }
-
 }

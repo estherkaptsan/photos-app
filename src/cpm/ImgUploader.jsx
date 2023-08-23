@@ -33,7 +33,6 @@ const ImgUploader = ({ onFileUpload, isUploading, isCategorySelected }) => {
 
   return (
     <div className="upload-preview">
-      {/* Display uploaded images or videos */}
       {fileUrls.map((url, index) => {
         if (fileTypes[index] === 'video') {
           return (
@@ -63,7 +62,7 @@ const ImgUploader = ({ onFileUpload, isUploading, isCategorySelected }) => {
         onChange={uploadFile}
         accept="image/*,video/*"
         id="fileUpload"
-        multiple // Allow selecting multiple files
+        multiple  
       />
     </div>
   );

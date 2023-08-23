@@ -27,7 +27,7 @@ export default function ResetPassword() {
       setErrorMessage('Error sending password reset email. Please try again.');
       console.log('Error sending password reset email:', error);
     } finally {
-      setIsSubmitting(false); // Enable the submit button after the message shows
+      setIsSubmitting(false);  
     }
   };
 
@@ -47,7 +47,7 @@ export default function ResetPassword() {
         <button
           type="submit"
           className="reset-button submit-button"
-          disabled={isSubmitting} // Disable button when submitting
+          disabled={isSubmitting}  
         >
           {isSubmitting ? 'Sending...' : 'Send Reset Email'}
         </button>

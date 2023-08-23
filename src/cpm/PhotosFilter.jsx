@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 const CategoryFilter = ({ categories, selectedCategory, onSelectCategory }) => {
   const [activeCategory, setActiveCategory] = useState({category : selectedCategory});
 
-  
   const onChangeFilter = (category) => {
     setActiveCategory({category : category})
     onSelectCategory({category : category});

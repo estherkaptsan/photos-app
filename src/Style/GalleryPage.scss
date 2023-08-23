@@ -26,7 +26,6 @@
   justify-content: center;
 }
 
-
 .photo-list-container {
   flex: 1;
 }
@@ -56,7 +55,6 @@ video {
   max-width: 393px;
 }
 
-
 @media (max-width: 701px) {
 
   .gallery-wrapper {
@@ -65,8 +63,6 @@ video {
     align-items: center;
 
     .filter-sidebar {
-      // position: absolute;
-      // flex: 15% 0 0;
       display: flex;
       justify-content: center;
       position: absolute;

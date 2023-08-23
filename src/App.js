@@ -15,9 +15,6 @@ import PasswordResetPage from './pages/PasswordResetPage';
 import { Helmet } from 'react-helmet';
 import Logo from '../src/assets/logo.svg'
 
-
-
-
 function Header() {
   const location = useLocation();
   const showHeader = !(location.pathname.includes('/photo/') && !location.pathname.includes('/photo/edit'));
@@ -25,9 +22,7 @@ function Header() {
   return showHeader ? <AppHeader /> : null;
 }
 
-
 function App() {
-
   return (
     <Router>
       <div className="App">

@@ -1,5 +1,4 @@
 .edit-page {
-  // width: 100vw;
   height: 90vh;
 }
 
@@ -19,7 +18,6 @@
   padding: 22px;
   border-radius: 4px;
   gap: 20px;
-  // transform: translateY(30%);
   background-color: #ffffff6d;
 
   .edit-input,
@@ -48,13 +46,11 @@
     }
   }
 
-  // Apply the disabled styles to the Save button when disabled
   .edit-button.disabled {
     background-color: #bbb;
     cursor: default;
   }
 
-  // Apply the enabled styles to the Save button when enabled
   .edit-button.enabled {
     background-color: #784618;
     cursor: pointer;

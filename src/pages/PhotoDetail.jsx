@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import CircularProgress from '@mui/material/CircularProgress'
 import { loadPictures, removePicture, setFilterBy, loadCategories } from '../store/actions/picture.actions';
 
-
 export function PhotoDetails(props) {
   const [photo, setPhoto] = useState(null);
   const [pictureIds, setPictureIds] = useState([]);
@@ -80,7 +79,6 @@ export function PhotoDetails(props) {
     navigate(`/photo/${prevPhoto}`);
     loadPhoto(prevPhoto);
   }
-
 
   let touchStartX = 0;
 
