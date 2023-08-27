@@ -1,6 +1,8 @@
 import React from 'react';
 import { PhotoPreview } from './PhotoPreview';
 import CircularProgress from '@mui/material/CircularProgress'
+import LazyLoad from 'react-lazyload';
+
 
 export default function PhotoList({ pictures, onRemovePicture }) {
   const categories = [...new Set(pictures.map((picture) => picture.category))];

@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback , useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PhotoList from '../cpm/PhotoList';
 import { loadPictures, removePicture, setFilterBy, loadCategories } from '../store/actions/picture.actions';
@@ -69,7 +69,6 @@ export default function GalleryPage() {
   return (
     <section className="gallery-page">
       <div className="container">
-        {/* <h2 className="section-title">{category}</h2> */}
         <div className="gallery-wrapper">
           <div className="filter-sidebar">
             <CategoryFilter
