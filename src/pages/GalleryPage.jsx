@@ -21,7 +21,6 @@ export default function GalleryPage() {
     dispatch(loadPictures());
     dispatch(loadCategories());
 
-    // Cleanup function
     return () => {
       dispatch(setFilterBy(''));
     };
@@ -33,7 +32,7 @@ export default function GalleryPage() {
   const onChangeFilter = useCallback(
     (selectedCategory) => {
       const {category} = selectedCategory
-      navigate(`/gallery/${category}`); // Directly navigate to the desired URL
+      navigate(`/gallery/${category}`);  
       dispatch(setFilterBy(selectedCategory));
     },
     [dispatch, navigate]
@@ -41,14 +40,12 @@ export default function GalleryPage() {
   
 
   useEffect(() => {
-    // Call the filtering function when the URL parameters change
     if (filterByCategory && filterByCategory !== category) {
       onChangeFilter(filterByCategory);
     }
   }, [category, filterByCategory, onChangeFilter]);
 
   useEffect(() => {
-    // Load pictures when the filterBy state changes
     dispatch(loadPictures());
   }, [dispatch, filterBy]);
 

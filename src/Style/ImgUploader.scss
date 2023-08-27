@@ -28,20 +28,17 @@
     float: right;
   }
   
-  // Style for the disabled button
   label.disabled {
     background-color: #bbb;
     pointer-events: none;
     cursor: default;
   }
 
-  // Style for the enabled button
   label.enabled {
     background-color: #784618;
     pointer-events: auto;
   }
 
-  // Adjust opacity when hovering over the enabled button
   label.enabled:hover {
     background-color: #784618d2;
   }

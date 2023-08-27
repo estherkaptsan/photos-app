@@ -1,4 +1,3 @@
-
 export const SET_PICTURES = 'SET_PICTURES'
 export const ADD_PICTURE = 'ADD_PICTURE'
 export const REMOVE_PICTURE = 'REMOVE_PICTURE'
@@ -7,7 +6,6 @@ export const SET_FILTER_BY = 'SET_FILTER_BY'
 export const SET_CATEGORIES = 'SET_CATEGORIES'
 
 const INITIAL_STATE = {
-
     pictures: [],
     categories: [],
     filterBy: {
@@ -48,7 +46,6 @@ export function pictureReducer(state = INITIAL_STATE, action = {}) {
             return {
                 ...state,
                 filterBy: { ...action.filterBy }
-
             }
 
         default:

@@ -1,6 +1,6 @@
 import { storageService } from './async-storage.service'
 import { httpService } from './http.service.js'
-import { storageServiceB } from './storage.service';
+import { storageServiceB } from './storage.service' 
 
 export const pictureService = {
   getPictures,
@@ -102,16 +102,16 @@ const gDefaultPictures = [
     "category": "WONDERING",
     "mediaUrl": { url: "http://unsplash.it/440/350", type: "image" },
   }
-];
+] 
 
 // var gPictures = _loadPictures()
 
 
 async function getPictures(filterBy) {
   return httpService.get(STORAGE_KEY, filterBy)
-  // const values = Object.values(filterBy);
+  // const values = Object.values(filterBy) 
   
-  // const str = values.join('');
+  // const str = values.join('') 
   // let picturesToReturn = gPictures
 
   // if (str === 'ALL') {
@@ -123,7 +123,7 @@ async function getPictures(filterBy) {
   // }
 
   // return Promise.resolve([...picturesToReturn])
-};
+} 
 
 function getPictureById(pictureId) {
   return httpService.get(`photo/${pictureId}`)
@@ -173,15 +173,12 @@ async function deletePicture(pictureId) {
 
 // function _addPicture(picture) {
 //   return new Promise((resolve, reject) => {
-//     picture._id = _makeId();
-//     gPictures.push(picture); // Directly add the picture object to the array
-//     storageServiceB.store(STORAGE_KEY, gPictures);
-//     resolve(picture);
-//   });
+//     picture._id = _makeId() 
+//     gPictures.push(picture)  // Directly add the picture object to the array
+//     storageServiceB.store(STORAGE_KEY, gPictures) 
+//     resolve(picture) 
+//   }) 
 // }
-
-
-
 
 // function _loadPictures() {
 //   let pictures = storageServiceB.load(STORAGE_KEY)
@@ -192,13 +189,13 @@ async function deletePicture(pictureId) {
 
 
 function getCategories() {
-  // let categories = _loadPictures();
-  // let uniqueCategories = [...new Set(categories.map((picture) => picture.category))];
-  // uniqueCategories.unshift("ALL"); // Add "ALL" as the first element
+  // let categories = _loadPictures() 
+  // let uniqueCategories = [...new Set(categories.map((picture) => picture.category))] 
+  // uniqueCategories.unshift("ALL")  // Add "ALL" as the first element
 
   let uniqueCategories = ['WORK','PROJECTS','PERSONAL']
 
-  return uniqueCategories;
+  return uniqueCategories 
 }
 
 
@@ -217,9 +214,9 @@ function sort(arr) {
 
 function getEmptyPicture() {
   return {
-    mediaUrl: '', // Fix the property name here
+    mediaUrl: '',  
     category: '',
-  };
+  } 
 }
 
 // function filter(term) {
@@ -237,7 +234,7 @@ function _makeId(length = 10) {
   var title = ''
   var possible =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-  for (var i = 0; i < length; i++) {
+  for (var i = 0;  i < length;  i++) {
     title += possible.charAt(Math.floor(Math.random() * possible.length))
   }
   return title

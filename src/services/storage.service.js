@@ -1,4 +1,3 @@
-
 function store(key, value) {
     localStorage[key] = JSON.stringify(value);
 }

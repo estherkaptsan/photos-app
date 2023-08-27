@@ -18,9 +18,11 @@
     margin-bottom: 20px;
   }
   
-  .lazyload-placeholder {
-    background-color: #f0f0f0; /* Placeholder background color */
+ 
+  
+  @media screen and (max-width: 768px) {
+    .photo-list {
+      // grid-template-columns: 1fr;
+    }
   }
   
-
-

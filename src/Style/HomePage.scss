@@ -18,9 +18,7 @@
       text-decoration: none;
       color: white;
       font-size: 18px;
-
     }
-
   }
 
   .hero-container {
@@ -41,7 +39,6 @@
       transition: all 1s ease 0s;
 
       a {
-        // border: 1px solid white;
         text-decoration: none;
         color: white;
         padding: 1.1rem;
@@ -53,24 +50,19 @@
       }
 
       :hover {
-        // color: rgb(84, 82, 82);
-        // background-color: white;
         scale: 1.2;
         transition: all 0.25s ease 0s;
       }
     }
   }
 
-
-
-
   .icons-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1%;
+    margin-top: 3%;
     font-size: 150%;
-    gap: 3%;
+    gap: 40px;
   }
 
   .fa-brands,
@@ -79,92 +71,7 @@
     cursor: pointer;
     text-decoration: none;
     color: white;
-
-
   }
-
-  // .grid-container {
-  //   columns: 2 100px;
-  //   column-gap: 1.5rem;
-  //   // width: 50%;
-  //   // padding: 20px 0px 0px 0px;
-  //   margin: 0 auto;
-  //   // cursor: pointer;
-  //   text-align: center;
-  //   padding-bottom: 40px;
-
-
-  //   .grid-item {
-  //     width: 150px;
-  //     // margin: 0 1.5rem 1.5rem 0;
-  //     margin-bottom: 34px;
-  //     display: inline-block;
-  //     width: 88%;
-  //     // border: solid 2px #bbbbbb;
-  //     // padding: 5px;
-  //     // box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  //     // border-radius: 5px;
-  //     transition: all 0.25s ease-in-out;
-  //     position: relative; // Added for positioning the overlay
-
-  //     .category-name {
-  //       text-align: center;
-  //       // font-family: dancingScript-bold;
-  //       color: rgb(61, 61, 60);
-  //       font-size: x-large;
-  //       font-family: auto;
-  //       transition: 0.6s all;
-
-  //     }
-
-  //     &:hover {
-  //       border-color: rgb(91, 75, 70);
-
-  //       img,
-  //       video {
-  //         filter: grayscale(100%);
-  //       }
-
-  //       // Show the overlay on hover
-  //       .category-overlay {
-  //         opacity: 1;
-  //         transform: translate(-50%, -50%) scale(1.2);
-  //       }
-  //     }
-
-  //     img,
-  //     video {
-  //       width: 100%;
-  //       filter: grayscale(0);
-  //       // border-radius: 5px;
-  //       transition: all 0.25s ease-in-out;
-  //     }
-
-  //     .category-overlay {
-  //       // Position the overlay in the middle
-  //       position: absolute;
-  //       top: 50%;
-  //       left: 50%;
-  //       transform: translate(-50%, -50%);
-
-  //       // Styling for the overlay
-  //       background-color: rgba(0, 0, 0, 0.8);
-  //       color: white;
-  //       padding: 8px 16px;
-  //       border-radius: 5px;
-  //       font-size: 18px;
-  //       // opacity: 0;
-  //       transition: all 0.25s ease-in-out;
-  //     }
-
-  //     p {
-  //       margin: 5px 0;
-  //       padding: 0;
-  //       text-align: center;
-  //       font-style: italic;
-  //     }
-  //   }
-  // }
 }
 
 @media (max-width : 700px) {
