@@ -1,11 +1,11 @@
 import React, { useEffect, useCallback, useState } from 'react';
-import { loadPictures, removePicture, setFilterBy, loadCategories } from '../store/actions/picture.actions';
-import CategoryFilter from '../cpm/PhotosFilter';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import CircularProgress from '@mui/material/CircularProgress'
+import { loadPictures, removePicture, setFilterBy, loadCategories } from '../store/actions/picture.actions';
+import CircularProgress from '@mui/material/CircularProgress';
 import WhatsAppLink from '../cpm/WhatsApp';
 import EmailAddress from '../cpm/EmailAddress';
+import LazyLoad from 'react-lazyload';
+
 
 export default function HomePage() {
   const pictures = useSelector((storeState) => storeState.pictureModule.pictures);
@@ -14,12 +14,8 @@ export default function HomePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const dispatch = useDispatch();
 
-  
   useEffect(() => {
     dispatch(loadPictures());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(loadCategories());
   }, [dispatch]);
 
@@ -31,19 +27,12 @@ export default function HomePage() {
     [dispatch, filterBy]
   );
 
-  // const imageUrls = [
-  //   'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692108663/vxr0xhlcykjkc3ecfdnu.jpg',
-  //   'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692108532/edjycuq0cni70vlwelbi.jpg',
-  //   'https://res.cloudinary.com/dcwibf9o5/image/upload/v1692180740/slqpbkook3cwbyeqfolu.jpg',
-  //   'https://res.cloudinary.com/de3pvycqi/image/upload/v1692267340/AvigailTamuz/4_1_kmwezj.jpg',
-  //   'https://res.cloudinary.com/de3pvycqi/image/upload/v1692267340/AvigailTamuz/3_1_kq48ex.jpg',
-  // ];
   const imageUrls = [
     'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221067/fujy1qmjsu6cl3rrjmog.jpg',
     'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221073/dxxrc13sjgein9zvut6p.jpg',
     'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221075/prwazs55uo893vi4qhp2.jpg',
     'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221075/vuy6i5mvnktqrvobscfj.jpg',
-    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221074/uildjoytkhcvfsj8eqro.jpg'
+    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221074/uildjoytkhcvfsj8eqro.jpg',
   ];
 
   useEffect(() => {
@@ -70,23 +59,22 @@ export default function HomePage() {
       <div className='hero-container' style={backgroundImageStyle}>
         <section className='header-homepage'>
           Avigail Tamuz
-          <div> <Link to="/about">About</Link>
-          </div>
+          <div> <a href="/about">About</a></div>
         </section>
 
         <div className="links-categories">
           {categories.map((category, index) => (
-            <Link
+            <a
               key={index}
-              to={`/gallery/${encodeURIComponent(category)}`}
+              href={`/gallery/${encodeURIComponent(category)}`}
               onClick={() => onChangeFilter(category)}
             >
               <div className="category-overlay">{category}</div>
-            </Link>
+            </a>
           ))}
         </div>
         <div className='icons-section'>
-          <Link to="https://www.instagram.com/gulitamuz_photography/"> <i class="fa-brands fa-instagram"></i></Link>
+          <a href="https://www.instagram.com/gulitamuz_photography/"><i className="fa-brands fa-instagram"></i></a>
           <WhatsAppLink phoneNumber="0528891567" />
           <EmailAddress emailAddress="avigailtamuz@gmail.com" />
         </div>
