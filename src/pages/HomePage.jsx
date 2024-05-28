@@ -28,11 +28,11 @@ export default function HomePage() {
   );
 
   const imageUrls = [
-    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221067/fujy1qmjsu6cl3rrjmog.jpg',
-    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221073/dxxrc13sjgein9zvut6p.jpg',
-    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221075/prwazs55uo893vi4qhp2.jpg',
-    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221075/vuy6i5mvnktqrvobscfj.jpg',
-    'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221074/uildjoytkhcvfsj8eqro.jpg',
+    'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?q=80&w=1569&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    // 'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221073/dxxrc13sjgein9zvut6p.jpg',
+    // 'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221075/prwazs55uo893vi4qhp2.jpg',
+    // 'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221075/vuy6i5mvnktqrvobscfj.jpg',
+    // 'https://res.cloudinary.com/dcwibf9o5/image/upload/v1693221074/uildjoytkhcvfsj8eqro.jpg',
   ];
 
   useEffect(() => {
