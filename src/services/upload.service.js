@@ -3,8 +3,8 @@ export const uploadService = {
 }
 
 async function uploadFile(file) {
-  const CLOUD_NAME = "dcwibf9o5";
-  const UPLOAD_PRESET = "vt0iqgff";
+  const CLOUD_NAME = "dq9ms8jsq";
+  const UPLOAD_PRESET = "ykbtnpi0";
   const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`;
 
   try {
