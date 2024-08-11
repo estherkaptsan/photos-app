@@ -65,8 +65,6 @@ async function removePhoto(req, res) {
   }
 }
 
-
-
 async function removePhotoMsg(req, res) {
   const {loggedinUser} = req
   try {

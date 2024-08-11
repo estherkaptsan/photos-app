@@ -9,7 +9,6 @@ export function loadPictures() {
         type: SET_PICTURES,
         pictures
       };
-
       dispatch(action);
     } catch (error) {
       console.log('Error:', error);

@@ -108,6 +108,7 @@ const gDefaultPictures = [
 
 
 async function getPictures(filterBy) {
+  // console.log(filterBy);
   return httpService.get(STORAGE_KEY, filterBy)
   // const values = Object.values(filterBy) 
   

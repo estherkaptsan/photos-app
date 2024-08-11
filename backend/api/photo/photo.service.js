@@ -17,8 +17,6 @@ async function query(filterBy) {
     }
 }
 
-
- 
 async function getById(photoId) {
     try {
         const collection = await dbService.getCollection('photo')
@@ -67,8 +65,6 @@ async function update(photo) {
     }
 }
 
-
-
 function _buildCriteria(filterBy = {  category: null}) {
     const {  category } = filterBy
 
@@ -80,7 +76,6 @@ function _buildCriteria(filterBy = {  category: null}) {
 
     return criteria
 }
-
 
 module.exports = {
     remove,

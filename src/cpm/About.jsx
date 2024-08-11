@@ -13,7 +13,7 @@ const About = () => {
         </ul>
       </section>
       <section>
-        <img src='https://res.cloudinary.com/dcwibf9o5/image/upload/v1691998110/nkuti5izrkwqwfzyhrfn.png' />
+        <img src='https://res.cloudinary.com/dq9ms8jsq/image/upload/v1723120221/m9jydbe4oor5xbh2zyjv.jpg' />
       </section>
     </section>
   );

@@ -20,7 +20,7 @@ export default function GalleryPage() {
   useEffect(() => {
     dispatch(loadPictures());
     dispatch(loadCategories());
-
+    console.log(pictures);
     return () => {
       dispatch(setFilterBy(''));
     };

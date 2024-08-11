@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux'
-import CircularProgress from '@mui/material/CircularProgress'
+import { useSelector } from 'react-redux';
+import CircularProgress from '@mui/material/CircularProgress';
 import LazyLoad from 'react-lazyload';
-
 
 export function PhotoPreview({ picture, onRemovePicture }) {
   const isVideo = picture.mediaUrl.type === 'video';
   const loggedInUser = useSelector((state) => state.userModule.loggedInUser);
 
 
-if(!picture) return <div className='loader'><CircularProgress /></div> 
+  if (!picture) return <div className='loader'><CircularProgress /></div>
 
   return (
     <section className='photo-preview'>
